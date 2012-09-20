@@ -1,0 +1,37 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Notes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Notes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Notes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Notes] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[TypeId] [int] NOT NULL ,
+	[ItemId] [int] NOT NULL ,
+	[UserId] [int] NOT NULL ,
+	[vchDesc] [varchar] (8000) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_Notes_vchDesc] DEFAULT (''),
+	[dtCreated] [datetime] NOT NULL CONSTRAINT [DF_Notes_dtCreated] DEFAULT (getdate()),
+	CONSTRAINT [PK_Notes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Notes_Logins] FOREIGN KEY 
+	(
+		[UserId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Notes_NoteTypes] FOREIGN KEY 
+	(
+		[TypeId]
+	) REFERENCES [dbo].[NoteTypes] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

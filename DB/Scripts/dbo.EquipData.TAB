@@ -1,0 +1,218 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipData]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipData]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipData] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[intCreatedBy] [int] NULL ,
+	[dtCreated] [datetime] NOT NULL CONSTRAINT [DF_EquipData_dtCreated] DEFAULT (getutcdate()),
+	[intUpdatedBy] [int] NULL ,
+	[dtUpdated] [datetime] NOT NULL CONSTRAINT [DF_EquipData_dtUpdated] DEFAULT (getutcdate()),
+	[vchOrdering] [varchar] (512) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[ftItemOrder] [float] NULL ,
+	[intSize] [int] NOT NULL CONSTRAINT [DF_EquipData_intSize] DEFAULT (0),
+	[nvarchar1] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar2] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar3] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar4] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar5] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar6] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar7] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar8] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar9] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar10] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar11] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar12] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar13] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar14] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar15] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar16] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar17] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar18] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar19] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar20] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar21] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar22] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar23] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar24] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar25] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar26] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar27] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar28] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar29] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar30] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar31] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[nvarchar32] [nvarchar] (255) COLLATE Latin1_General_CI_AS_KS_WS NULL ,
+	[int1] [int] NULL ,
+	[int2] [int] NULL ,
+	[int3] [int] NULL ,
+	[int4] [int] NULL ,
+	[int5] [int] NULL ,
+	[int6] [int] NULL ,
+	[int7] [int] NULL ,
+	[int8] [int] NULL ,
+	[lookup1] [int] NULL ,
+	[lookup2] [int] NULL ,
+	[lookup3] [int] NULL ,
+	[lookup4] [int] NULL ,
+	[lookup5] [int] NULL ,
+	[lookup6] [int] NULL ,
+	[lookup7] [int] NULL ,
+	[lookup8] [int] NULL ,
+	[float1] [float] NULL ,
+	[float2] [float] NULL ,
+	[float3] [float] NULL ,
+	[float4] [float] NULL ,
+	[float5] [float] NULL ,
+	[float6] [float] NULL ,
+	[float7] [float] NULL ,
+	[float8] [float] NULL ,
+	[datetime1] [datetime] NULL ,
+	[datetime2] [datetime] NULL ,
+	[datetime3] [datetime] NULL ,
+	[datetime4] [datetime] NULL ,
+	[datetime5] [datetime] NULL ,
+	[datetime6] [datetime] NULL ,
+	[datetime7] [datetime] NULL ,
+	[datetime8] [datetime] NULL ,
+	[bit1] [bit] NULL ,
+	[bit2] [bit] NULL ,
+	[bit3] [bit] NULL ,
+	[bit4] [bit] NULL ,
+	[bit5] [bit] NULL ,
+	[bit6] [bit] NULL ,
+	[bit7] [bit] NULL ,
+	[bit8] [bit] NULL ,
+	CONSTRAINT [EquipData_PK] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	) WITH  FILLFACTOR = 90  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipData_Orgs] FOREIGN KEY 
+	(
+		[OrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	)
+) ON [PRIMARY]
+ CREATE  UNIQUE  INDEX [EquipData_FullText] ON [dbo].[EquipData]([Id]) WITH  FILLFACTOR = 90 ON [PRIMARY]
+END
+
+GO
+
+if (select DATABASEPROPERTY(DB_NAME(), N'IsFullTextEnabled')) <> 1 
+exec sp_fulltext_database N'enable' 
+
+GO
+
+if not exists (select * from dbo.sysfulltextcatalogs where name = N'EquipData')
+exec sp_fulltext_catalog N'EquipData', N'create' 
+
+GO
+
+exec sp_fulltext_table N'[dbo].[EquipData]', N'create', N'EquipData', N'EquipData_FullText'
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar1', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar2', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar3', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar4', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar5', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar6', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar7', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar8', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar9', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar10', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar11', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar12', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar13', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar14', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar15', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar16', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar17', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar18', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar19', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar20', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar21', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar22', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar23', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar24', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar25', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar26', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar27', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar28', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar29', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar30', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar31', N'add', 1033  
+GO
+
+exec sp_fulltext_column N'[dbo].[EquipData]', N'nvarchar32', N'add', 1033  
+GO
+
+exec sp_fulltext_table N'[dbo].[EquipData]', N'activate'  
+GO
+
+

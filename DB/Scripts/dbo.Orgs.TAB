@@ -1,0 +1,39 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Orgs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Orgs]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Orgs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Orgs] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[intBWAId] [int] NOT NULL ,
+	[vchName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[btActive] [bit] NOT NULL CONSTRAINT [DF_Orgs_btActive] DEFAULT (1),
+	[dtCreated] [smalldatetime] NOT NULL ,
+	[dtCurrentDate] [smalldatetime] NOT NULL CONSTRAINT [DF_Orgs_dtCurrentDate] DEFAULT (getdate()),
+	[vchLogo] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_Orgs_vchLogo] DEFAULT (''),
+	[btPrint] [bit] NOT NULL CONSTRAINT [DF_Orgs_btPrint] DEFAULT (0),
+	[vchFullName] [varchar] (255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_Orgs_vchFullName] DEFAULT (''),
+	[vchAddress1] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchAddress2] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchCity] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchProvince] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPostalCode] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPhone] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPhone2] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchFax] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchAcctNumber] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchContactName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchNotes] [text] COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchWeb] [varchar] (75) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchEmail] [varchar] (75) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	CONSTRAINT [PK_Orgs] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+
+GO
+
+

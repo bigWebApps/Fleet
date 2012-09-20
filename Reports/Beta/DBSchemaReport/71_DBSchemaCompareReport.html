@@ -1,0 +1,289 @@
+<html>
+<head>
+<title>SQL Delta Structure Comparison Report</title>
+<script language="javascript">
+   function ShowComparison(oLink, oDisplay) {
+      if (oDisplay.style.display == 'none') {
+         oDisplay.style.display = '';
+         oLink.innerText = '-';
+      } else {
+         oDisplay.style.display = 'none';
+         oLink.innerText = '+';
+      }
+   }
+</script>
+<style>
+.headingtxt {font:16pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; background-color: #E8A623; color: #FFFFFF; line-height: 35px; BORDER-TOP: black 1px solid; BORDER-BOTTOM: black 1px solid}
+.sectiontxt {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.datalink {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; text-decoration:none; color: blue}
+.headertxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.itemtxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: #E8A623}
+.bodytxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: #000000}
+.normlink {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: blue}
+.added {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: red}
+.deleted {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: blue}
+.smltxt {font: 8pt, Arial, Helvetica, sans-serif; color: #000000}
+.modified {font: 8pt, Arial, Helvetica, sans-serif; color: red}
+</style>
+</head>
+<body>
+<P align="center" class="headingtxt">SQL Delta Structure Comparison Report</P>
+<P align="left">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="sectiontxt"><td>Databases</td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td width="1%"></td><td width="19%" nowrap class="itemtxt">Database A:</td><td width="80%" nowrap class="bodytxt">largo.BFS_Beta</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Database B:</td><td nowrap class="bodytxt">largo.BFS_Temp</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Comparison Date:</td><td nowrap class="bodytxt">6/23/2006</td></tr>
+</table></P>
+<P align="left"><div class="sectiontxt">Comparison Summary</div>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="15"><td colspan="2"></td></tr>
+<tr><td width="1%"></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="30%" nowrap>Object Type</td><td width="17%" nowrap align="center">Identical</td><td width="18%" nowrap align="center">Missing From A</td><td width="18%" nowrap align="center">Missing From B</td><td width="17%" nowrap align="center">Modified</td></tr>
+<tr height="25"><td nowrap><a href="#tables" class="normlink">Tables</a></td><td nowrap align="right">69&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#views" class="normlink">Views</a></td><td nowrap align="right">1&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#procedures" class="normlink">Procedures</a></td><td nowrap align="right">197&nbsp;</td><td nowrap align="right">4&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#triggers" class="normlink">Triggers</a></td><td nowrap align="right">13&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#functions" class="normlink">Functions</a></td><td nowrap align="right">3&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Defaults</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Rules</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>User Types</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Users</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Roles</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Full-Text Catalogs</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+</table></td></tr></table></P>
+<P align="left"><div class="sectiontxt">Comparison Results</div><table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="procedures" class="itemtxt">Procedures</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V0" class="bodytxt" href="javascript:ShowComparison(V0, T0)">+</a></td><td nowrap>dbo.sp_PMScheduleDetail</td><td nowrap align="center"><font class="added"><<</font></td><td nowrap>Add to largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T0"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified"></font></td><td width="4%" align="center"><font class="added"><<</font></td><td width="48%"><font class="modified">-- Procedure</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">create procedure dbo.sp_PMScheduleDetail</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	(</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@Action char(1),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@OrgId int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@Id int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@vchName varchar(255)=null output</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">AS</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	set nocount on</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'S'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if not exists(select 'true' from PMSchedules where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			select @vchName = vchName</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			from PMSchedules</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			where [Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			and OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'D'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if not exists(select 'true' from PMSchedules where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			if exists(select top 1 'true'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				from Equipments</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				where OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				and PMScheduleId = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return -3</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			if exists(select top 1 'true'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				from WorkOrderPMItems</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				where OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				and PMSchedDetailId in (</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					select [Id]</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					from PMSchedDetails</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					where PMSchedId = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					and OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return -2</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			delete from PMSchedules</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			where [Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			and OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'U'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if @Id = 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin -- insert</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			insert into PMSchedules([OrgId], [vchName])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			values(@OrgId, isnull(@vchName, ''))</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin -- update</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			if not exists(select 'true' from PMSchedules where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				update 	PMSchedules</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				set 	vchName = isnull(@vchName, '')</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				where 	[Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				and OrgId = @OrgId</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">GO</font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V1" class="bodytxt" href="javascript:ShowComparison(V1, T1)">+</a></td><td nowrap>dbo.sp_PMServiceDetail</td><td nowrap align="center"><font class="added"><<</font></td><td nowrap>Add to largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T1"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified"></font></td><td width="4%" align="center"><font class="added"><<</font></td><td width="48%"><font class="modified">-- Procedure</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">CREATE  procedure dbo.sp_PMServiceDetail</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	(</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@Action char(1),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@OrgId int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@Id int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@RepairCatId int=null output,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@vchDesc varchar(100)=null output</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">AS</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	set nocount on</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'S'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if not exists(select 'true' from PMServices where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			select 	@RepairCatId = RepairCatId,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				@vchDesc = vchDesc</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			from 	PMServices</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			where 	[Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			and 	OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'D'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if not exists(select 'true' from PMServices where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			if exists(select 'true'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				from PMSchedDetails</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				where PMServiceId = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				and OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return -2</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			delete from PMServices</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			where [Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			and OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	if @Action = 'U'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		if @Id = 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin -- insert</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			insert into PMServices([OrgId], [RepairCatId], [vchDesc], [btRequiresRepair])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			values(@OrgId, @RepairCatId, isnull(@vchDesc, ''), 0)</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		begin -- update</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			if not exists(select 'true' from PMServices where [Id] = @Id and OrgId = @OrgId)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return -1</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			else</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			begin</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				update 	PMServices</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				set 	RepairCatId = @RepairCatId,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">					vchDesc = isnull(@vchDesc, '')</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				where 	[Id] = @Id</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				and OrgId = @OrgId</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	end</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	return 0</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">GO</font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V2" class="bodytxt" href="javascript:ShowComparison(V2, T2)">+</a></td><td nowrap>dbo.sp_SelectPMServicesList</td><td nowrap align="center"><font class="added"><<</font></td><td nowrap>Add to largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T2"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified"></font></td><td width="4%" align="center"><font class="added"><<</font></td><td width="48%"><font class="modified">-- Procedure</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">CREATE  procedure dbo.sp_SelectPMServicesList</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	(</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@OrgId int</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">AS</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	set nocount on</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	select 	PM.[Id],</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		PM.RepairCatId,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		RC.vchName as CatName,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		PM.vchDesc as ServiceName</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	from PMServices PM</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	inner join RepairCats RC</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	on PM.OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	and PM.RepairCatId = RC.[Id]</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	and PM.OrgId = RC.OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	order by RC.[Id] asc, PM.vchDesc asc</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">GO</font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V3" class="bodytxt" href="javascript:ShowComparison(V3, T3)">+</a></td><td nowrap>dbo.sp_SelectRepairCatsList</td><td nowrap align="center"><font class="added"><<</font></td><td nowrap>Add to largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T3"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified"></font></td><td width="4%" align="center"><font class="added"><<</font></td><td width="48%"><font class="modified">-- Procedure</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">create procedure dbo.sp_SelectRepairCatsList</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	(</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@OrgId int</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">AS</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	set nocount on</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	select 	[Id],</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		vchName,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		isnull(vchDesc, '')</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	from RepairCats</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">	where OrgId = @OrgId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">GO</font></td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></P></body></html>

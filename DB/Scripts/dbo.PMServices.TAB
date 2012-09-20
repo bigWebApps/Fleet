@@ -1,0 +1,31 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PMServices]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[PMServices]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PMServices]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[PMServices] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[RepairCatId] [int] NOT NULL ,
+	[vchDesc] [varchar] (100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_PMServices_vchDesc] DEFAULT (''),
+	[btRequiresRepair] [bit] NOT NULL CONSTRAINT [DF_PMServices_btRequiresRepair] DEFAULT (0),
+	CONSTRAINT [PK_PMServices] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_PMServices_RepairCats] FOREIGN KEY 
+	(
+		[RepairCatId],
+		[OrgId]
+	) REFERENCES [dbo].[RepairCats] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

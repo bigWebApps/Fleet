@@ -1,0 +1,32 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Pages_Permissions]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Pages_Permissions]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Pages_Permissions]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Pages_Permissions] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[PageId] [int] NOT NULL ,
+	[PermissionId] [int] NOT NULL ,
+	CONSTRAINT [PK_Pages_Permissions] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Pages_Permissions_Pages] FOREIGN KEY 
+	(
+		[PageId]
+	) REFERENCES [dbo].[Pages] (
+		[Id]
+	),
+	CONSTRAINT [FK_Pages_Permissions_Permissions] FOREIGN KEY 
+	(
+		[PermissionId]
+	) REFERENCES [dbo].[Permissions] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

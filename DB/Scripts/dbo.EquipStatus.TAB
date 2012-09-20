@@ -1,0 +1,19 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipStatus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipStatus]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipStatus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipStatus] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	CONSTRAINT [PK_EquipStatus] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

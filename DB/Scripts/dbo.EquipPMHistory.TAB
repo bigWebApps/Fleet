@@ -1,0 +1,42 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipPMHistory]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipPMHistory]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipPMHistory]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipPMHistory] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[EquipId] [int] NOT NULL ,
+	[dtDate] [datetime] NOT NULL CONSTRAINT [DF_PMLastService_dtDate] DEFAULT (getdate()),
+	[PMSchedDetailId] [int] NOT NULL ,
+	[dmUnits] [decimal](19, 8) NULL ,
+	[WorkOrderId] [int] NULL ,
+	CONSTRAINT [PK_EquipPMHistory] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId],
+		[EquipId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipPMHistory_Equipments] FOREIGN KEY 
+	(
+		[EquipId],
+		[OrgId]
+	) REFERENCES [dbo].[Equipments] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_EquipPMHistory_PMSchedDetails] FOREIGN KEY 
+	(
+		[PMSchedDetailId],
+		[OrgId]
+	) REFERENCES [dbo].[PMSchedDetails] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

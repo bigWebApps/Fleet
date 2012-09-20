@@ -1,0 +1,874 @@
+<html>
+<head>
+<title>SQL Delta Structure Comparison Report</title>
+<script language="javascript">
+   function ShowComparison(oLink, oDisplay) {
+      if (oDisplay.style.display == 'none') {
+         oDisplay.style.display = '';
+         oLink.innerText = '-';
+      } else {
+         oDisplay.style.display = 'none';
+         oLink.innerText = '+';
+      }
+   }
+</script>
+<style>
+.headingtxt {font:16pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; background-color: #E8A623; color: #FFFFFF; line-height: 35px; BORDER-TOP: black 1px solid; BORDER-BOTTOM: black 1px solid}
+.sectiontxt {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.datalink {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; text-decoration:none; color: blue}
+.headertxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.itemtxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: #E8A623}
+.bodytxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: #000000}
+.normlink {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: blue}
+.added {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: red}
+.deleted {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: blue}
+.smltxt {font: 8pt, Arial, Helvetica, sans-serif; color: #000000}
+.modified {font: 8pt, Arial, Helvetica, sans-serif; color: red}
+</style>
+</head>
+<body>
+<P align="center" class="headingtxt">SQL Delta Structure Comparison Report</P>
+<P align="left">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="sectiontxt"><td>Databases</td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td width="1%"></td><td width="19%" nowrap class="itemtxt">Database A:</td><td width="80%" nowrap class="bodytxt">largo.BFS_Beta</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Database B:</td><td nowrap class="bodytxt">largo.BFS_Temp</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Comparison Date:</td><td nowrap class="bodytxt">8/5/2006</td></tr>
+</table></P>
+<P align="left"><div class="sectiontxt">Comparison Summary</div>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="15"><td colspan="2"></td></tr>
+<tr><td width="1%"></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="30%" nowrap>Object Type</td><td width="17%" nowrap align="center">Identical</td><td width="18%" nowrap align="center">Missing From A</td><td width="18%" nowrap align="center">Missing From B</td><td width="17%" nowrap align="center">Modified</td></tr>
+<tr height="25"><td nowrap><a href="#tables" class="normlink">Tables</a></td><td nowrap align="right">69&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#views" class="normlink">Views</a></td><td nowrap align="right">1&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#procedures" class="normlink">Procedures</a></td><td nowrap align="right">198&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">6&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#triggers" class="normlink">Triggers</a></td><td nowrap align="right">13&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#functions" class="normlink">Functions</a></td><td nowrap align="right">3&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Defaults</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Rules</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>User Types</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Users</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Roles</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Full-Text Catalogs</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+</table></td></tr></table></P>
+<P align="left"><div class="sectiontxt">Comparison Results</div><table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="procedures" class="itemtxt">Procedures</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V0" class="bodytxt" href="javascript:ShowComparison(V0, T0)">+</a></td><td nowrap>dbo.sp_SelectInspectionsListForWorkOrder</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T0"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>----------------------------------------------------------------------------</td><td align="center">==</td><td>----------------------------------------------------------------------------</td></tr>
+<tr><td>-- Author: Alexey Gavrilov</td><td align="center">==</td><td>-- Author: Alexey Gavrilov</td></tr>
+<tr><td>-- Date: 09/09/2005</td><td align="center">==</td><td>-- Date: 09/09/2005</td></tr>
+<tr><td>-- Description: The procedure select inspection list for the work order</td><td align="center">==</td><td>-- Description: The procedure select inspection list for the work order</td></tr>
+<tr><td>---------------------------------------------------------------------------</td><td align="center">==</td><td>---------------------------------------------------------------------------</td></tr>
+<tr><td>CREATE  procedure dbo.sp_SelectInspectionsListForWorkOrder</td><td align="center">==</td><td>CREATE  procedure dbo.sp_SelectInspectionsListForWorkOrder</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@OrderId int,</td><td align="center">==</td><td>		@OrderId int,</td></tr>
+<tr><td><font class="modified">		@OrgId int</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		@OrgId int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@CurDate datetime</font></td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>as</td><td align="center">==</td><td>as</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	declare @EquipId int</td><td align="center">==</td><td>	declare @EquipId int</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>	select 	@EquipId = EquipId</td><td align="center">==</td><td>	select 	@EquipId = EquipId</td></tr>
+<tr><td>	from 	WorkOrders</td><td align="center">==</td><td>	from 	WorkOrders</td></tr>
+<tr><td>	where 	[Id] = @OrderId</td><td align="center">==</td><td>	where 	[Id] = @OrderId</td></tr>
+<tr><td>	and 	OrgId = @OrgId</td><td align="center">==</td><td>	and 	OrgId = @OrgId</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>	select 	ISD.[Id],</td><td align="center">==</td><td>	select 	ISD.[Id],</td></tr>
+<tr><td>		isnull(WOI.[Id], 0) as ItemId,</td><td align="center">==</td><td>		isnull(WOI.[Id], 0) as ItemId,</td></tr>
+<tr><td>		@OrderId as WorkOrderId,</td><td align="center">==</td><td>		@OrderId as WorkOrderId,</td></tr>
+<tr><td>		isnull(EIH.[Id], 0) as HistoryId,</td><td align="center">==</td><td>		isnull(EIH.[Id], 0) as HistoryId,</td></tr>
+<tr><td>		case when isnull(WOI.[Id], 0) = 0 then 'False' else 'True' end as IsChecked,</td><td align="center">==</td><td>		case when isnull(WOI.[Id], 0) = 0 then 'False' else 'True' end as IsChecked,</td></tr>
+<tr><td>		case when isnull(WOI.btIsProcessed, 0) = 0 then 'True' else 'False' end  as IsCompeted,</td><td align="center">==</td><td>		case when isnull(WOI.btIsProcessed, 0) = 0 then 'True' else 'False' end  as IsCompeted,</td></tr>
+<tr><td>		I.vchName,</td><td align="center">==</td><td>		I.vchName,</td></tr>
+<tr><td>		case when isnull(EIH.[Id], 0) = 0 then 'No Service History'</td><td align="center">==</td><td>		case when isnull(EIH.[Id], 0) = 0 then 'No Service History'</td></tr>
+<tr><td><font class="modified">		else 	case when (ISD.TargetDaysOut - datediff(day, EIH.dtDate, getdate())) > 0 then</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		else 	case when (ISD.TargetDaysOut - datediff(day, EIH.dtDate, @CurDate)) > 0 then</font></td></tr>
+<tr><td><font class="modified">				case when ISD.MinimumDaysOut > datediff(day, EIH.dtDate, getdate()) then 'Okay'</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">				case when ISD.MinimumDaysOut > datediff(day, EIH.dtDate, @CurDate) then 'Okay'</font></td></tr>
+<tr><td>				else 'Due Soon' end</td><td align="center">==</td><td>				else 'Due Soon' end</td></tr>
+<tr><td>			else 'Due' end</td><td align="center">==</td><td>			else 'Due' end</td></tr>
+<tr><td>		end as StatusName,</td><td align="center">==</td><td>		end as StatusName,</td></tr>
+<tr><td>		case when isnull(EIH.[Id], 0) = 0 then ''</td><td align="center">==</td><td>		case when isnull(EIH.[Id], 0) = 0 then ''</td></tr>
+<tr><td><font class="modified">		else convert(varchar, dateadd(day, (ISD.TargetDaysOut - datediff(day, EIH.dtDate, getdate())), getdate()), 101)</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		else convert(varchar, dateadd(day, (ISD.TargetDaysOut - datediff(day, EIH.dtDate, @CurDate)), @CurDate), 101)</font></td></tr>
+<tr><td>		end as DateDue,</td><td align="center">==</td><td>		end as DateDue,</td></tr>
+<tr><td>		ISD.TargetDaysOut as TargetDaysOut,</td><td align="center">==</td><td>		ISD.TargetDaysOut as TargetDaysOut,</td></tr>
+<tr><td>		ISD.MinimumDaysOut as MinimumDaysOut,</td><td align="center">==</td><td>		ISD.MinimumDaysOut as MinimumDaysOut,</td></tr>
+<tr><td>		ISD.MaximumDaysOut as MaximumDaysOut,</td><td align="center">==</td><td>		ISD.MaximumDaysOut as MaximumDaysOut,</td></tr>
+<tr><td>		case when isnull(EIH.[Id], 0) = 0 then ''</td><td align="center">==</td><td>		case when isnull(EIH.[Id], 0) = 0 then ''</td></tr>
+<tr><td>		else convert(varchar, EIH.dtDate, 101)</td><td align="center">==</td><td>		else convert(varchar, EIH.dtDate, 101)</td></tr>
+<tr><td>		end as DateLastInspected,</td><td align="center">==</td><td>		end as DateLastInspected,</td></tr>
+<tr><td>		case when isnull(EIH.[Id], 0) <> 0 then 'False' else 'True' end as VisibleLink,</td><td align="center">==</td><td>		case when isnull(EIH.[Id], 0) <> 0 then 'False' else 'True' end as VisibleLink,</td></tr>
+<tr><td>		case when isnull(EIH.[Id], 0) <> 0 then 	</td><td align="center">==</td><td>		case when isnull(EIH.[Id], 0) <> 0 then 	</td></tr>
+<tr><td><font class="modified">			case when (ISD.TargetDaysOut - datediff(day, EIH.dtDate, getdate())) > 0</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">			case when (ISD.TargetDaysOut - datediff(day, EIH.dtDate, @CurDate)) > 0</font></td></tr>
+<tr><td>			then 'black' else 'red' end</td><td align="center">==</td><td>			then 'black' else 'red' end</td></tr>
+<tr><td>		else 'red' end as Color</td><td align="center">==</td><td>		else 'red' end as Color</td></tr>
+<tr><td>	from InspectSchedDetails ISD</td><td align="center">==</td><td>	from InspectSchedDetails ISD</td></tr>
+<tr><td>	inner join Equipments E</td><td align="center">==</td><td>	inner join Equipments E</td></tr>
+<tr><td>	on E.[Id] = @EquipId</td><td align="center">==</td><td>	on E.[Id] = @EquipId</td></tr>
+<tr><td>	and E.OrgId = @OrgId</td><td align="center">==</td><td>	and E.OrgId = @OrgId</td></tr>
+<tr><td>	and ISD.InspectSchedId = E.InspectScheduleId</td><td align="center">==</td><td>	and ISD.InspectSchedId = E.InspectScheduleId</td></tr>
+<tr><td>	and ISD.OrgId = E.OrgId</td><td align="center">==</td><td>	and ISD.OrgId = E.OrgId</td></tr>
+<tr><td>	inner join InspectSchedules [IS]</td><td align="center">==</td><td>	inner join InspectSchedules [IS]</td></tr>
+<tr><td>	on ISD.InspectSchedId = [IS].[Id]</td><td align="center">==</td><td>	on ISD.InspectSchedId = [IS].[Id]</td></tr>
+<tr><td>	and ISD.OrgId = [IS].OrgId</td><td align="center">==</td><td>	and ISD.OrgId = [IS].OrgId</td></tr>
+<tr><td>	inner join Inspections I</td><td align="center">==</td><td>	inner join Inspections I</td></tr>
+<tr><td>	on I.[Id] = ISD.InspectionId</td><td align="center">==</td><td>	on I.[Id] = ISD.InspectionId</td></tr>
+<tr><td>	and I.OrgId = ISD.OrgId</td><td align="center">==</td><td>	and I.OrgId = ISD.OrgId</td></tr>
+<tr><td>	left join EquipInspectHistory EIH</td><td align="center">==</td><td>	left join EquipInspectHistory EIH</td></tr>
+<tr><td>	on EIH.EquipId = @EquipId</td><td align="center">==</td><td>	on EIH.EquipId = @EquipId</td></tr>
+<tr><td>	and ISD.OrgId = EIH.OrgId</td><td align="center">==</td><td>	and ISD.OrgId = EIH.OrgId</td></tr>
+<tr><td>	and ISD.[Id] = EIH.InspectSchedDetailId</td><td align="center">==</td><td>	and ISD.[Id] = EIH.InspectSchedDetailId</td></tr>
+<tr><td>	and EIH.[Id] in (</td><td align="center">==</td><td>	and EIH.[Id] in (</td></tr>
+<tr><td>		select EIH_D.[Id]</td><td align="center">==</td><td>		select EIH_D.[Id]</td></tr>
+<tr><td>		from EquipInspectHistory EIH_D</td><td align="center">==</td><td>		from EquipInspectHistory EIH_D</td></tr>
+<tr><td>		inner join (</td><td align="center">==</td><td>		inner join (</td></tr>
+<tr><td>			select max([Id]) as m, InspectSchedDetailId</td><td align="center">==</td><td>			select max([Id]) as m, InspectSchedDetailId</td></tr>
+<tr><td>			from EquipInspectHistory</td><td align="center">==</td><td>			from EquipInspectHistory</td></tr>
+<tr><td>			where EquipId = @EquipId</td><td align="center">==</td><td>			where EquipId = @EquipId</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td>			group by InspectSchedDetailId</td><td align="center">==</td><td>			group by InspectSchedDetailId</td></tr>
+<tr><td>			) EIH_G</td><td align="center">==</td><td>			) EIH_G</td></tr>
+<tr><td>		on EIH_D.InspectSchedDetailId = EIH_G.InspectSchedDetailId</td><td align="center">==</td><td>		on EIH_D.InspectSchedDetailId = EIH_G.InspectSchedDetailId</td></tr>
+<tr><td>		and EIH_D.[Id] = EIH_G.m</td><td align="center">==</td><td>		and EIH_D.[Id] = EIH_G.m</td></tr>
+<tr><td>		)</td><td align="center">==</td><td>		)</td></tr>
+<tr><td>	left outer join WorkOrderInspections WOI</td><td align="center">==</td><td>	left outer join WorkOrderInspections WOI</td></tr>
+<tr><td>	on WOI.InspectSchedDetailId = ISD.[Id]</td><td align="center">==</td><td>	on WOI.InspectSchedDetailId = ISD.[Id]</td></tr>
+<tr><td>	and WOI.OrgId = ISD.OrgId</td><td align="center">==</td><td>	and WOI.OrgId = ISD.OrgId</td></tr>
+<tr><td>	and WOI.WorkOrderId = @OrderId</td><td align="center">==</td><td>	and WOI.WorkOrderId = @OrderId</td></tr>
+<tr><td>	order by ISD.[Id] asc</td><td align="center">==</td><td>	order by ISD.[Id] asc</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V1" class="bodytxt" href="javascript:ShowComparison(V1, T1)">+</a></td><td nowrap>dbo.sp_SigningInspection</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T1"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>----------------------------------------------------------------------------</td><td align="center">==</td><td>----------------------------------------------------------------------------</td></tr>
+<tr><td>-- Author: Alexey Gavrilov</td><td align="center">==</td><td>-- Author: Alexey Gavrilov</td></tr>
+<tr><td>-- Last Modification Date: 09/09/2005</td><td align="center">==</td><td>-- Last Modification Date: 09/09/2005</td></tr>
+<tr><td>-- Description: Procedure sign the inspection from technician</td><td align="center">==</td><td>-- Description: Procedure sign the inspection from technician</td></tr>
+<tr><td>---------------------------------------------------------------------------</td><td align="center">==</td><td>---------------------------------------------------------------------------</td></tr>
+<tr><td>CREATE  procedure dbo.sp_SigningInspection</td><td align="center">==</td><td>CREATE  procedure dbo.sp_SigningInspection</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@WorkOrderId int,</td><td align="center">==</td><td>		@WorkOrderId int,</td></tr>
+<tr><td>		@InspectId int,</td><td align="center">==</td><td>		@InspectId int,</td></tr>
+<tr><td>		@chInitials char(3),</td><td align="center">==</td><td>		@chInitials char(3),</td></tr>
+<tr><td><font class="modified">		@vchPIN varchar(10)</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		@vchPIN varchar(10),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@dtCurrentDate datetime</font></td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>AS</td><td align="center">==</td><td>AS</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	declare @CountItems int</td><td align="center">==</td><td>	declare @CountItems int</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>	if exists(select 'true' from Logins where Initials = @chInitials and PIN = @vchPIN)</td><td align="center">==</td><td>	if exists(select 'true' from Logins where Initials = @chInitials and PIN = @vchPIN)</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		select @CountItems = count([Id])</td><td align="center">==</td><td>		select @CountItems = count([Id])</td></tr>
+<tr><td>		from WorkOrderInspectItems</td><td align="center">==</td><td>		from WorkOrderInspectItems</td></tr>
+<tr><td>		where WorkOrderInspectId = @InspectId</td><td align="center">==</td><td>		where WorkOrderInspectId = @InspectId</td></tr>
+<tr><td>		and WorkOrderId = @WorkOrderId</td><td align="center">==</td><td>		and WorkOrderId = @WorkOrderId</td></tr>
+<tr><td>		and OrgId = @OrgId</td><td align="center">==</td><td>		and OrgId = @OrgId</td></tr>
+<tr><td>		and (	isnull(ServiceCheckId, 0) = 0</td><td align="center">==</td><td>		and (	isnull(ServiceCheckId, 0) = 0</td></tr>
+<tr><td>			or (	isnull(ServiceCheckId, 0) = 3</td><td align="center">==</td><td>			or (	isnull(ServiceCheckId, 0) = 3</td></tr>
+<tr><td>				and isnull(ServiceResultId, 0) = 0</td><td align="center">==</td><td>				and isnull(ServiceResultId, 0) = 0</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			)</td><td align="center">==</td><td>			)</td></tr>
+<tr><td>		if @CountItems > 0 -- if there are uncompleted items</td><td align="center">==</td><td>		if @CountItems > 0 -- if there are uncompleted items</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -2</td><td align="center">==</td><td>			return -2</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else</td><td align="center">==</td><td>		else</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			update WorkOrderInspections</td><td align="center">==</td><td>			update WorkOrderInspections</td></tr>
+<tr><td>			set btIsProcessed = 1</td><td align="center">==</td><td>			set btIsProcessed = 1</td></tr>
+<tr><td>			where [Id] = @InspectId</td><td align="center">==</td><td>			where [Id] = @InspectId</td></tr>
+<tr><td>			and WorkOrderId = @WorkOrderId</td><td align="center">==</td><td>			and WorkOrderId = @WorkOrderId</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>			insert into [SignedDocuments](</td><td align="center">==</td><td>			insert into [SignedDocuments](</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[UserId],</td><td align="center">==</td><td>				[UserId],</td></tr>
+<tr><td>				[DocumentId],</td><td align="center">==</td><td>				[DocumentId],</td></tr>
+<tr><td>				[DocumentTypeId],</td><td align="center">==</td><td>				[DocumentTypeId],</td></tr>
+<tr><td>				[dtSignDate]</td><td align="center">==</td><td>				[dtSignDate]</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			select 	@OrgId,</td><td align="center">==</td><td>			select 	@OrgId,</td></tr>
+<tr><td>				L.[Id],</td><td align="center">==</td><td>				L.[Id],</td></tr>
+<tr><td>				@InspectId,</td><td align="center">==</td><td>				@InspectId,</td></tr>
+<tr><td>				2,</td><td align="center">==</td><td>				2,</td></tr>
+<tr><td><font class="modified">				getdate()</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">				@dtCurrentDate</font></td></tr>
+<tr><td>			from Logins L</td><td align="center">==</td><td>			from Logins L</td></tr>
+<tr><td>			where L.Initials = @chInitials</td><td align="center">==</td><td>			where L.Initials = @chInitials</td></tr>
+<tr><td>			and L.PIN = @vchPIN</td><td align="center">==</td><td>			and L.PIN = @vchPIN</td></tr>
+<tr><td>			-- the history table is keeping the inspection history</td><td align="center">==</td><td>			-- the history table is keeping the inspection history</td></tr>
+<tr><td>			-- of equipment</td><td align="center">==</td><td>			-- of equipment</td></tr>
+<tr><td>			insert into EquipInspectHistory (</td><td align="center">==</td><td>			insert into EquipInspectHistory (</td></tr>
+<tr><td>				OrgId,</td><td align="center">==</td><td>				OrgId,</td></tr>
+<tr><td>				EquipId,</td><td align="center">==</td><td>				EquipId,</td></tr>
+<tr><td>				dtDate,</td><td align="center">==</td><td>				dtDate,</td></tr>
+<tr><td>				InspectSchedDetailId,</td><td align="center">==</td><td>				InspectSchedDetailId,</td></tr>
+<tr><td>				WorkOrderId</td><td align="center">==</td><td>				WorkOrderId</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			select	@OrgId,</td><td align="center">==</td><td>			select	@OrgId,</td></tr>
+<tr><td>				WO.EquipId,</td><td align="center">==</td><td>				WO.EquipId,</td></tr>
+<tr><td><font class="modified">				getdate(),</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">				@dtCurrentDate,</font></td></tr>
+<tr><td>				ISD.[Id],</td><td align="center">==</td><td>				ISD.[Id],</td></tr>
+<tr><td>				@WorkOrderId</td><td align="center">==</td><td>				@WorkOrderId</td></tr>
+<tr><td>			from 	WorkOrderInspections WI</td><td align="center">==</td><td>			from 	WorkOrderInspections WI</td></tr>
+<tr><td>			inner join WorkOrders WO</td><td align="center">==</td><td>			inner join WorkOrders WO</td></tr>
+<tr><td>			on WI.[Id] = @InspectId</td><td align="center">==</td><td>			on WI.[Id] = @InspectId</td></tr>
+<tr><td>			and WI.WorkOrderId = @WorkOrderId</td><td align="center">==</td><td>			and WI.WorkOrderId = @WorkOrderId</td></tr>
+<tr><td>			and WI.OrgId = @OrgId</td><td align="center">==</td><td>			and WI.OrgId = @OrgId</td></tr>
+<tr><td>			and WI.WorkOrderId = WO.[Id]</td><td align="center">==</td><td>			and WI.WorkOrderId = WO.[Id]</td></tr>
+<tr><td>			and WI.OrgId = WO.OrgId</td><td align="center">==</td><td>			and WI.OrgId = WO.OrgId</td></tr>
+<tr><td>			inner join InspectSchedDetails ISD</td><td align="center">==</td><td>			inner join InspectSchedDetails ISD</td></tr>
+<tr><td>			on ISD.[Id] = WI.InspectSchedDetailId</td><td align="center">==</td><td>			on ISD.[Id] = WI.InspectSchedDetailId</td></tr>
+<tr><td>			and ISD.OrgId = WI.OrgId</td><td align="center">==</td><td>			and ISD.OrgId = WI.OrgId</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>			return 0</td><td align="center">==</td><td>			return 0</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	else</td><td align="center">==</td><td>	else</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		return -1</td><td align="center">==</td><td>		return -1</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V2" class="bodytxt" href="javascript:ShowComparison(V2, T2)">+</a></td><td nowrap>dbo.sp_SigningWorkOrderOpen</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T2"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>CREATE   procedure dbo.sp_SigningWorkOrderOpen</td><td align="center">==</td><td>CREATE   procedure dbo.sp_SigningWorkOrderOpen</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@WorkOrderId int,</td><td align="center">==</td><td>		@WorkOrderId int,</td></tr>
+<tr><td>		@chInitials char(3),</td><td align="center">==</td><td>		@chInitials char(3),</td></tr>
+<tr><td>		@vchPIN varchar(10),</td><td align="center">==</td><td>		@vchPIN varchar(10),</td></tr>
+<tr><td>		@dtCurrentDate datetime</td><td align="center">==</td><td>		@dtCurrentDate datetime</td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>AS</td><td align="center">==</td><td>AS</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td><font class="modified">	</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td>	if exists(select 'true' from Logins where Initials = @chInitials and PIN = @vchPIN)</td><td align="center">==</td><td>	if exists(select 'true' from Logins where Initials = @chInitials and PIN = @vchPIN)</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		if exists(select 'true' from WorkOrders where [Id] = @WorkOrderId and OrgId = @OrgId)</td><td align="center">==</td><td>		if exists(select 'true' from WorkOrders where [Id] = @WorkOrderId and OrgId = @OrgId)</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			select @dtCurrentDate = dtOpened</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			from WorkOrders</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			where 	[Id] = @WorkOrderId</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			and 	OrgId = @OrgId</font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			update 	WorkOrders</td><td align="center">==</td><td>			update 	WorkOrders</td></tr>
+<tr><td><font class="modified">			set 	dtOpened = @dtCurrentDate,</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">			set 	StatusId = 1</font></td></tr>
+<tr><td><font class="modified">				StatusId = 1</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td>			where 	[Id] = @WorkOrderId</td><td align="center">==</td><td>			where 	[Id] = @WorkOrderId</td></tr>
+<tr><td>			and 	OrgId = @OrgId</td><td align="center">==</td><td>			and 	OrgId = @OrgId</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>			insert into [SignedDocuments](</td><td align="center">==</td><td>			insert into [SignedDocuments](</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[UserId],</td><td align="center">==</td><td>				[UserId],</td></tr>
+<tr><td>				[DocumentId],</td><td align="center">==</td><td>				[DocumentId],</td></tr>
+<tr><td>				[DocumentTypeId],</td><td align="center">==</td><td>				[DocumentTypeId],</td></tr>
+<tr><td>				[dtSignDate]</td><td align="center">==</td><td>				[dtSignDate]</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			select 	@OrgId,</td><td align="center">==</td><td>			select 	@OrgId,</td></tr>
+<tr><td>				L.[Id],</td><td align="center">==</td><td>				L.[Id],</td></tr>
+<tr><td>				@WorkOrderId,</td><td align="center">==</td><td>				@WorkOrderId,</td></tr>
+<tr><td>				5,</td><td align="center">==</td><td>				5,</td></tr>
+<tr><td>				@dtCurrentDate</td><td align="center">==</td><td>				@dtCurrentDate</td></tr>
+<tr><td>			from Logins L</td><td align="center">==</td><td>			from Logins L</td></tr>
+<tr><td>			where L.Initials = @chInitials</td><td align="center">==</td><td>			where L.Initials = @chInitials</td></tr>
+<tr><td>			and L.PIN = @vchPIN</td><td align="center">==</td><td>			and L.PIN = @vchPIN</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>			return 0</td><td align="center">==</td><td>			return 0</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else</td><td align="center">==</td><td>		else</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -2</td><td align="center">==</td><td>			return -2</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	else</td><td align="center">==</td><td>	else</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		return -1</td><td align="center">==</td><td>		return -1</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V3" class="bodytxt" href="javascript:ShowComparison(V3, T3)">+</a></td><td nowrap>dbo.sp_UpdateInspections</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T3"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>----------------------------------------------------------------------------</td><td align="center">==</td><td>----------------------------------------------------------------------------</td></tr>
+<tr><td>-- Author: Alexey Gavrilov</td><td align="center">==</td><td>-- Author: Alexey Gavrilov</td></tr>
+<tr><td>-- Date: 09/09/2005</td><td align="center">==</td><td>-- Date: 09/09/2005</td></tr>
+<tr><td>-- Description: The procedure add/delete inspection to the work order</td><td align="center">==</td><td>-- Description: The procedure add/delete inspection to the work order</td></tr>
+<tr><td>---------------------------------------------------------------------------</td><td align="center">==</td><td>---------------------------------------------------------------------------</td></tr>
+<tr><td>CREATE  procedure dbo.sp_UpdateInspections</td><td align="center">==</td><td>CREATE  procedure dbo.sp_UpdateInspections</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@btChecked bit,</td><td align="center">==</td><td>		@btChecked bit,</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@OrderId int,</td><td align="center">==</td><td>		@OrderId int,</td></tr>
+<tr><td>		@ItemId int=null,</td><td align="center">==</td><td>		@ItemId int=null,</td></tr>
+<tr><td><font class="modified">		@InspectSchedDetailId int</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		@InspectSchedDetailId int,</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@CurrDate datetime</font></td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>AS</td><td align="center">==</td><td>AS</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	declare @tbl table ([Id] int identity(1,1), RepairItemId int)</td><td align="center">==</td><td>	declare @tbl table ([Id] int identity(1,1), RepairItemId int)</td></tr>
+<tr><td>	declare @tbl2 table (RepairId int)</td><td align="center">==</td><td>	declare @tbl2 table (RepairId int)</td></tr>
+<tr><td>	declare @IsDelete bit</td><td align="center">==</td><td>	declare @IsDelete bit</td></tr>
+<tr><td>	declare @i int, @N int, @j int, @M int</td><td align="center">==</td><td>	declare @i int, @N int, @j int, @M int</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>	if isnull(@btChecked, 0) = 0</td><td align="center">==</td><td>	if isnull(@btChecked, 0) = 0</td></tr>
+<tr><td>	begin -- remove inspection or nothing</td><td align="center">==</td><td>	begin -- remove inspection or nothing</td></tr>
+<tr><td>		if exists(select 'true' from WorkOrderInspections where [Id] = isnull(@ItemId, 0) and OrgId = @OrgId)</td><td align="center">==</td><td>		if exists(select 'true' from WorkOrderInspections where [Id] = isnull(@ItemId, 0) and OrgId = @OrgId)</td></tr>
+<tr><td>		begin -- unchecked [delete item and his sub-items]</td><td align="center">==</td><td>		begin -- unchecked [delete item and his sub-items]</td></tr>
+<tr><td>			-- define all RepairItemIds related to the Inspection</td><td align="center">==</td><td>			-- define all RepairItemIds related to the Inspection</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			insert into @tbl(RepairItemId)</td><td align="center">==</td><td>			insert into @tbl(RepairItemId)</td></tr>
+<tr><td>			select RepairItemId</td><td align="center">==</td><td>			select RepairItemId</td></tr>
+<tr><td>			from WorkOrderInspectItems</td><td align="center">==</td><td>			from WorkOrderInspectItems</td></tr>
+<tr><td>			where WorkOrderInspectId = isnull(@ItemId, 0)</td><td align="center">==</td><td>			where WorkOrderInspectId = isnull(@ItemId, 0)</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td>			and isnull(RepairItemId, 0) <> 0</td><td align="center">==</td><td>			and isnull(RepairItemId, 0) <> 0</td></tr>
+<tr><td>			</td><td align="center">==</td><td>			</td></tr>
+<tr><td>			-- processing all repairs, if repair has the other sources</td><td align="center">==</td><td>			-- processing all repairs, if repair has the other sources</td></tr>
+<tr><td>			-- as PM items or Issues then we don't delete this repair</td><td align="center">==</td><td>			-- as PM items or Issues then we don't delete this repair</td></tr>
+<tr><td>			-- or else we delete records of RepairMult, PartsUsed and</td><td align="center">==</td><td>			-- or else we delete records of RepairMult, PartsUsed and</td></tr>
+<tr><td>			-- Repairs tables</td><td align="center">==</td><td>			-- Repairs tables</td></tr>
+<tr><td>			select @i = 1, @N = scope_identity()</td><td align="center">==</td><td>			select @i = 1, @N = scope_identity()</td></tr>
+<tr><td>			while @i <= @N</td><td align="center">==</td><td>			while @i <= @N</td></tr>
+<tr><td>			begin</td><td align="center">==</td><td>			begin</td></tr>
+<tr><td>				select @IsDelete = 1</td><td align="center">==</td><td>				select @IsDelete = 1</td></tr>
+<tr><td>				if exists(select 'true'</td><td align="center">==</td><td>				if exists(select 'true'</td></tr>
+<tr><td>					from WorkOrderPMItems PMI</td><td align="center">==</td><td>					from WorkOrderPMItems PMI</td></tr>
+<tr><td>					inner join @tbl tmp</td><td align="center">==</td><td>					inner join @tbl tmp</td></tr>
+<tr><td>					on PMI.OrgId = @OrgId</td><td align="center">==</td><td>					on PMI.OrgId = @OrgId</td></tr>
+<tr><td>					and PMI.WorkOrderId = @OrderId</td><td align="center">==</td><td>					and PMI.WorkOrderId = @OrderId</td></tr>
+<tr><td>					and PMI.RepairItemId = tmp.RepairItemId</td><td align="center">==</td><td>					and PMI.RepairItemId = tmp.RepairItemId</td></tr>
+<tr><td>					and tmp.[Id] = @i</td><td align="center">==</td><td>					and tmp.[Id] = @i</td></tr>
+<tr><td>					)</td><td align="center">==</td><td>					)</td></tr>
+<tr><td>				begin</td><td align="center">==</td><td>				begin</td></tr>
+<tr><td>					select @IsDelete = 0</td><td align="center">==</td><td>					select @IsDelete = 0</td></tr>
+<tr><td>				end</td><td align="center">==</td><td>				end</td></tr>
+<tr><td>				if exists(select 'true'</td><td align="center">==</td><td>				if exists(select 'true'</td></tr>
+<tr><td>					from WorkOrderReportedIssues RI</td><td align="center">==</td><td>					from WorkOrderReportedIssues RI</td></tr>
+<tr><td>					inner join @tbl tmp</td><td align="center">==</td><td>					inner join @tbl tmp</td></tr>
+<tr><td>					on RI.OrgId = @OrgId</td><td align="center">==</td><td>					on RI.OrgId = @OrgId</td></tr>
+<tr><td>					and RI.WorkOrderId = @OrderId</td><td align="center">==</td><td>					and RI.WorkOrderId = @OrderId</td></tr>
+<tr><td>					and RI.RepairItemId = tmp.RepairItemId</td><td align="center">==</td><td>					and RI.RepairItemId = tmp.RepairItemId</td></tr>
+<tr><td>					and tmp.[Id] = @i</td><td align="center">==</td><td>					and tmp.[Id] = @i</td></tr>
+<tr><td>					)</td><td align="center">==</td><td>					)</td></tr>
+<tr><td>				begin</td><td align="center">==</td><td>				begin</td></tr>
+<tr><td>					select @IsDelete = 0</td><td align="center">==</td><td>					select @IsDelete = 0</td></tr>
+<tr><td>				end</td><td align="center">==</td><td>				end</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>				if @IsDelete = 1</td><td align="center">==</td><td>				if @IsDelete = 1</td></tr>
+<tr><td>				begin -- deleting the relate records</td><td align="center">==</td><td>				begin -- deleting the relate records</td></tr>
+<tr><td>					insert into @tbl2(RepairId)</td><td align="center">==</td><td>					insert into @tbl2(RepairId)</td></tr>
+<tr><td>					select RepairId</td><td align="center">==</td><td>					select RepairId</td></tr>
+<tr><td>					from RepairMult</td><td align="center">==</td><td>					from RepairMult</td></tr>
+<tr><td>					where OrgId = @OrgId</td><td align="center">==</td><td>					where OrgId = @OrgId</td></tr>
+<tr><td>					and ItemId in (</td><td align="center">==</td><td>					and ItemId in (</td></tr>
+<tr><td>						select RepairItemId</td><td align="center">==</td><td>						select RepairItemId</td></tr>
+<tr><td>						from @tbl</td><td align="center">==</td><td>						from @tbl</td></tr>
+<tr><td>						where [Id] = @i</td><td align="center">==</td><td>						where [Id] = @i</td></tr>
+<tr><td>						)</td><td align="center">==</td><td>						)</td></tr>
+<tr><td>					select @j = 1, @M = scope_identity()</td><td align="center">==</td><td>					select @j = 1, @M = scope_identity()</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>					delete from RepairMult</td><td align="center">==</td><td>					delete from RepairMult</td></tr>
+<tr><td>					where OrgId = @OrgId</td><td align="center">==</td><td>					where OrgId = @OrgId</td></tr>
+<tr><td>					and ItemId in (</td><td align="center">==</td><td>					and ItemId in (</td></tr>
+<tr><td>						select RepairItemId</td><td align="center">==</td><td>						select RepairItemId</td></tr>
+<tr><td>						from @tbl</td><td align="center">==</td><td>						from @tbl</td></tr>
+<tr><td>						where [Id] = @i</td><td align="center">==</td><td>						where [Id] = @i</td></tr>
+<tr><td>						)</td><td align="center">==</td><td>						)</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>					-- deleting all repairs, if repair has other issues (or other item)</td><td align="center">==</td><td>					-- deleting all repairs, if repair has other issues (or other item)</td></tr>
+<tr><td>					-- then don't delete it</td><td align="center">==</td><td>					-- then don't delete it</td></tr>
+<tr><td>					while @j <= @M</td><td align="center">==</td><td>					while @j <= @M</td></tr>
+<tr><td>					begin</td><td align="center">==</td><td>					begin</td></tr>
+<tr><td>						if not exists(select 'true'</td><td align="center">==</td><td>						if not exists(select 'true'</td></tr>
+<tr><td>							from RepairMult</td><td align="center">==</td><td>							from RepairMult</td></tr>
+<tr><td>							where OrgId = @OrgId</td><td align="center">==</td><td>							where OrgId = @OrgId</td></tr>
+<tr><td>							and RepairId in (</td><td align="center">==</td><td>							and RepairId in (</td></tr>
+<tr><td>								select RepairId</td><td align="center">==</td><td>								select RepairId</td></tr>
+<tr><td>								from @tbl2</td><td align="center">==</td><td>								from @tbl2</td></tr>
+<tr><td>								where [Id] = @j</td><td align="center">==</td><td>								where [Id] = @j</td></tr>
+<tr><td>								)</td><td align="center">==</td><td>								)</td></tr>
+<tr><td>							)</td><td align="center">==</td><td>							)</td></tr>
+<tr><td>						begin</td><td align="center">==</td><td>						begin</td></tr>
+<tr><td>							delete from PartsUsed</td><td align="center">==</td><td>							delete from PartsUsed</td></tr>
+<tr><td>							where OrgId = @OrgId</td><td align="center">==</td><td>							where OrgId = @OrgId</td></tr>
+<tr><td>							and RepairId in (</td><td align="center">==</td><td>							and RepairId in (</td></tr>
+<tr><td>								select RepairId</td><td align="center">==</td><td>								select RepairId</td></tr>
+<tr><td>								from @tbl2</td><td align="center">==</td><td>								from @tbl2</td></tr>
+<tr><td>								where [Id] = @j</td><td align="center">==</td><td>								where [Id] = @j</td></tr>
+<tr><td>								)</td><td align="center">==</td><td>								)</td></tr>
+<tr><td>			</td><td align="center">==</td><td>			</td></tr>
+<tr><td>							delete from Repairs</td><td align="center">==</td><td>							delete from Repairs</td></tr>
+<tr><td>							where OrgId = @OrgId</td><td align="center">==</td><td>							where OrgId = @OrgId</td></tr>
+<tr><td>							and [Id] in (</td><td align="center">==</td><td>							and [Id] in (</td></tr>
+<tr><td>								select RepairId</td><td align="center">==</td><td>								select RepairId</td></tr>
+<tr><td>								from @tbl2</td><td align="center">==</td><td>								from @tbl2</td></tr>
+<tr><td>								where [Id] = @j</td><td align="center">==</td><td>								where [Id] = @j</td></tr>
+<tr><td>								)</td><td align="center">==</td><td>								)</td></tr>
+<tr><td>						end</td><td align="center">==</td><td>						end</td></tr>
+<tr><td>						select @j = @j + 1</td><td align="center">==</td><td>						select @j = @j + 1</td></tr>
+<tr><td>					end</td><td align="center">==</td><td>					end</td></tr>
+<tr><td>				end</td><td align="center">==</td><td>				end</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>				select @i = @i + 1</td><td align="center">==</td><td>				select @i = @i + 1</td></tr>
+<tr><td>			end</td><td align="center">==</td><td>			end</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			-- delete inspection items</td><td align="center">==</td><td>			-- delete inspection items</td></tr>
+<tr><td>			delete from WorkOrderInspectItems</td><td align="center">==</td><td>			delete from WorkOrderInspectItems</td></tr>
+<tr><td>			where [WorkOrderInspectId] = @ItemId</td><td align="center">==</td><td>			where [WorkOrderInspectId] = @ItemId</td></tr>
+<tr><td>			and WorkOrderId = @OrderId</td><td align="center">==</td><td>			and WorkOrderId = @OrderId</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			-- delete inspection</td><td align="center">==</td><td>			-- delete inspection</td></tr>
+<tr><td>			delete from WorkOrderInspections</td><td align="center">==</td><td>			delete from WorkOrderInspections</td></tr>
+<tr><td>			where [Id] = @ItemId</td><td align="center">==</td><td>			where [Id] = @ItemId</td></tr>
+<tr><td>			and WorkOrderId = @OrderId</td><td align="center">==</td><td>			and WorkOrderId = @OrderId</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td>			return 0</td><td align="center">==</td><td>			return 0</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else -- nothing</td><td align="center">==</td><td>		else -- nothing</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -1</td><td align="center">==</td><td>			return -1</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	else</td><td align="center">==</td><td>	else</td></tr>
+<tr><td>	begin -- add inspection or nothing</td><td align="center">==</td><td>	begin -- add inspection or nothing</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>		if not exists(select 'true' from WorkOrderInspections where [Id] = isnull(@ItemId, 0) and OrgId = @OrgId)</td><td align="center">==</td><td>		if not exists(select 'true' from WorkOrderInspections where [Id] = isnull(@ItemId, 0) and OrgId = @OrgId)</td></tr>
+<tr><td>		begin -- checked [insert item and his sub-items]</td><td align="center">==</td><td>		begin -- checked [insert item and his sub-items]</td></tr>
+<tr><td>			insert into WorkOrderInspections(</td><td align="center">==</td><td>			insert into WorkOrderInspections(</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[WorkOrderId],</td><td align="center">==</td><td>				[WorkOrderId],</td></tr>
+<tr><td>				[InspectSchedDetailId],</td><td align="center">==</td><td>				[InspectSchedDetailId],</td></tr>
+<tr><td>				[TechId],</td><td align="center">==</td><td>				[TechId],</td></tr>
+<tr><td>				[dtReport],</td><td align="center">==</td><td>				[dtReport],</td></tr>
+<tr><td>				[btIsProcessed]</td><td align="center">==</td><td>				[btIsProcessed]</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			select	@OrgId,</td><td align="center">==</td><td>			select	@OrgId,</td></tr>
+<tr><td>				@OrderId,</td><td align="center">==</td><td>				@OrderId,</td></tr>
+<tr><td>				@InspectSchedDetailId,</td><td align="center">==</td><td>				@InspectSchedDetailId,</td></tr>
+<tr><td>				WO.intTechId,</td><td align="center">==</td><td>				WO.intTechId,</td></tr>
+<tr><td><font class="modified">				getdate(),</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">				@CurrDate,</font></td></tr>
+<tr><td>				0</td><td align="center">==</td><td>				0</td></tr>
+<tr><td>			from WorkOrders WO</td><td align="center">==</td><td>			from WorkOrders WO</td></tr>
+<tr><td>			where [Id] = @OrderId</td><td align="center">==</td><td>			where [Id] = @OrderId</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			select @ItemId = scope_identity()</td><td align="center">==</td><td>			select @ItemId = scope_identity()</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			insert into [WorkOrderInspectItems](</td><td align="center">==</td><td>			insert into [WorkOrderInspectItems](</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[WorkOrderId],</td><td align="center">==</td><td>				[WorkOrderId],</td></tr>
+<tr><td>				[WorkOrderInspectId],</td><td align="center">==</td><td>				[WorkOrderInspectId],</td></tr>
+<tr><td>				[ItemId],</td><td align="center">==</td><td>				[ItemId],</td></tr>
+<tr><td>				[ServiceResultId],</td><td align="center">==</td><td>				[ServiceResultId],</td></tr>
+<tr><td>				[ServiceCheckId],</td><td align="center">==</td><td>				[ServiceCheckId],</td></tr>
+<tr><td>				[RepairItemId])</td><td align="center">==</td><td>				[RepairItemId])</td></tr>
+<tr><td>			select 	@OrgId,</td><td align="center">==</td><td>			select 	@OrgId,</td></tr>
+<tr><td>				@OrderId,</td><td align="center">==</td><td>				@OrderId,</td></tr>
+<tr><td>				@ItemId,</td><td align="center">==</td><td>				@ItemId,</td></tr>
+<tr><td>				II.[Id],</td><td align="center">==</td><td>				II.[Id],</td></tr>
+<tr><td>				null,</td><td align="center">==</td><td>				null,</td></tr>
+<tr><td>				null,</td><td align="center">==</td><td>				null,</td></tr>
+<tr><td>				null</td><td align="center">==</td><td>				null</td></tr>
+<tr><td>			from InspectionItems II</td><td align="center">==</td><td>			from InspectionItems II</td></tr>
+<tr><td>			inner join InspectSchedDetails ISD</td><td align="center">==</td><td>			inner join InspectSchedDetails ISD</td></tr>
+<tr><td>			on ISD.[Id] = @InspectSchedDetailId</td><td align="center">==</td><td>			on ISD.[Id] = @InspectSchedDetailId</td></tr>
+<tr><td>			and ISD.InspectionId = II.InspectId</td><td align="center">==</td><td>			and ISD.InspectionId = II.InspectId</td></tr>
+<tr><td>			and ISD.OrgId = @OrgId</td><td align="center">==</td><td>			and ISD.OrgId = @OrgId</td></tr>
+<tr><td>			and ISD.OrgId = II.OrgId</td><td align="center">==</td><td>			and ISD.OrgId = II.OrgId</td></tr>
+<tr><td>			and II.btEnabled = 1</td><td align="center">==</td><td>			and II.btEnabled = 1</td></tr>
+<tr><td>			order by II.InspectCatId, II.tintOrder asc</td><td align="center">==</td><td>			order by II.InspectCatId, II.tintOrder asc</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			return @ItemId</td><td align="center">==</td><td>			return @ItemId</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else -- nothing</td><td align="center">==</td><td>		else -- nothing</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -1</td><td align="center">==</td><td>			return -1</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V4" class="bodytxt" href="javascript:ShowComparison(V4, T4)">+</a></td><td nowrap>dbo.sp_UpdateOpenWorkOrder</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T4"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>CREATE procedure dbo.sp_UpdateOpenWorkOrder</td><td align="center">==</td><td>CREATE procedure dbo.sp_UpdateOpenWorkOrder</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@Id int,</td><td align="center">==</td><td>		@Id int,</td></tr>
+<tr><td>		@intTechId int,</td><td align="center">==</td><td>		@intTechId int,</td></tr>
+<tr><td>		@dmCurrentUnits decimal(19,8),</td><td align="center">==</td><td>		@dmCurrentUnits decimal(19,8),</td></tr>
+<tr><td>		@vchDropedOffBy varchar(50),</td><td align="center">==</td><td>		@vchDropedOffBy varchar(50),</td></tr>
+<tr><td>		@UserId int,</td><td align="center">==</td><td>		@UserId int,</td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		@dtOpened datetime,</font></td></tr>
+<tr><td>		@dtCurrentDate datetime</td><td align="center">==</td><td>		@dtCurrentDate datetime</td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>as</td><td align="center">==</td><td>as</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	declare @EquipId int</td><td align="center">==</td><td>	declare @EquipId int</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>	if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td><td align="center">==</td><td>	if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		return -1</td><td align="center">==</td><td>		return -1</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	else</td><td align="center">==</td><td>	else</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		select 	@EquipId = EquipId</td><td align="center">==</td><td>		select 	@EquipId = EquipId</td></tr>
+<tr><td>		from 	[WorkOrders]</td><td align="center">==</td><td>		from 	[WorkOrders]</td></tr>
+<tr><td>		where 	[Id] = @Id</td><td align="center">==</td><td>		where 	[Id] = @Id</td></tr>
+<tr><td>		and 	[OrgId] = @OrgId</td><td align="center">==</td><td>		and 	[OrgId] = @OrgId</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>		if exists(select 'true'</td><td align="center">==</td><td>		if exists(select 'true'</td></tr>
+<tr><td>			from WorkOrders</td><td align="center">==</td><td>			from WorkOrders</td></tr>
+<tr><td>			where EquipId = @EquipId</td><td align="center">==</td><td>			where EquipId = @EquipId</td></tr>
+<tr><td>			and [OrgId] = @OrgId</td><td align="center">==</td><td>			and [OrgId] = @OrgId</td></tr>
+<tr><td>			and StatusId in (1, 4, 5, 6))</td><td align="center">==</td><td>			and StatusId in (1, 4, 5, 6))</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -2</td><td align="center">==</td><td>			return -2</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else</td><td align="center">==</td><td>		else</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			update 	[WorkOrders]</td><td align="center">==</td><td>			update 	[WorkOrders]</td></tr>
+<tr><td>			set 	[intTechId] = @intTechId,</td><td align="center">==</td><td>			set 	[intTechId] = @intTechId,</td></tr>
+<tr><td>				[vchDropedOffBy] = @vchDropedOffBy,</td><td align="center">==</td><td>				[vchDropedOffBy] = @vchDropedOffBy,</td></tr>
+<tr><td>				[intUpdatedBy] = isnull(@UserId, intUpdatedBy),</td><td align="center">==</td><td>				[intUpdatedBy] = isnull(@UserId, intUpdatedBy),</td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				[dtOpened] = @dtOpened,</font></td></tr>
+<tr><td>				[dtUpdated] = @dtCurrentDate</td><td align="center">==</td><td>				[dtUpdated] = @dtCurrentDate</td></tr>
+<tr><td>			where 	[Id] = @Id</td><td align="center">==</td><td>			where 	[Id] = @Id</td></tr>
+<tr><td>			and 	[OrgId] = @OrgId</td><td align="center">==</td><td>			and 	[OrgId] = @OrgId</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>			update WorkOrderInspections</td><td align="center">==</td><td>			update WorkOrderInspections</td></tr>
+<tr><td>			set TechId = @intTechId</td><td align="center">==</td><td>			set TechId = @intTechId</td></tr>
+<tr><td>			where WorkOrderId = @Id</td><td align="center">==</td><td>			where WorkOrderId = @Id</td></tr>
+<tr><td>			and OrgId = @OrgId</td><td align="center">==</td><td>			and OrgId = @OrgId</td></tr>
+<tr><td>			if exists(select 'true'</td><td align="center">==</td><td>			if exists(select 'true'</td></tr>
+<tr><td>				from Equipments</td><td align="center">==</td><td>				from Equipments</td></tr>
+<tr><td>				where [Id] = @EquipId</td><td align="center">==</td><td>				where [Id] = @EquipId</td></tr>
+<tr><td>				and OrgId = @OrgId</td><td align="center">==</td><td>				and OrgId = @OrgId</td></tr>
+<tr><td>				and dmCurrentUnits < @dmCurrentUnits</td><td align="center">==</td><td>				and dmCurrentUnits < @dmCurrentUnits</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			begin</td><td align="center">==</td><td>			begin</td></tr>
+<tr><td>				-- update the current units of equipment</td><td align="center">==</td><td>				-- update the current units of equipment</td></tr>
+<tr><td>				insert into [EquipUnitLogs](</td><td align="center">==</td><td>				insert into [EquipUnitLogs](</td></tr>
+<tr><td>					[OrgId],</td><td align="center">==</td><td>					[OrgId],</td></tr>
+<tr><td>					[EquipId],</td><td align="center">==</td><td>					[EquipId],</td></tr>
+<tr><td>					[LogTypeId],</td><td align="center">==</td><td>					[LogTypeId],</td></tr>
+<tr><td>					[dtDate],</td><td align="center">==</td><td>					[dtDate],</td></tr>
+<tr><td>					[dmUnits]</td><td align="center">==</td><td>					[dmUnits]</td></tr>
+<tr><td>					)</td><td align="center">==</td><td>					)</td></tr>
+<tr><td>				values(</td><td align="center">==</td><td>				values(</td></tr>
+<tr><td>					@OrgId,</td><td align="center">==</td><td>					@OrgId,</td></tr>
+<tr><td>					@EquipId,</td><td align="center">==</td><td>					@EquipId,</td></tr>
+<tr><td>					1,</td><td align="center">==</td><td>					1,</td></tr>
+<tr><td><font class="modified">					@dtCurrentDate,</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">					@dtOpened,</font></td></tr>
+<tr><td>					@dmCurrentUnits</td><td align="center">==</td><td>					@dmCurrentUnits</td></tr>
+<tr><td>					)</td><td align="center">==</td><td>					)</td></tr>
+<tr><td>		</td><td align="center">==</td><td>		</td></tr>
+<tr><td>				update Equipments</td><td align="center">==</td><td>				update Equipments</td></tr>
+<tr><td>				set dmCurrentUnits = @dmCurrentUnits</td><td align="center">==</td><td>				set dmCurrentUnits = @dmCurrentUnits</td></tr>
+<tr><td>				where [Id] = @EquipId</td><td align="center">==</td><td>				where [Id] = @EquipId</td></tr>
+<tr><td>				and OrgId = @OrgId</td><td align="center">==</td><td>				and OrgId = @OrgId</td></tr>
+<tr><td>		</td><td align="center">==</td><td>		</td></tr>
+<tr><td>				update 	[WorkOrders]</td><td align="center">==</td><td>				update 	[WorkOrders]</td></tr>
+<tr><td>				set 	[dmMileage] = @dmCurrentUnits</td><td align="center">==</td><td>				set 	[dmMileage] = @dmCurrentUnits</td></tr>
+<tr><td>				where 	[Id] = @Id</td><td align="center">==</td><td>				where 	[Id] = @Id</td></tr>
+<tr><td>				and 	[OrgId] = @OrgId</td><td align="center">==</td><td>				and 	[OrgId] = @OrgId</td></tr>
+<tr><td>			end</td><td align="center">==</td><td>			end</td></tr>
+<tr><td>			return 0</td><td align="center">==</td><td>			return 0</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V5" class="bodytxt" href="javascript:ShowComparison(V5, T5)">+</a></td><td nowrap>dbo.sp_WorkOrderDetail</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T5"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>----------------------------------------------------------------------------</td><td align="center">==</td><td>----------------------------------------------------------------------------</td></tr>
+<tr><td>-- Author: Alexey Gavrilov</td><td align="center">==</td><td>-- Author: Alexey Gavrilov</td></tr>
+<tr><td>-- Date: 06/06/2005</td><td align="center">==</td><td>-- Date: 06/06/2005</td></tr>
+<tr><td>-- Description: The procedure get information about work order and his</td><td align="center">==</td><td>-- Description: The procedure get information about work order and his</td></tr>
+<tr><td>-- equipment, update work order and ALTER  a new work order</td><td align="center">==</td><td>-- equipment, update work order and ALTER  a new work order</td></tr>
+<tr><td>---------------------------------------------------------------------------</td><td align="center">==</td><td>---------------------------------------------------------------------------</td></tr>
+<tr><td>CREATE procedure dbo.sp_WorkOrderDetail</td><td align="center">==</td><td>CREATE procedure dbo.sp_WorkOrderDetail</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@Action char(1),</td><td align="center">==</td><td>		@Action char(1),</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@Id int,</td><td align="center">==</td><td>		@Id int,</td></tr>
+<tr><td>		@WorkOrderNumber int=null output,</td><td align="center">==</td><td>		@WorkOrderNumber int=null output,</td></tr>
+<tr><td>		@EquipId int=null output,</td><td align="center">==</td><td>		@EquipId int=null output,</td></tr>
+<tr><td>		@vchEquipId varchar(50)=null output,</td><td align="center">==</td><td>		@vchEquipId varchar(50)=null output,</td></tr>
+<tr><td>		@vchEquipTypeName varchar(50)=null output,</td><td align="center">==</td><td>		@vchEquipTypeName varchar(50)=null output,</td></tr>
+<tr><td>		@vchEquipMakeModel varchar(102)=null output,</td><td align="center">==</td><td>		@vchEquipMakeModel varchar(102)=null output,</td></tr>
+<tr><td>		@vchEquipYear varchar(25)=null output,</td><td align="center">==</td><td>		@vchEquipYear varchar(25)=null output,</td></tr>
+<tr><td>		@vchVinSerial varchar(50)=null OUTPUT,</td><td align="center">==</td><td>		@vchVinSerial varchar(50)=null OUTPUT,</td></tr>
+<tr><td>		@SpareEquipId int=null output,</td><td align="center">==</td><td>		@SpareEquipId int=null output,</td></tr>
+<tr><td>		@vchSpareEquipId varchar(50)=null output,</td><td align="center">==</td><td>		@vchSpareEquipId varchar(50)=null output,</td></tr>
+<tr><td>		@TypeId int=null output,</td><td align="center">==</td><td>		@TypeId int=null output,</td></tr>
+<tr><td>		@vchType varchar(50)=null output,</td><td align="center">==</td><td>		@vchType varchar(50)=null output,</td></tr>
+<tr><td>		@StatusId int=null OUTPUT,</td><td align="center">==</td><td>		@StatusId int=null OUTPUT,</td></tr>
+<tr><td>		@vchStatus varchar(50)=null OUTPUT,</td><td align="center">==</td><td>		@vchStatus varchar(50)=null OUTPUT,</td></tr>
+<tr><td>		@OperatorStatusId int=null output,</td><td align="center">==</td><td>		@OperatorStatusId int=null output,</td></tr>
+<tr><td>		@vchOperatorStatus varchar(50)=null output,</td><td align="center">==</td><td>		@vchOperatorStatus varchar(50)=null output,</td></tr>
+<tr><td>		@DataId int=null OUTPUT,</td><td align="center">==</td><td>		@DataId int=null OUTPUT,</td></tr>
+<tr><td>		@btIsActive bit=null output,</td><td align="center">==</td><td>		@btIsActive bit=null output,</td></tr>
+<tr><td>		@vchDesc varchar(8000)=null output,</td><td align="center">==</td><td>		@vchDesc varchar(8000)=null output,</td></tr>
+<tr><td>		@intOperatorId int=null OUTPUT,</td><td align="center">==</td><td>		@intOperatorId int=null OUTPUT,</td></tr>
+<tr><td>		@vchOperatorName varchar(102)=null OUTPUT,</td><td align="center">==</td><td>		@vchOperatorName varchar(102)=null OUTPUT,</td></tr>
+<tr><td>		@intTechId int=null OUTPUT,</td><td align="center">==</td><td>		@intTechId int=null OUTPUT,</td></tr>
+<tr><td>		@vchTechName varchar(102)=null OUTPUT,</td><td align="center">==</td><td>		@vchTechName varchar(102)=null OUTPUT,</td></tr>
+<tr><td>		@dmMileage decimal(19,8)=null OUTPUT,</td><td align="center">==</td><td>		@dmMileage decimal(19,8)=null OUTPUT,</td></tr>
+<tr><td>		@bitStaying int=null OUTPUT,</td><td align="center">==</td><td>		@bitStaying int=null OUTPUT,</td></tr>
+<tr><td>		@vchDropedOffBy varchar(50)=null OUTPUT,</td><td align="center">==</td><td>		@vchDropedOffBy varchar(50)=null OUTPUT,</td></tr>
+<tr><td>		@vchReleasedTo varchar(50)=null OUTPUT,</td><td align="center">==</td><td>		@vchReleasedTo varchar(50)=null OUTPUT,</td></tr>
+<tr><td>		@vchCleanliness varchar(1000)=null output,</td><td align="center">==</td><td>		@vchCleanliness varchar(1000)=null output,</td></tr>
+<tr><td>		@dtScheduled datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtScheduled datetime=null OUTPUT,</td></tr>
+<tr><td>		@dtArrival datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtArrival datetime=null OUTPUT,</td></tr>
+<tr><td>		@dtOpened datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtOpened datetime=null OUTPUT,</td></tr>
+<tr><td>		@dtCompleted datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtCompleted datetime=null OUTPUT,</td></tr>
+<tr><td>		@dtClosed datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtClosed datetime=null OUTPUT,</td></tr>
+<tr><td>		@dtDeparture datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtDeparture datetime=null OUTPUT,</td></tr>
+<tr><td>		@intCreatedBy int=null OUTPUT,</td><td align="center">==</td><td>		@intCreatedBy int=null OUTPUT,</td></tr>
+<tr><td>		@vchCreatedBy varchar(102)=null OUTPUT,</td><td align="center">==</td><td>		@vchCreatedBy varchar(102)=null OUTPUT,</td></tr>
+<tr><td>		@dtCreated datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtCreated datetime=null OUTPUT,</td></tr>
+<tr><td>		@intUpdatedBy int=null OUTPUT,</td><td align="center">==</td><td>		@intUpdatedBy int=null OUTPUT,</td></tr>
+<tr><td>		@vchUpdatedBy varchar(102)=null OUTPUT,</td><td align="center">==</td><td>		@vchUpdatedBy varchar(102)=null OUTPUT,</td></tr>
+<tr><td>		@dtUpdated datetime=null OUTPUT,</td><td align="center">==</td><td>		@dtUpdated datetime=null OUTPUT,</td></tr>
+<tr><td>		@btWizardUpdate bit</td><td align="center">==</td><td>		@btWizardUpdate bit</td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>as</td><td align="center">==</td><td>as</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>	if @Action = 'S'</td><td align="center">==</td><td>	if @Action = 'S'</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td><td align="center">==</td><td>		if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			return -1</td><td align="center">==</td><td>			return -1</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else</td><td align="center">==</td><td>		else</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			select 	@WorkOrderNumber = WO.[WorkOrderNumber],</td><td align="center">==</td><td>			select 	@WorkOrderNumber = WO.[WorkOrderNumber],</td></tr>
+<tr><td>				@EquipId = WO.[EquipId],</td><td align="center">==</td><td>				@EquipId = WO.[EquipId],</td></tr>
+<tr><td>				@vchEquipId = E.vchEquipId,</td><td align="center">==</td><td>				@vchEquipId = E.vchEquipId,</td></tr>
+<tr><td>				@vchEquipTypeName = isnull(ET.vchName, 'unknown'),</td><td align="center">==</td><td>				@vchEquipTypeName = isnull(ET.vchName, 'unknown'),</td></tr>
+<tr><td>				@vchEquipMakeModel = isnull(EMa.vchMakeName, 'unknown') + '/' + isnull(EMo.vchModelName, 'unknown'),</td><td align="center">==</td><td>				@vchEquipMakeModel = isnull(EMa.vchMakeName, 'unknown') + '/' + isnull(EMo.vchModelName, 'unknown'),</td></tr>
+<tr><td>				@vchEquipYear = isnull(E.intYear, 0),</td><td align="center">==</td><td>				@vchEquipYear = isnull(E.intYear, 0),</td></tr>
+<tr><td>				@vchVinSerial = ISNULL(E.vchVinSerial, ''),</td><td align="center">==</td><td>				@vchVinSerial = ISNULL(E.vchVinSerial, ''),</td></tr>
+<tr><td>				@TypeId = WO.TypeId,</td><td align="center">==</td><td>				@TypeId = WO.TypeId,</td></tr>
+<tr><td>				@vchType = WOT.vchName,</td><td align="center">==</td><td>				@vchType = WOT.vchName,</td></tr>
+<tr><td>				@StatusId = WO.[StatusId],</td><td align="center">==</td><td>				@StatusId = WO.[StatusId],</td></tr>
+<tr><td>				@vchStatus = WOS.vchStatus,</td><td align="center">==</td><td>				@vchStatus = WOS.vchStatus,</td></tr>
+<tr><td>				@OperatorStatusId = isnull(WO.OperatorStatusId, 0),</td><td align="center">==</td><td>				@OperatorStatusId = isnull(WO.OperatorStatusId, 0),</td></tr>
+<tr><td>				@vchOperatorStatus = isnull(WOOS.vchStatus, ''),</td><td align="center">==</td><td>				@vchOperatorStatus = isnull(WOOS.vchStatus, ''),</td></tr>
+<tr><td>				@SpareEquipId = isnull(WO.SpareEquipId, 0),</td><td align="center">==</td><td>				@SpareEquipId = isnull(WO.SpareEquipId, 0),</td></tr>
+<tr><td>				@vchSpareEquipId = isnull(SpE.vchEquipId, 'none'),</td><td align="center">==</td><td>				@vchSpareEquipId = isnull(SpE.vchEquipId, 'none'),</td></tr>
+<tr><td>				@DataId = WO.[DataId],</td><td align="center">==</td><td>				@DataId = WO.[DataId],</td></tr>
+<tr><td>				@btIsActive = WO.btIsActive,</td><td align="center">==</td><td>				@btIsActive = WO.btIsActive,</td></tr>
+<tr><td>				@intOperatorId = isnull(WO.[intOperatorId], 0),</td><td align="center">==</td><td>				@intOperatorId = isnull(WO.[intOperatorId], 0),</td></tr>
+<tr><td>				@vchOperatorName = (select case when isnull(WO.[intOperatorId], 0) = 0 then '' else LOP.vchLastName + ', ' + LOP.vchFirstName end),</td><td align="center">==</td><td>				@vchOperatorName = (select case when isnull(WO.[intOperatorId], 0) = 0 then '' else LOP.vchLastName + ', ' + LOP.vchFirstName end),</td></tr>
+<tr><td>				@intTechId = isnull(WO.[intTechId], 0),</td><td align="center">==</td><td>				@intTechId = isnull(WO.[intTechId], 0),</td></tr>
+<tr><td>				@vchTechName = (select case when isnull(WO.[intTechId], 0) = 0 then '' else LOT.vchLastName + ', ' + LOT.vchFirstName end),</td><td align="center">==</td><td>				@vchTechName = (select case when isnull(WO.[intTechId], 0) = 0 then '' else LOT.vchLastName + ', ' + LOT.vchFirstName end),</td></tr>
+<tr><td>				@dmMileage = isnull(WO.[dmMileage], 0.0),</td><td align="center">==</td><td>				@dmMileage = isnull(WO.[dmMileage], 0.0),</td></tr>
+<tr><td>				@bitStaying = WO.[bitStaying],</td><td align="center">==</td><td>				@bitStaying = WO.[bitStaying],</td></tr>
+<tr><td>				@vchDropedOffBy = isnull(WO.[vchDropedOffBy], ''),</td><td align="center">==</td><td>				@vchDropedOffBy = isnull(WO.[vchDropedOffBy], ''),</td></tr>
+<tr><td>				@vchReleasedTo = isnull(WO.[vchReleasedTo], ''),</td><td align="center">==</td><td>				@vchReleasedTo = isnull(WO.[vchReleasedTo], ''),</td></tr>
+<tr><td>				@vchCleanliness = isnull(WO.[vchCleanliness], ''),</td><td align="center">==</td><td>				@vchCleanliness = isnull(WO.[vchCleanliness], ''),</td></tr>
+<tr><td>				@dtScheduled = WO.[dtScheduled],</td><td align="center">==</td><td>				@dtScheduled = WO.[dtScheduled],</td></tr>
+<tr><td>				@dtArrival = WO.[dtArrival],</td><td align="center">==</td><td>				@dtArrival = WO.[dtArrival],</td></tr>
+<tr><td>				@dtOpened = WO.[dtOpened],</td><td align="center">==</td><td>				@dtOpened = WO.[dtOpened],</td></tr>
+<tr><td>				@dtCompleted = WO.dtCompleted,</td><td align="center">==</td><td>				@dtCompleted = WO.dtCompleted,</td></tr>
+<tr><td>				@dtClosed = WO.[dtClosed],</td><td align="center">==</td><td>				@dtClosed = WO.[dtClosed],</td></tr>
+<tr><td>				@dtDeparture = WO.[dtDeparture],</td><td align="center">==</td><td>				@dtDeparture = WO.[dtDeparture],</td></tr>
+<tr><td>				@intCreatedBy = WO.[intCreatedBy],</td><td align="center">==</td><td>				@intCreatedBy = WO.[intCreatedBy],</td></tr>
+<tr><td>				@dtCreated = WO.[dtCreated],</td><td align="center">==</td><td>				@dtCreated = WO.[dtCreated],</td></tr>
+<tr><td>				@vchCreatedBy = ISNULL(LOC.vchLastName, 'Unknown') + ', ' + ISNULL(LOC.vchFirstName, 'Unknown'),</td><td align="center">==</td><td>				@vchCreatedBy = ISNULL(LOC.vchLastName, 'Unknown') + ', ' + ISNULL(LOC.vchFirstName, 'Unknown'),</td></tr>
+<tr><td>				@intUpdatedBy = WO.[intUpdatedBy],</td><td align="center">==</td><td>				@intUpdatedBy = WO.[intUpdatedBy],</td></tr>
+<tr><td>				@vchUpdatedBy = ISNULL(LOU.vchLastName, 'Unknown') + ', ' + ISNULL(LOU.vchFirstName, 'Unknown'),</td><td align="center">==</td><td>				@vchUpdatedBy = ISNULL(LOU.vchLastName, 'Unknown') + ', ' + ISNULL(LOU.vchFirstName, 'Unknown'),</td></tr>
+<tr><td>				@dtUpdated = WO.[dtUpdated]</td><td align="center">==</td><td>				@dtUpdated = WO.[dtUpdated]</td></tr>
+<tr><td>			from [WorkOrders] WO</td><td align="center">==</td><td>			from [WorkOrders] WO</td></tr>
+<tr><td>			inner join Equipments E</td><td align="center">==</td><td>			inner join Equipments E</td></tr>
+<tr><td>			on 	WO.EquipId = E.[Id]</td><td align="center">==</td><td>			on 	WO.EquipId = E.[Id]</td></tr>
+<tr><td>			and 	WO.OrgId = E.OrgId</td><td align="center">==</td><td>			and 	WO.OrgId = E.OrgId</td></tr>
+<tr><td>			and 	WO.OrgId = @OrgId</td><td align="center">==</td><td>			and 	WO.OrgId = @OrgId</td></tr>
+<tr><td>			and 	WO.[Id] = @Id</td><td align="center">==</td><td>			and 	WO.[Id] = @Id</td></tr>
+<tr><td>			inner join EquipTypes ET</td><td align="center">==</td><td>			inner join EquipTypes ET</td></tr>
+<tr><td>			on 	E.TypeId = ET.[Id]</td><td align="center">==</td><td>			on 	E.TypeId = ET.[Id]</td></tr>
+<tr><td>			and 	E.OrgId = ET.OrgId</td><td align="center">==</td><td>			and 	E.OrgId = ET.OrgId</td></tr>
+<tr><td>			inner join WorkOrderTypes WOT</td><td align="center">==</td><td>			inner join WorkOrderTypes WOT</td></tr>
+<tr><td>			on 	WO.TypeId = WOT.[Id]</td><td align="center">==</td><td>			on 	WO.TypeId = WOT.[Id]</td></tr>
+<tr><td>			left outer join EquipModels EMo</td><td align="center">==</td><td>			left outer join EquipModels EMo</td></tr>
+<tr><td>			on 	EMo.OrgId = @OrgId</td><td align="center">==</td><td>			on 	EMo.OrgId = @OrgId</td></tr>
+<tr><td>			and 	EMo.[Id] = E.ModelId</td><td align="center">==</td><td>			and 	EMo.[Id] = E.ModelId</td></tr>
+<tr><td>			left outer join EquipModelType EMT</td><td align="center">==</td><td>			left outer join EquipModelType EMT</td></tr>
+<tr><td>			on 	EMT.OrgId = @OrgId</td><td align="center">==</td><td>			on 	EMT.OrgId = @OrgId</td></tr>
+<tr><td>			and 	EMT.[Id] = EMo.TypeId</td><td align="center">==</td><td>			and 	EMT.[Id] = EMo.TypeId</td></tr>
+<tr><td>			left outer join EquipMakes EMa</td><td align="center">==</td><td>			left outer join EquipMakes EMa</td></tr>
+<tr><td>			on 	EMa.OrgId = @OrgId</td><td align="center">==</td><td>			on 	EMa.OrgId = @OrgId</td></tr>
+<tr><td>			and 	EMa.[Id] = EMT.MakeId</td><td align="center">==</td><td>			and 	EMa.[Id] = EMT.MakeId</td></tr>
+<tr><td>			left outer join Equipments SpE</td><td align="center">==</td><td>			left outer join Equipments SpE</td></tr>
+<tr><td>			on 	isnull(WO.SpareEquipId, 0) = SpE.[Id]</td><td align="center">==</td><td>			on 	isnull(WO.SpareEquipId, 0) = SpE.[Id]</td></tr>
+<tr><td>			and 	WO.OrgId = SpE.OrgId</td><td align="center">==</td><td>			and 	WO.OrgId = SpE.OrgId</td></tr>
+<tr><td>			inner join WorkOrderStatus WOS</td><td align="center">==</td><td>			inner join WorkOrderStatus WOS</td></tr>
+<tr><td>			on 	WO.StatusId = WOS.[Id]</td><td align="center">==</td><td>			on 	WO.StatusId = WOS.[Id]</td></tr>
+<tr><td>			left outer join WorkOrderOperatorStatus WOOS</td><td align="center">==</td><td>			left outer join WorkOrderOperatorStatus WOOS</td></tr>
+<tr><td>			on 	WO.OperatorStatusId = WOOS.[Id]</td><td align="center">==</td><td>			on 	WO.OperatorStatusId = WOOS.[Id]</td></tr>
+<tr><td>			left outer join Logins LOP</td><td align="center">==</td><td>			left outer join Logins LOP</td></tr>
+<tr><td>			on 	WO.intOperatorId = LOP.[Id]</td><td align="center">==</td><td>			on 	WO.intOperatorId = LOP.[Id]</td></tr>
+<tr><td>			left outer join Logins LOT</td><td align="center">==</td><td>			left outer join Logins LOT</td></tr>
+<tr><td>			on 	WO.intTechId = LOT.[Id]</td><td align="center">==</td><td>			on 	WO.intTechId = LOT.[Id]</td></tr>
+<tr><td>			left outer join Logins LOC</td><td align="center">==</td><td>			left outer join Logins LOC</td></tr>
+<tr><td>			on 	WO.intCreatedBy = LOC.[Id]</td><td align="center">==</td><td>			on 	WO.intCreatedBy = LOC.[Id]</td></tr>
+<tr><td>			left outer join Logins LOU</td><td align="center">==</td><td>			left outer join Logins LOU</td></tr>
+<tr><td>			on 	WO.intUpdatedBy = LOU.[id]</td><td align="center">==</td><td>			on 	WO.intUpdatedBy = LOU.[id]</td></tr>
+<tr><td>			return 0</td><td align="center">==</td><td>			return 0</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	if @Action = 'U'</td><td align="center">==</td><td>	if @Action = 'U'</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		if @Id = 0</td><td align="center">==</td><td>		if @Id = 0</td></tr>
+<tr><td>		begin</td><td align="center">==</td><td>		begin</td></tr>
+<tr><td>			-- insert Work Order and EquipData</td><td align="center">==</td><td>			-- insert Work Order and EquipData</td></tr>
+<tr><td>			select @WorkOrderNumber = isnull(max(WorkOrderNumber), 0) + 1</td><td align="center">==</td><td>			select @WorkOrderNumber = isnull(max(WorkOrderNumber), 0) + 1</td></tr>
+<tr><td>			from WorkOrders</td><td align="center">==</td><td>			from WorkOrders</td></tr>
+<tr><td>			where datediff(minute, dateadd(d, datediff(d, '', @dtCreated), ''), dtCreated) > 0</td><td align="center">==</td><td>			where datediff(minute, dateadd(d, datediff(d, '', @dtCreated), ''), dtCreated) > 0</td></tr>
+<tr><td>			and datediff(minute, dtCreated, dateadd(day, 1, dateadd(d, datediff(d, '', @dtCreated), ''))) > 0</td><td align="center">==</td><td>			and datediff(minute, dtCreated, dateadd(day, 1, dateadd(d, datediff(d, '', @dtCreated), ''))) > 0</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			if exists(select 'true'</td><td align="center">==</td><td>			if exists(select 'true'</td></tr>
+<tr><td>				from Equipments</td><td align="center">==</td><td>				from Equipments</td></tr>
+<tr><td>				where [Id] = @EquipId</td><td align="center">==</td><td>				where [Id] = @EquipId</td></tr>
+<tr><td>				and OrgId = @OrgId</td><td align="center">==</td><td>				and OrgId = @OrgId</td></tr>
+<tr><td>				and isnull(EquipOperatorId, 0) = 0</td><td align="center">==</td><td>				and isnull(EquipOperatorId, 0) = 0</td></tr>
+<tr><td>				and isnull(TempOperatorId, 0) = 0)</td><td align="center">==</td><td>				and isnull(TempOperatorId, 0) = 0)</td></tr>
+<tr><td>				select @intOperatorId = isnull(@intUpdatedBy, 6)</td><td align="center">==</td><td>				select @intOperatorId = isnull(@intUpdatedBy, 6)</td></tr>
+<tr><td>			else</td><td align="center">==</td><td>			else</td></tr>
+<tr><td>				select @intOperatorId = (case when isnull(EquipOperatorId, 0) = 0 then TempOperatorId else EquipOperatorId end)</td><td align="center">==</td><td>				select @intOperatorId = (case when isnull(EquipOperatorId, 0) = 0 then TempOperatorId else EquipOperatorId end)</td></tr>
+<tr><td>				from Equipments</td><td align="center">==</td><td>				from Equipments</td></tr>
+<tr><td>				where [Id] = @EquipId</td><td align="center">==</td><td>				where [Id] = @EquipId</td></tr>
+<tr><td>				and OrgId = @OrgId</td><td align="center">==</td><td>				and OrgId = @OrgId</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>			insert into [EquipData](</td><td align="center">==</td><td>			insert into [EquipData](</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[intCreatedBy],</td><td align="center">==</td><td>				[intCreatedBy],</td></tr>
+<tr><td>				[dtCreated],</td><td align="center">==</td><td>				[dtCreated],</td></tr>
+<tr><td>				[intUpdatedBy],</td><td align="center">==</td><td>				[intUpdatedBy],</td></tr>
+<tr><td>				[dtUpdated],</td><td align="center">==</td><td>				[dtUpdated],</td></tr>
+<tr><td>				[vchOrdering],</td><td align="center">==</td><td>				[vchOrdering],</td></tr>
+<tr><td>				[ftItemOrder],</td><td align="center">==</td><td>				[ftItemOrder],</td></tr>
+<tr><td>				[intSize]</td><td align="center">==</td><td>				[intSize]</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			values(</td><td align="center">==</td><td>			values(</td></tr>
+<tr><td>				@OrgId,</td><td align="center">==</td><td>				@OrgId,</td></tr>
+<tr><td>				@intCreatedBy,</td><td align="center">==</td><td>				@intCreatedBy,</td></tr>
+<tr><td>				@dtCreated,</td><td align="center">==</td><td>				@dtCreated,</td></tr>
+<tr><td>				@intUpdatedBy,</td><td align="center">==</td><td>				@intUpdatedBy,</td></tr>
+<tr><td>				@dtCreated,</td><td align="center">==</td><td>				@dtCreated,</td></tr>
+<tr><td>				null,</td><td align="center">==</td><td>				null,</td></tr>
+<tr><td>				null,</td><td align="center">==</td><td>				null,</td></tr>
+<tr><td>				0</td><td align="center">==</td><td>				0</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			select @DataId = scope_identity()</td><td align="center">==</td><td>			select @DataId = scope_identity()</td></tr>
+<tr><td>			</td><td align="center">==</td><td>			</td></tr>
+<tr><td>			insert into [WorkOrders](</td><td align="center">==</td><td>			insert into [WorkOrders](</td></tr>
+<tr><td>				[OrgId],</td><td align="center">==</td><td>				[OrgId],</td></tr>
+<tr><td>				[WorkOrderNumber],</td><td align="center">==</td><td>				[WorkOrderNumber],</td></tr>
+<tr><td>				[EquipId],</td><td align="center">==</td><td>				[EquipId],</td></tr>
+<tr><td>				[TypeId],</td><td align="center">==</td><td>				[TypeId],</td></tr>
+<tr><td>				[StatusId],</td><td align="center">==</td><td>				[StatusId],</td></tr>
+<tr><td>				[DataId],</td><td align="center">==</td><td>				[DataId],</td></tr>
+<tr><td>				[btIsActive],</td><td align="center">==</td><td>				[btIsActive],</td></tr>
+<tr><td>				[intOperatorId],</td><td align="center">==</td><td>				[intOperatorId],</td></tr>
+<tr><td>				[dtScheduled],</td><td align="center">==</td><td>				[dtScheduled],</td></tr>
+<tr><td>				[intCreatedBy],</td><td align="center">==</td><td>				[intCreatedBy],</td></tr>
+<tr><td>				[dtCreated],</td><td align="center">==</td><td>				[dtCreated],</td></tr>
+<tr><td>				[intUpdatedBy],</td><td align="center">==</td><td>				[intUpdatedBy],</td></tr>
+<tr><td>				[dtUpdated]</td><td align="center">==</td><td>				[dtUpdated]</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			values(</td><td align="center">==</td><td>			values(</td></tr>
+<tr><td>				@OrgId,</td><td align="center">==</td><td>				@OrgId,</td></tr>
+<tr><td>				@WorkOrderNumber,</td><td align="center">==</td><td>				@WorkOrderNumber,</td></tr>
+<tr><td>				@EquipId,</td><td align="center">==</td><td>				@EquipId,</td></tr>
+<tr><td>				@TypeId,</td><td align="center">==</td><td>				@TypeId,</td></tr>
+<tr><td>				@StatusId,</td><td align="center">==</td><td>				@StatusId,</td></tr>
+<tr><td>				@DataId,</td><td align="center">==</td><td>				@DataId,</td></tr>
+<tr><td>				1,</td><td align="center">==</td><td>				1,</td></tr>
+<tr><td>				@intOperatorId,</td><td align="center">==</td><td>				@intOperatorId,</td></tr>
+<tr><td>				@dtScheduled,</td><td align="center">==</td><td>				@dtScheduled,</td></tr>
+<tr><td>				@intCreatedBy,</td><td align="center">==</td><td>				@intCreatedBy,</td></tr>
+<tr><td>				@dtCreated,</td><td align="center">==</td><td>				@dtCreated,</td></tr>
+<tr><td>				@intUpdatedBy,</td><td align="center">==</td><td>				@intUpdatedBy,</td></tr>
+<tr><td>				@dtCreated</td><td align="center">==</td><td>				@dtCreated</td></tr>
+<tr><td>				)</td><td align="center">==</td><td>				)</td></tr>
+<tr><td>			return scope_identity()</td><td align="center">==</td><td>			return scope_identity()</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>		else</td><td align="center">==</td><td>		else</td></tr>
+<tr><td>		begin -- update Work Order</td><td align="center">==</td><td>		begin -- update Work Order</td></tr>
+<tr><td>			if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td><td align="center">==</td><td>			if not exists(select 'true' from WorkOrders where OrgId=@OrgId and [Id]=@Id)</td></tr>
+<tr><td>			begin</td><td align="center">==</td><td>			begin</td></tr>
+<tr><td>				return -1</td><td align="center">==</td><td>				return -1</td></tr>
+<tr><td>			end</td><td align="center">==</td><td>			end</td></tr>
+<tr><td>			else</td><td align="center">==</td><td>			else</td></tr>
+<tr><td>			begin</td><td align="center">==</td><td>			begin</td></tr>
+<tr><td>				if isnull(@btWizardUpdate, 0) = 1</td><td align="center">==</td><td>				if isnull(@btWizardUpdate, 0) = 1</td></tr>
+<tr><td>				begin -- update for wo_editAddInfo.aspx screen</td><td align="center">==</td><td>				begin -- update for wo_editAddInfo.aspx screen</td></tr>
+<tr><td>					update 	[WorkOrders]</td><td align="center">==</td><td>					update 	[WorkOrders]</td></tr>
+<tr><td>					set 	[TypeId] = @TypeId,</td><td align="center">==</td><td>					set 	[TypeId] = @TypeId,</td></tr>
+<tr><td>						[dtScheduled] = @dtScheduled,</td><td align="center">==</td><td>						[dtScheduled] = @dtScheduled,</td></tr>
+<tr><td>						[intUpdatedBy] = @intUpdatedBy,</td><td align="center">==</td><td>						[intUpdatedBy] = @intUpdatedBy,</td></tr>
+<tr><td>						[dtUpdated] = @dtUpdated</td><td align="center">==</td><td>						[dtUpdated] = @dtUpdated</td></tr>
+<tr><td>					where 	[OrgId] = @OrgId</td><td align="center">==</td><td>					where 	[OrgId] = @OrgId</td></tr>
+<tr><td>					and 	[Id] = @Id</td><td align="center">==</td><td>					and 	[Id] = @Id</td></tr>
+<tr><td>				end</td><td align="center">==</td><td>				end</td></tr>
+<tr><td>				else</td><td align="center">==</td><td>				else</td></tr>
+<tr><td>				begin -- update for wo_editWorkOrder.aspx</td><td align="center">==</td><td>				begin -- update for wo_editWorkOrder.aspx</td></tr>
+<tr><td>					update 	[WorkOrders]</td><td align="center">==</td><td>					update 	[WorkOrders]</td></tr>
+<tr><td>					set 	[TypeId] = @TypeId,</td><td align="center">==</td><td>					set 	[TypeId] = @TypeId,</td></tr>
+<tr><td>						[intTechId] = @intTechId,</td><td align="center">==</td><td>						[intTechId] = @intTechId,</td></tr>
+<tr><td>						[bitStaying] = isnull(@bitStaying, bitStaying),</td><td align="center">==</td><td>						[bitStaying] = isnull(@bitStaying, bitStaying),</td></tr>
+<tr><td>						[vchDropedOffBy] = @vchDropedOffBy,</td><td align="center">==</td><td>						[vchDropedOffBy] = @vchDropedOffBy,</td></tr>
+<tr><td>						[vchReleasedTo] = @vchReleasedTo,</td><td align="center">==</td><td>						[vchReleasedTo] = @vchReleasedTo,</td></tr>
+<tr><td>						[vchCleanliness] = @vchCleanliness,</td><td align="center">==</td><td>						[vchCleanliness] = @vchCleanliness,</td></tr>
+<tr><td>						[dtScheduled] = isnull(@dtScheduled, dtScheduled),</td><td align="center">==</td><td>						[dtScheduled] = isnull(@dtScheduled, dtScheduled),</td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">						[dtArrival] = isnull(@dtArrival, dtArrival),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">						[dtOpened] = isnull(@dtOpened, dtOpened),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">						[dtClosed] = isnull(@dtClosed, dtClosed),</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">						[dtDeparture] = isnull(@dtDeparture, dtDeparture),</font></td></tr>
+<tr><td>						[intUpdatedBy] = isnull(@intUpdatedBy, intUpdatedBy),</td><td align="center">==</td><td>						[intUpdatedBy] = isnull(@intUpdatedBy, intUpdatedBy),</td></tr>
+<tr><td>						[dtUpdated] = @dtUpdated</td><td align="center">==</td><td>						[dtUpdated] = @dtUpdated</td></tr>
+<tr><td>					where 	[OrgId]=@OrgId</td><td align="center">==</td><td>					where 	[OrgId]=@OrgId</td></tr>
+<tr><td>					and 	[Id]=@Id</td><td align="center">==</td><td>					and 	[Id]=@Id</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>					update WorkOrderInspections</td><td align="center">==</td><td>					update WorkOrderInspections</td></tr>
+<tr><td>					set TechId = @intTechId</td><td align="center">==</td><td>					set TechId = @intTechId</td></tr>
+<tr><td>					where WorkOrderId = @Id</td><td align="center">==</td><td>					where WorkOrderId = @Id</td></tr>
+<tr><td>					and OrgId = @OrgId</td><td align="center">==</td><td>					and OrgId = @OrgId</td></tr>
+<tr><td>				end</td><td align="center">==</td><td>				end</td></tr>
+<tr><td>				return 0</td><td align="center">==</td><td>				return 0</td></tr>
+<tr><td>			end</td><td align="center">==</td><td>			end</td></tr>
+<tr><td>		end</td><td align="center">==</td><td>		end</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	return 0</td><td align="center">==</td><td>	return 0</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></P></body></html>

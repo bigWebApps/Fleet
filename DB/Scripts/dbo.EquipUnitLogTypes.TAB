@@ -1,0 +1,19 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipUnitLogTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipUnitLogTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipUnitLogTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipUnitLogTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (25) COLLATE Latin1_General_CI_AS NOT NULL ,
+	CONSTRAINT [PK_EquipmentUnitLogTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

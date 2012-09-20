@@ -1,0 +1,36 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Errors]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Errors]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Errors]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Errors] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[UserId] [int] NOT NULL ,
+	[UserOrgId] [int] NOT NULL ,
+	[vchErrorName] [varchar] (1024) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_Errors_vchErrorName] DEFAULT (''),
+	[vchPageName] [varchar] (150) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_Errors_vchPageName] DEFAULT (''),
+	[dtCreated] [datetime] NOT NULL CONSTRAINT [DF_Errors_dtCreated] DEFAULT (getdate()),
+	[vchDesc] [varchar] (4000) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_Errors_vchDesc] DEFAULT ('Unknown error'),
+	CONSTRAINT [PK_Errors] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Errors_Logins] FOREIGN KEY 
+	(
+		[UserId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Errors_Orgs] FOREIGN KEY 
+	(
+		[UserOrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

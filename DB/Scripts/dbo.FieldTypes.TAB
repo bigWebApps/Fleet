@@ -1,0 +1,19 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[FieldTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[FieldTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[FieldTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[FieldTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [nvarchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_FieldTypes_vchName] DEFAULT (N'nvarchar'),
+	CONSTRAINT [PK_FieldTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

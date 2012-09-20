@@ -1,0 +1,30 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[RepairItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[RepairItems]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[RepairItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[RepairItems] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[CatId] [int] NOT NULL ,
+	[vchDesc] [varchar] (1000) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_RepairItems_vchDesc] DEFAULT (''),
+	CONSTRAINT [PK_RepairItems] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_RepairItems_RepairCats] FOREIGN KEY 
+	(
+		[CatId],
+		[OrgId]
+	) REFERENCES [dbo].[RepairCats] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

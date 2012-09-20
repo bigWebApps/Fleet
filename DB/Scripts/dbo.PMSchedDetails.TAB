@@ -1,0 +1,47 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PMSchedDetails]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[PMSchedDetails]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PMSchedDetails]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[PMSchedDetails] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[PMSchedId] [int] NOT NULL ,
+	[PMServiceId] [int] NOT NULL ,
+	[UnitMeasureId] [int] NOT NULL ,
+	[intDays] [int] NULL ,
+	[dmUnits] [decimal](19, 8) NULL ,
+	CONSTRAINT [PK_PMSchedDetails] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_PMSchedDetails_PMSchedules] FOREIGN KEY 
+	(
+		[OrgId],
+		[PMSchedId]
+	) REFERENCES [dbo].[PMSchedules] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_PMSchedDetails_PMServices] FOREIGN KEY 
+	(
+		[OrgId],
+		[PMServiceId]
+	) REFERENCES [dbo].[PMServices] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_PMSchedDetails_UnitMeasures] FOREIGN KEY 
+	(
+		[UnitMeasureId]
+	) REFERENCES [dbo].[UnitMeasures] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

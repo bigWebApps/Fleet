@@ -1,0 +1,19 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[UserTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[UserTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[UserTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[UserTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [char] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_UserTypes_vchName] DEFAULT (''),
+	CONSTRAINT [PK_UserTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

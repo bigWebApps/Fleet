@@ -1,0 +1,19 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[ServiceResults]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[ServiceResults]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[ServiceResults]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[ServiceResults] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchDesc] [varchar] (25) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	CONSTRAINT [PK_ServiceResults] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

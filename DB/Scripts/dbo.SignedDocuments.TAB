@@ -1,0 +1,36 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[SignedDocuments]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[SignedDocuments]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[SignedDocuments]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[SignedDocuments] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[UserId] [int] NOT NULL ,
+	[DocumentId] [int] NOT NULL ,
+	[DocumentTypeId] [int] NOT NULL ,
+	[dtSignDate] [datetime] NOT NULL CONSTRAINT [DF_SignedDocuments_dtSignDate] DEFAULT (getdate()),
+	CONSTRAINT [PK_SignedDocuments] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_SignedDocuments_DocumentTypes] FOREIGN KEY 
+	(
+		[DocumentTypeId]
+	) REFERENCES [dbo].[DocumentTypes] (
+		[Id]
+	),
+	CONSTRAINT [FK_SignedDocuments_Logins] FOREIGN KEY 
+	(
+		[UserId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

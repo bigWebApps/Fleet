@@ -1,0 +1,41 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipInspectHistory]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipInspectHistory]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipInspectHistory]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipInspectHistory] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[EquipId] [int] NOT NULL ,
+	[dtDate] [datetime] NOT NULL CONSTRAINT [DF_EquipInspectHistory_dtDate] DEFAULT (getdate()),
+	[InspectSchedDetailId] [int] NOT NULL ,
+	[WorkOrderId] [int] NULL ,
+	CONSTRAINT [PK_EquipInspectHistory] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[EquipId],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipInspectHistory_Equipments] FOREIGN KEY 
+	(
+		[EquipId],
+		[OrgId]
+	) REFERENCES [dbo].[Equipments] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_EquipInspectHistory_InspectSchedules] FOREIGN KEY 
+	(
+		[InspectSchedDetailId],
+		[OrgId]
+	) REFERENCES [dbo].[InspectSchedDetails] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

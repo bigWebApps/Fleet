@@ -1,0 +1,39 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipUnitLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipUnitLogs]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipUnitLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipUnitLogs] (
+	[OrgId] [int] NOT NULL ,
+	[EquipId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[LogTypeId] [int] NOT NULL ,
+	[dtDate] [datetime] NOT NULL ,
+	[dmUnits] [decimal](19, 8) NOT NULL ,
+	CONSTRAINT [PK_EquipmentUnitLogs] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[EquipId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipUnitLogs_Equipments] FOREIGN KEY 
+	(
+		[EquipId],
+		[OrgId]
+	) REFERENCES [dbo].[Equipments] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_EquipUnitLogs_EquipUnitLogTypes] FOREIGN KEY 
+	(
+		[LogTypeId]
+	) REFERENCES [dbo].[EquipUnitLogTypes] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

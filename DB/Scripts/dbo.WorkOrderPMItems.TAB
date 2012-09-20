@@ -1,0 +1,54 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderPMItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderPMItems]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderPMItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderPMItems] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[WorkOrderId] [int] NOT NULL ,
+	[PMSchedDetailId] [int] NOT NULL ,
+	[ServiceResultId] [int] NULL ,
+	[ServiceCheckId] [int] NULL ,
+	[RepairItemId] [int] NULL ,
+	[dtReport] [datetime] NOT NULL CONSTRAINT [DF_PreventiveMaintItems_dtReport] DEFAULT (getdate()),
+	CONSTRAINT [PK_WorkOrderPMItems] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_WorkOrderPMItems_PMSchedDetails] FOREIGN KEY 
+	(
+		[PMSchedDetailId],
+		[OrgId]
+	) REFERENCES [dbo].[PMSchedDetails] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_WorkOrderPMItems_ServiceChecks] FOREIGN KEY 
+	(
+		[ServiceCheckId]
+	) REFERENCES [dbo].[ServiceChecks] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderPMItems_ServiceResults] FOREIGN KEY 
+	(
+		[ServiceResultId]
+	) REFERENCES [dbo].[ServiceResults] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderPMItems_WorkOrders] FOREIGN KEY 
+	(
+		[OrgId],
+		[WorkOrderId]
+	) REFERENCES [dbo].[WorkOrders] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

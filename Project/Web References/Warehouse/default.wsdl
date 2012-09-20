@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.XMLWebServiceSoapHeaderAuth.net" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="www.XMLWebServiceSoapHeaderAuth.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="www.XMLWebServiceSoapHeaderAuth.net">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetOrganizations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganizationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganizationsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstances">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="organizationId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstancesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstancesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Connect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="organizationId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConnectResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnectWithKeyReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="organizationId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConnectWithKeyReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConnectWithKeyReturnResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReplaceKeyResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetOrganizationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganizations" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganizationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstances" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstancesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConnectSoapIn">
+    <wsdl:part name="parameters" element="tns:Connect" />
+  </wsdl:message>
+  <wsdl:message name="ConnectSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConnectWithKeyReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnectWithKeyReturn" />
+  </wsdl:message>
+  <wsdl:message name="ConnectWithKeyReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnectWithKeyReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceKeySoapIn">
+    <wsdl:part name="parameters" element="tns:ReplaceKey" />
+  </wsdl:message>
+  <wsdl:message name="ReplaceKeySoapOut">
+    <wsdl:part name="parameters" element="tns:ReplaceKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserServiceSoap">
+    <wsdl:operation name="GetOrganizations">
+      <wsdl:input message="tns:GetOrganizationsSoapIn" />
+      <wsdl:output message="tns:GetOrganizationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstances">
+      <wsdl:input message="tns:GetInstancesSoapIn" />
+      <wsdl:output message="tns:GetInstancesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <wsdl:input message="tns:ConnectSoapIn" />
+      <wsdl:output message="tns:ConnectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithKeyReturn">
+      <wsdl:input message="tns:ConnectWithKeyReturnSoapIn" />
+      <wsdl:output message="tns:ConnectWithKeyReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceKey">
+      <wsdl:input message="tns:ReplaceKeySoapIn" />
+      <wsdl:output message="tns:ReplaceKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <wsdl:input message="tns:GetOrderDetailsSoapIn" />
+      <wsdl:output message="tns:GetOrderDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserServiceSoap" type="tns:UserServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrganizations">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetOrganizations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstances">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetInstances" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/Connect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithKeyReturn">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ConnectWithKeyReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceKey">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ReplaceKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserServiceSoap12" type="tns:UserServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetOrganizations">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetOrganizations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstances">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetInstances" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectWithKeyReturn">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ConnectWithKeyReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplaceKey">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/ReplaceKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap12:operation soapAction="www.XMLWebServiceSoapHeaderAuth.net/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="UserServiceSoap" binding="tns:UserServiceSoap">
+      <soap:address location="http://klebb.kc.micajah.com/bigWebApps_Warehouse_New/Services/v1/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserServiceSoap12" binding="tns:UserServiceSoap12">
+      <soap12:address location="http://klebb.kc.micajah.com/bigWebApps_Warehouse_New/Services/v1/default.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

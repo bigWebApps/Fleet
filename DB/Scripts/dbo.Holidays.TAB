@@ -1,0 +1,24 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Holidays]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Holidays]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Holidays]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Holidays] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[dtStartDate] [datetime] NOT NULL ,
+	[dtEndDate] [datetime] NOT NULL ,
+	[vchDesc] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_Holidays_vchDesc] DEFAULT (''),
+	[intPercentOff] [int] NOT NULL CONSTRAINT [DF_Holidays_intPercentOff] DEFAULT (100),
+	CONSTRAINT [PK_Holidays] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

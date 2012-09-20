@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>SQL Delta Structure Comparison Report</title>
+<script language="javascript">
+   function ShowComparison(oLink, oDisplay) {
+      if (oDisplay.style.display == 'none') {
+         oDisplay.style.display = '';
+         oLink.innerText = '-';
+      } else {
+         oDisplay.style.display = 'none';
+         oLink.innerText = '+';
+      }
+   }
+</script>
+<style>
+.headingtxt {font:16pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; background-color: #E8A623; color: #FFFFFF; line-height: 35px; BORDER-TOP: black 1px solid; BORDER-BOTTOM: black 1px solid}
+.sectiontxt {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.datalink {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; text-decoration:none; color: blue}
+.headertxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.itemtxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: #E8A623}
+.bodytxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: #000000}
+.normlink {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: blue}
+.added {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: red}
+.deleted {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: blue}
+.smltxt {font: 8pt, Arial, Helvetica, sans-serif; color: #000000}
+.modified {font: 8pt, Arial, Helvetica, sans-serif; color: red}
+</style>
+</head>
+<body>
+<P align="center" class="headingtxt">SQL Delta Structure Comparison Report</P>
+<P align="left">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="sectiontxt"><td>Databases</td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td width="1%"></td><td width="19%" nowrap class="itemtxt">Database A:</td><td width="80%" nowrap class="bodytxt">largo.BFS_Beta</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Database B:</td><td nowrap class="bodytxt">largo.BFS_Temp</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Comparison Date:</td><td nowrap class="bodytxt">7/29/2006</td></tr>
+</table></P>
+<P align="left"><div class="sectiontxt">Comparison Summary</div>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="15"><td colspan="2"></td></tr>
+<tr><td width="1%"></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="30%" nowrap>Object Type</td><td width="17%" nowrap align="center">Identical</td><td width="18%" nowrap align="center">Missing From A</td><td width="18%" nowrap align="center">Missing From B</td><td width="17%" nowrap align="center">Modified</td></tr>
+<tr height="25"><td nowrap><a href="#tables" class="normlink">Tables</a></td><td nowrap align="right">69&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#views" class="normlink">Views</a></td><td nowrap align="right">1&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#procedures" class="normlink">Procedures</a></td><td nowrap align="right">203&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">1&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#triggers" class="normlink">Triggers</a></td><td nowrap align="right">13&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#functions" class="normlink">Functions</a></td><td nowrap align="right">3&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Defaults</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Rules</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>User Types</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Users</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Roles</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Full-Text Catalogs</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+</table></td></tr></table></P>
+<P align="left"><div class="sectiontxt">Comparison Results</div><table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="procedures" class="itemtxt">Procedures</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V0" class="bodytxt" href="javascript:ShowComparison(V0, T0)">+</a></td><td nowrap>dbo.sp_SelectEquipList_Filter</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on largo.BFS_Beta</td></tr>
+<tr style="DISPLAY: none" id="T0"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Procedure</td><td width="4%" align="center">==</td><td width="48%">-- Procedure</td></tr>
+<tr><td>CREATE procedure dbo.sp_SelectEquipList_Filter</td><td align="center">==</td><td>CREATE procedure dbo.sp_SelectEquipList_Filter</td></tr>
+<tr><td>	(</td><td align="center">==</td><td>	(</td></tr>
+<tr><td>		@OrgId int,</td><td align="center">==</td><td>		@OrgId int,</td></tr>
+<tr><td>		@TypeId int,</td><td align="center">==</td><td>		@TypeId int,</td></tr>
+<tr><td>		@DepId int,</td><td align="center">==</td><td>		@DepId int,</td></tr>
+<tr><td>		@LocId int,</td><td align="center">==</td><td>		@LocId int,</td></tr>
+<tr><td>		@IsSpare int,</td><td align="center">==</td><td>		@IsSpare int,</td></tr>
+<tr><td>		@UserId int,</td><td align="center">==</td><td>		@UserId int,</td></tr>
+<tr><td>		@vchLink varchar(50),</td><td align="center">==</td><td>		@vchLink varchar(50),</td></tr>
+<tr><td>		@bitShowUnassigned bit,</td><td align="center">==</td><td>		@bitShowUnassigned bit,</td></tr>
+<tr><td>		@vchEquipID_Filter varchar(255)</td><td align="center">==</td><td>		@vchEquipID_Filter varchar(255)</td></tr>
+<tr><td>	)</td><td align="center">==</td><td>	)</td></tr>
+<tr><td>as</td><td align="center">==</td><td>as</td></tr>
+<tr><td>	set nocount on</td><td align="center">==</td><td>	set nocount on</td></tr>
+<tr><td>	create table #t_equip(</td><td align="center">==</td><td>	create table #t_equip(</td></tr>
+<tr><td>		[Id] int,</td><td align="center">==</td><td>		[Id] int,</td></tr>
+<tr><td>		[TypeId] int,</td><td align="center">==</td><td>		[TypeId] int,</td></tr>
+<tr><td>		[DeptId] int,</td><td align="center">==</td><td>		[DeptId] int,</td></tr>
+<tr><td>		[LocId] int,</td><td align="center">==</td><td>		[LocId] int,</td></tr>
+<tr><td>		[UserId] int,</td><td align="center">==</td><td>		[UserId] int,</td></tr>
+<tr><td>		[TypeEquipId] int,</td><td align="center">==</td><td>		[TypeEquipId] int,</td></tr>
+<tr><td>		[NumEquipId] int</td><td align="center">==</td><td>		[NumEquipId] int</td></tr>
+<tr><td>		)</td><td align="center">==</td><td>		)</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>	if isnull(@bitShowUnassigned, 0) = 0</td><td align="center">==</td><td>	if isnull(@bitShowUnassigned, 0) = 0</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		insert into #t_equip(</td><td align="center">==</td><td>		insert into #t_equip(</td></tr>
+<tr><td>			[Id],</td><td align="center">==</td><td>			[Id],</td></tr>
+<tr><td>			TypeId,</td><td align="center">==</td><td>			TypeId,</td></tr>
+<tr><td>			DeptId,</td><td align="center">==</td><td>			DeptId,</td></tr>
+<tr><td>			LocId,</td><td align="center">==</td><td>			LocId,</td></tr>
+<tr><td>			UserId,</td><td align="center">==</td><td>			UserId,</td></tr>
+<tr><td>			TypeEquipId,</td><td align="center">==</td><td>			TypeEquipId,</td></tr>
+<tr><td>			NumEquipId</td><td align="center">==</td><td>			NumEquipId</td></tr>
+<tr><td>			)</td><td align="center">==</td><td>			)</td></tr>
+<tr><td>		select 	[Id],</td><td align="center">==</td><td>		select 	[Id],</td></tr>
+<tr><td>			TypeId,</td><td align="center">==</td><td>			TypeId,</td></tr>
+<tr><td>			DeptId,</td><td align="center">==</td><td>			DeptId,</td></tr>
+<tr><td>			LocId,</td><td align="center">==</td><td>			LocId,</td></tr>
+<tr><td>			EquipOperatorId,</td><td align="center">==</td><td>			EquipOperatorId,</td></tr>
+<tr><td>			isnumeric(vchEquipId),</td><td align="center">==</td><td>			isnumeric(vchEquipId),</td></tr>
+<tr><td>			case when isnumeric(vchEquipId) = 1 then convert(int, vchEquipId) else 99999 end</td><td align="center">==</td><td>			case when isnumeric(vchEquipId) = 1 then convert(int, vchEquipId) else 99999 end</td></tr>
+<tr><td>		from Equipments</td><td align="center">==</td><td>		from Equipments</td></tr>
+<tr><td>		where OrgId = @OrgId</td><td align="center">==</td><td>		where OrgId = @OrgId</td></tr>
+<tr><td>		and vchEquipId like @vchEquipID_Filter</td><td align="center">==</td><td>		and vchEquipId like @vchEquipID_Filter</td></tr>
+<tr><td>		and isnull(EquipOperatorId, 0) <> 0</td><td align="center">==</td><td>		and isnull(EquipOperatorId, 0) <> 0</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	else</td><td align="center">==</td><td>	else</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		insert into #t_equip([Id], TypeId, DeptId, LocId, UserId, TypeEquipId, NumEquipId)</td><td align="center">==</td><td>		insert into #t_equip([Id], TypeId, DeptId, LocId, UserId, TypeEquipId, NumEquipId)</td></tr>
+<tr><td>		select [Id], TypeId, DeptId, LocId, EquipOperatorId, isnumeric(vchEquipId),</td><td align="center">==</td><td>		select [Id], TypeId, DeptId, LocId, EquipOperatorId, isnumeric(vchEquipId),</td></tr>
+<tr><td>			case when isnumeric(vchEquipId) = 1 then convert(int, vchEquipId) else 99999 end</td><td align="center">==</td><td>			case when isnumeric(vchEquipId) = 1 then convert(int, vchEquipId) else 99999 end</td></tr>
+<tr><td>		from Equipments</td><td align="center">==</td><td>		from Equipments</td></tr>
+<tr><td>		where OrgId = @OrgId</td><td align="center">==</td><td>		where OrgId = @OrgId</td></tr>
+<tr><td>		and vchEquipId like @vchEquipID_Filter</td><td align="center">==</td><td>		and vchEquipId like @vchEquipID_Filter</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	if @TypeId <> 0</td><td align="center">==</td><td>	if @TypeId <> 0</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		delete from #t_equip</td><td align="center">==</td><td>		delete from #t_equip</td></tr>
+<tr><td>		where TypeId <> @TypeId or TypeId is null</td><td align="center">==</td><td>		where TypeId <> @TypeId or TypeId is null</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	if @DepId <> 0</td><td align="center">==</td><td>	if @DepId <> 0</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		delete from #t_equip</td><td align="center">==</td><td>		delete from #t_equip</td></tr>
+<tr><td>		where DeptId <> @DepId or DeptId is null</td><td align="center">==</td><td>		where DeptId <> @DepId or DeptId is null</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	if @LocId <> 0</td><td align="center">==</td><td>	if @LocId <> 0</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		delete from #t_equip</td><td align="center">==</td><td>		delete from #t_equip</td></tr>
+<tr><td>		where LocId <> @LocId or LocId is null</td><td align="center">==</td><td>		where LocId <> @LocId or LocId is null</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	if @UserId <> 0</td><td align="center">==</td><td>	if @UserId <> 0</td></tr>
+<tr><td>	begin</td><td align="center">==</td><td>	begin</td></tr>
+<tr><td>		delete from #t_equip</td><td align="center">==</td><td>		delete from #t_equip</td></tr>
+<tr><td>		where UserId <> @UserId or UserId is null</td><td align="center">==</td><td>		where UserId <> @UserId or UserId is null</td></tr>
+<tr><td>	end</td><td align="center">==</td><td>	end</td></tr>
+<tr><td>	</td><td align="center">==</td><td>	</td></tr>
+<tr><td>	select 	E.[Id],</td><td align="center">==</td><td>	select 	E.[Id],</td></tr>
+<tr><td><font class="modified">		case when @vchLink = 'wo_selectOperator.aspx' then @vchLink + '?orderid=0&equipid=' + convert(varchar, E.[Id]) else @vchLink + '?id=' + convert(varchar, E.[Id]) end as Navigation,</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">		(case when @vchLink = 'wo_selectOperator.aspx'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			then @vchLink + '?orderid=0&equipid=' + convert(varchar, E.[Id])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			else (case when @vchLink = 'wo_editAddInfo.aspx'</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				then @vchLink + '?back=past&id=0&equipid=' + convert(varchar, E.[Id])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">				else @vchLink + '?id=' + convert(varchar, E.[Id])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">			      end)</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">		end) as Navigation,</font></td></tr>
+<tr><td>		isnull(E.vchEquipId, '') as EquipId,</td><td align="center">==</td><td>		isnull(E.vchEquipId, '') as EquipId,</td></tr>
+<tr><td>		ET.vchName as TypeName,</td><td align="center">==</td><td>		ET.vchName as TypeName,</td></tr>
+<tr><td>		isnull(cast(E.intYear as varchar(25)), '') as [Year],</td><td align="center">==</td><td>		isnull(cast(E.intYear as varchar(25)), '') as [Year],</td></tr>
+<tr><td>		isnull(E.vchVinSerial, '') as VinSerial,</td><td align="center">==</td><td>		isnull(E.vchVinSerial, '') as VinSerial,</td></tr>
+<tr><td>		isnull(E.vchFuelCode, '') as FuelCode,</td><td align="center">==</td><td>		isnull(E.vchFuelCode, '') as FuelCode,</td></tr>
+<tr><td>		isnull(D.vchName, '') as DeptName,</td><td align="center">==</td><td>		isnull(D.vchName, '') as DeptName,</td></tr>
+<tr><td>		isnull(L.vchName, '') as LocName,</td><td align="center">==</td><td>		isnull(L.vchName, '') as LocName,</td></tr>
+<tr><td>		case when isnull(La.vchFirstName, '') = '' then '' else La.vchLastName + ', ' + La.vchFirstName end as AssignedTo,</td><td align="center">==</td><td>		case when isnull(La.vchFirstName, '') = '' then '' else La.vchLastName + ', ' + La.vchFirstName end as AssignedTo,</td></tr>
+<tr><td>		case when isnull(Lt.vchFirstName, '') = '' then '' else Lt.vchLastName + ', ' + Lt.vchFirstName end as TempOperator,</td><td align="center">==</td><td>		case when isnull(Lt.vchFirstName, '') = '' then '' else Lt.vchLastName + ', ' + Lt.vchFirstName end as TempOperator,</td></tr>
+<tr><td>		isnull(EMa.vchMakeName, '') as MakeName,</td><td align="center">==</td><td>		isnull(EMa.vchMakeName, '') as MakeName,</td></tr>
+<tr><td>		isnull(EMo.vchModelName, '') as ModelName</td><td align="center">==</td><td>		isnull(EMo.vchModelName, '') as ModelName</td></tr>
+<tr><td>	from Equipments E</td><td align="center">==</td><td>	from Equipments E</td></tr>
+<tr><td>	inner join #t_equip TE</td><td align="center">==</td><td>	inner join #t_equip TE</td></tr>
+<tr><td>	on TE.[Id] = E.[Id]</td><td align="center">==</td><td>	on TE.[Id] = E.[Id]</td></tr>
+<tr><td>	inner join EquipTypes ET</td><td align="center">==</td><td>	inner join EquipTypes ET</td></tr>
+<tr><td>	on ET.OrgId = E.OrgId</td><td align="center">==</td><td>	on ET.OrgId = E.OrgId</td></tr>
+<tr><td>	and ET.[Id] = E.TypeId</td><td align="center">==</td><td>	and ET.[Id] = E.TypeId</td></tr>
+<tr><td>	and convert(int, E.bitSpare) <> @IsSpare</td><td align="center">==</td><td>	and convert(int, E.bitSpare) <> @IsSpare</td></tr>
+<tr><td>	left outer join EquipModels EMo</td><td align="center">==</td><td>	left outer join EquipModels EMo</td></tr>
+<tr><td>	on EMo.OrgId = @OrgId and EMo.[Id] = E.ModelId</td><td align="center">==</td><td>	on EMo.OrgId = @OrgId and EMo.[Id] = E.ModelId</td></tr>
+<tr><td>	left outer join EquipModelType EMT</td><td align="center">==</td><td>	left outer join EquipModelType EMT</td></tr>
+<tr><td>	on EMT.OrgId = @OrgId and EMT.[Id] = EMo.TypeId</td><td align="center">==</td><td>	on EMT.OrgId = @OrgId and EMT.[Id] = EMo.TypeId</td></tr>
+<tr><td>	left outer join EquipMakes EMa</td><td align="center">==</td><td>	left outer join EquipMakes EMa</td></tr>
+<tr><td>	on EMa.OrgId = @OrgId and EMa.[Id] = EMT.MakeId</td><td align="center">==</td><td>	on EMa.OrgId = @OrgId and EMa.[Id] = EMT.MakeId</td></tr>
+<tr><td>	left outer join Departments D</td><td align="center">==</td><td>	left outer join Departments D</td></tr>
+<tr><td>	on D.OrgId = @OrgId and D.[Id] = E.DeptId</td><td align="center">==</td><td>	on D.OrgId = @OrgId and D.[Id] = E.DeptId</td></tr>
+<tr><td>	left outer join Locations L</td><td align="center">==</td><td>	left outer join Locations L</td></tr>
+<tr><td>	on L.OrgId = @OrgId and L.[Id] = E.LocId</td><td align="center">==</td><td>	on L.OrgId = @OrgId and L.[Id] = E.LocId</td></tr>
+<tr><td>	left outer join Logins La</td><td align="center">==</td><td>	left outer join Logins La</td></tr>
+<tr><td>	on La.[Id] = E.EquipOperatorId</td><td align="center">==</td><td>	on La.[Id] = E.EquipOperatorId</td></tr>
+<tr><td>	left outer join Logins Lt</td><td align="center">==</td><td>	left outer join Logins Lt</td></tr>
+<tr><td>	on Lt.[Id] = E.TempOperatorId</td><td align="center">==</td><td>	on Lt.[Id] = E.TempOperatorId</td></tr>
+<tr><td>	order by ET.[Id] asc, TE.TypeEquipId desc, TE.NumEquipId asc, E.vchEquipId asc</td><td align="center">==</td><td>	order by ET.[Id] asc, TE.TypeEquipId desc, TE.NumEquipId asc, E.vchEquipId asc</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>	drop table #t_equip</td><td align="center">==</td><td>	drop table #t_equip</td></tr>
+<tr><td>	return</td><td align="center">==</td><td>	return</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></P></body></html>

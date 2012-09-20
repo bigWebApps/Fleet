@@ -1,0 +1,49 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[CustFieldDef]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[CustFieldDef]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[CustFieldDef]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[CustFieldDef] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[DataTypeId] [int] NOT NULL ,
+	[ComponentTypeId] [int] NOT NULL CONSTRAINT [DF_CustFieldDef_ComponentTypeId] DEFAULT (1),
+	[NumberColumn] [int] NOT NULL CONSTRAINT [DF_CustFieldDef_NumberColumn] DEFAULT (1),
+	[vchName] [nvarchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_CustFieldDef_vchName] DEFAULT (N''),
+	[vchNameText] [nvarchar] (100) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_CustFieldDef_vchNameText] DEFAULT (N''),
+	[vchNameLookupTable] [nvarchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchNameFieldLookup] [nvarchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[btRequired] [bit] NOT NULL CONSTRAINT [DF_CustFieldDef_btRequired] DEFAULT (0),
+	[intFieldTypeId] [int] NOT NULL CONSTRAINT [DF_CustFieldDef_tintFieldType] DEFAULT (1),
+	[vchDefault] [nvarchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchHelp] [nvarchar] (1024) COLLATE Latin1_General_CI_AS NULL CONSTRAINT [DF_CustFieldDef_vchHelp] DEFAULT (N''),
+	CONSTRAINT [PK_CustFieldDef] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_CustFieldDef_DataTypes] FOREIGN KEY 
+	(
+		[DataTypeId]
+	) REFERENCES [dbo].[DataTypes] (
+		[Id]
+	),
+	CONSTRAINT [FK_CustFieldDef_FieldTypes] FOREIGN KEY 
+	(
+		[intFieldTypeId]
+	) REFERENCES [dbo].[FieldTypes] (
+		[Id]
+	),
+	CONSTRAINT [FK_CustFieldDef_Orgs] FOREIGN KEY 
+	(
+		[OrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

@@ -1,0 +1,74 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderReportedIssues]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderReportedIssues]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderReportedIssues]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderReportedIssues] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[EquipId] [int] NOT NULL ,
+	[vchDesc] [varchar] (4000) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_ReportedIssues_vchDesc] DEFAULT (''),
+	[WorkOrderId] [int] NULL ,
+	[LastWorkOrderId] [int] NULL ,
+	[RepairCatId] [int] NOT NULL ,
+	[ServiceResultId] [int] NULL ,
+	[ServiceCheckId] [int] NULL ,
+	[RepairItemId] [int] NULL ,
+	[dtReport] [datetime] NOT NULL CONSTRAINT [DF_ReportedIssues_dtReported] DEFAULT (getdate()),
+	CONSTRAINT [PK_WorkOrderReportedIssues] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[EquipId],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_WorkOrderReportedIssues_Equipments] FOREIGN KEY 
+	(
+		[EquipId],
+		[OrgId]
+	) REFERENCES [dbo].[Equipments] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_WorkOrderReportedIssues_RepairCats] FOREIGN KEY 
+	(
+		[RepairCatId],
+		[OrgId]
+	) REFERENCES [dbo].[RepairCats] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_WorkOrderReportedIssues_ServiceChecks] FOREIGN KEY 
+	(
+		[ServiceCheckId]
+	) REFERENCES [dbo].[ServiceChecks] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderReportedIssues_ServiceResults] FOREIGN KEY 
+	(
+		[ServiceResultId]
+	) REFERENCES [dbo].[ServiceResults] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderReportedIssues_WorkOrders] FOREIGN KEY 
+	(
+		[OrgId],
+		[WorkOrderId]
+	) REFERENCES [dbo].[WorkOrders] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderReportedIssues_WorkOrders1] FOREIGN KEY 
+	(
+		[OrgId],
+		[LastWorkOrderId]
+	) REFERENCES [dbo].[WorkOrders] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

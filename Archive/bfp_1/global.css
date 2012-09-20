@@ -1,0 +1,73 @@
+BODY	{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;MARGIN-TOP: 0px;MARGIN-BOTTOM: 0px;MARGIN-LEFT: 0px;MARGIN-RIGHT: 0px;}
+TABLE	{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;}
+TD		{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;}
+FORM	{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;}
+INPUT	{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;}
+SELECT	{FONT-SIZE: 8pt;FONT-FAMILY: Verdana, Arial;}
+A		{FONT-SIZE: 8pt;COLOR: blue;TEXT-DECORATION: underline;}
+A:hover	{FONT-SIZE: 8pt;COLOR: #990000;TEXT-DECORATION: underline;}
+
+.LargeLink		{FONT-SIZE: 10pt; TEXT-DECORATION: underline;}
+A.LargeLink:hove{FONT-SIZE:10pt;}
+
+.MainBody	{PADDING-TOP:5px;PADDING-LEFT:10px;PADDING-RIGHT:10px;}
+.errtxt		{COLOR: Red;}
+
+.text1		{font-size:12pt;font-weight:bold;}
+.text10		{font-size:10pt;font-weight:bold;}
+.text11		{font-size:8pt;font-weight:bold;}
+.text12		{font-size:6pt;}
+.text13		{font-size:7pt; font-weight: bold;}
+.text14		{font-size:6pt; font-weight: bold;}
+
+/*TableCells*/
+.bg01		{background-color:#CCCCCC;}/*Std Gray*/
+.bg02		{background-color:#FFFFCC;}/*Light Yellow*/
+.bg03		{background-color:#041051;color:#ffffff;font-weight:bold;font-size:10pt;}/*Deep Blue*/
+
+/*TopMenu*/
+.TpMn					{COLOR: #FFFFFF;}
+A.TpMn:hover			{COLOR: #FFFFFF;}
+.TpMnItm				{BACKGROUND-COLOR: #041051; color: #FFFFFF; font-weight: bold; cursor: hand;}
+.TpMnItmAlt				{BACKGROUND-COLOR: #003399; color: #FFFFFF; font-weight: bold; cursor: hand;}
+
+/*LeftMenu*/
+.LftMenu				{BACKGROUND-COLOR: #FFFFCC;}
+.LfMn					{COLOR: #000000;}
+A.LfMn:hover			{COLOR: #000000;}
+.LftMnItm				{BACKGROUND-COLOR: #9A0000; COLOR: #FFFFFF; padding-left: 5px; padding-top: 2px; padding-bottom: 2px; cursor: hand;}
+.LftMnItmAlt			{BACKGROUND-COLOR: #FFCF00; padding-left: 5px; padding-top: 2px; padding-bottom: 2px; cursor: hand;}
+
+/*Std Form*/
+.RowCap		{ padding-left: 5px; font-weight: bold; BACKGROUND-COLOR: #FAFACC;} /*#899CE6;#E0EFFE;*/
+.RowElem	{ padding-left: 5px; BACKGROUND-COLOR: #E5ECF9;}
+.RowElemErr	{BACKGROUND-COLOR: #CC0000;}
+.RowHelp	{BACKGROUND-COLOR: #F3F3F3;}/*#E5ECF9;#E1E9FF;#F3F3F3*/
+
+/*Std Form 2
+.RowCap		{BACKGROUND-COLOR: #FAFACC;}
+.RowElem	{BACKGROUND-COLOR: #F3F3F3;}
+.RowElemErr	{BACKGROUND-COLOR: #CC0000;}
+.RowHelp	{BACKGROUND-COLOR: #F3F3F3;}
+*/
+
+ 
+ /*Std Tables*/
+.tblSubHead1{BACKGROUND-COLOR: #333333; color: #FFFFFF; font-weight: bold;}
+.tblSubHead2{BACKGROUND-COLOR: #66669A; color: #FFFFFF; font-weight: bold;}
+
+.tblHeadTxt {FONT-SIZE:10pt;color:#990000;FONT-WEIGHT:bold;}
+.tblHeadTxt1{FONT-SIZE:10pt;color:#66669A;FONT-WEIGHT:bold;}
+.tblHeadTxt2{FONT-SIZE:10pt;color:#3F8640;FONT-WEIGHT:bold;}
+.tblHeadTxt3{FONT-SIZE:10pt;color:#9E755F;FONT-WEIGHT:bold;}
+.tblHeadTxt4{FONT-SIZE:10pt;color:#DF572D;FONT-WEIGHT:bold;}
+.tblHeadTxt5{FONT-SIZE:10pt;color:#5A8282;FONT-WEIGHT:bold;}
+
+
+
+
+
+
+
+
+

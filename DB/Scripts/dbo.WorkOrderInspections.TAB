@@ -1,0 +1,41 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderInspections]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderInspections]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderInspections]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderInspections] (
+	[OrgId] [int] NOT NULL ,
+	[WorkOrderId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[InspectSchedDetailId] [int] NOT NULL ,
+	[TechId] [int] NULL ,
+	[dtReport] [datetime] NOT NULL CONSTRAINT [DF_WorkOrderInspections_dtReport] DEFAULT (getdate()),
+	[btIsProcessed] [bit] NOT NULL CONSTRAINT [DF_WorkOrderInspections_btIsProcessed] DEFAULT (0),
+	CONSTRAINT [PK_WorkOrderInspections] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	) WITH  FILLFACTOR = 90  ON [PRIMARY] ,
+	CONSTRAINT [FK_WorkOrderInspections_InspectSchedDetails] FOREIGN KEY 
+	(
+		[InspectSchedDetailId],
+		[OrgId]
+	) REFERENCES [dbo].[InspectSchedDetails] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_WorkOrderInspections_WorkOrders] FOREIGN KEY 
+	(
+		[OrgId],
+		[WorkOrderId]
+	) REFERENCES [dbo].[WorkOrders] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

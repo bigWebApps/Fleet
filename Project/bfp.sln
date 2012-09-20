@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bfp", "bfp.csproj", "{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.kc.micajah.com:444/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = bfp.csproj
+		SccLocalPath1 = .
+		SccProjectEnlistmentChoice1 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Debug|Default.ActiveCfg = Debug|Any CPU
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Debug|Default.Build.0 = Debug|Any CPU
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Release|Default.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

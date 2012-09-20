@@ -1,0 +1,33 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PartsUsed]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[PartsUsed]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[PartsUsed]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[PartsUsed] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[RepairId] [int] NOT NULL ,
+	[intQty] [int] NOT NULL CONSTRAINT [DF_PartsUsed_intQty] DEFAULT (1),
+	[vchStock] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_PartsUsed_vchStock] DEFAULT (''),
+	[vchDesc] [varchar] (1024) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_PartsUsed_vchDesc] DEFAULT (''),
+	[dmCost] [decimal](18, 2) NOT NULL CONSTRAINT [DF_PartsUsed_dmCost] DEFAULT (0.0),
+	CONSTRAINT [PK_PartsUsed] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_PartsUsed_Repairs] FOREIGN KEY 
+	(
+		[RepairId],
+		[OrgId]
+	) REFERENCES [dbo].[Repairs] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

@@ -1,0 +1,32 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[InspectCats]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[InspectCats]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[InspectCats]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[InspectCats] (
+	[OrgId] [int] NOT NULL ,
+	[InspectId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[tintOrder] [tinyint] NOT NULL ,
+	CONSTRAINT [PK_InspectionGroups] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[InspectId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_InspectionGroups_Inspections] FOREIGN KEY 
+	(
+		[OrgId],
+		[InspectId]
+	) REFERENCES [dbo].[Inspections] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <State>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SourceControl xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Enabled&gt;false&lt;/Enabled&gt;
+  &lt;ProjectName /&gt;
+  &lt;AuxPath /&gt;
+  &lt;LocalPath /&gt;
+  &lt;Provider /&gt;
+&lt;/SourceControl&gt;</State>
+  <DataSources>
+    <ProjectItem>
+      <Name>agavrilov.rds</Name>
+      <FullPath>agavrilov.rds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MicajahExternal.rds</Name>
+      <FullPath>MicajahExternal.rds</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MicajahInternal.rds</Name>
+      <FullPath>MicajahInternal.rds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <Reports>
+    <ProjectItem>
+      <Name>CheckInReceipt.rdl</Name>
+      <FullPath>CheckInReceipt.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CompletedInspection.rdl</Name>
+      <FullPath>CompletedInspection.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CompletedOrder.rdl</Name>
+      <FullPath>CompletedOrder.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>InspectionRequest.rdl</Name>
+      <FullPath>InspectionRequest.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PartsList.rdl</Name>
+      <FullPath>PartsList.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>WorkOrderRequest.rdl</Name>
+      <FullPath>WorkOrderRequest.rdl</FullPath>
+    </ProjectItem>
+  </Reports>
+  <Configurations>
+    <Configuration>
+      <Name>Debug</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <TargetServerURL>http://dev1.atl2.micajah.net/ReportServer</TargetServerURL>
+        <TargetFolder>TestFleetSystemReports</TargetFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>DebugLocal</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <TargetFolder>FleetProReports</TargetFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Production</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <TargetServerURL>http://dev1.atl2.micajah.net/ReportServer</TargetServerURL>
+        <TargetFolder>FleetProReports</TargetFolder>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

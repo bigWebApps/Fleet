@@ -1,0 +1,26 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "FleetProReports", "FleetProReports.rptproj", "{882E0A59-5789-4722-AE9B-1FB9C5736044}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		DebugLocal = DebugLocal
+		Production = Production
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Debug.ActiveCfg = Debug
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Debug.Build.0 = Debug
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Debug.Deploy.0 = Debug
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.DebugLocal.ActiveCfg = DebugLocal
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.DebugLocal.Build.0 = DebugLocal
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Production.ActiveCfg = Production
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Production.Build.0 = Production
+		{882E0A59-5789-4722-AE9B-1FB9C5736044}.Production.Deploy.0 = Production
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

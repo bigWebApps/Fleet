@@ -1,0 +1,21 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[OperatorInstructionTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[OperatorInstructionTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[OperatorInstructionTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[OperatorInstructionTypes] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_UserInstructionTypes_vchName] DEFAULT (''),
+	CONSTRAINT [PK_UserInstructionTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

@@ -1,0 +1,36 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins_Groups]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Logins_Groups]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins_Groups]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Logins_Groups] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[UserId] [int] NOT NULL ,
+	[GroupId] [int] NOT NULL ,
+	CONSTRAINT [PK_Logins_Groups] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Logins_Groups_Groups] FOREIGN KEY 
+	(
+		[OrgId],
+		[GroupId]
+	) REFERENCES [dbo].[Groups] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Logins_Groups_Logins] FOREIGN KEY 
+	(
+		[UserId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

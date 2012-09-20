@@ -1,0 +1,20 @@
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE sp_SelectOrgsList
+AS
+	SET NOCOUNT ON
+	
+	select 	[Id], 
+		[intBWAId],
+		[vchName]
+	from Orgs
+	where btActive = 1
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO

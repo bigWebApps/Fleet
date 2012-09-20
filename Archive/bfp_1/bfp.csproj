@@ -1,0 +1,705 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Web"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{91624F1D-281C-44EB-8C52-611C26B94C0D}"
+        SccProjectName = "SAK"
+        SccLocalPath = "SAK"
+        SccAuxPath = "SAK"
+        SccProvider = "SAK"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "bfp"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "BWA.BFP.Web"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "System.Web.Services"
+                    AssemblyName = "System.Web.Services"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
+                <Reference
+                    Name = "System.Management"
+                    AssemblyName = "System.Management"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Management.dll"
+                />
+                <Reference
+                    Name = "System.Design"
+                    AssemblyName = "System.Design"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Design.dll"
+                />
+                <Reference
+                    Name = "ActiveDateTime"
+                    AssemblyName = "ActiveDateTime"
+                    HintPath = "objects\ActiveDateTime.dll"
+                />
+                <Reference
+                    Name = "Micajah.DataGrid"
+                    AssemblyName = "Micajah.DataGrid"
+                    HintPath = "objects\Micajah.DataGrid.dll"
+                />
+                <Reference
+                    Name = "MetaBuilders.WebControls.ListLink"
+                    AssemblyName = "MetaBuilders.WebControls.ListLink"
+                    HintPath = "objects\MetaBuilders.WebControls.ListLink.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "colortest.htm"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "default.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "default.aspx.cs"
+                    DependentUpon = "default.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "default.aspx.resx"
+                    DependentUpon = "default.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "Global.asax"
+                    SubType = "Component"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Global.asax.cs"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Global.asax.resx"
+                    DependentUpon = "Global.asax.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "global.css"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "Web.config"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bfp_test\AssemblyInfo.cs"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\bfp_test.csproj"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "bfp_test\bfp_test.csproj.webinfo"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "bfp_test\bfp_test.sln"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bfp_test\bfp_test.suo"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "bfp_test\clsEquipment.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\functions.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\Global.asax"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bfp_test\Global.asax.cs"
+                    DependentUpon = "Global.asax"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\Global.asax.resx"
+                    DependentUpon = "Global.asax.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "bfp_test\list.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bfp_test\list.aspx.cs"
+                    DependentUpon = "list.aspx"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\list.aspx.resx"
+                    DependentUpon = "list.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "bfp_test\view.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bfp_test\view.aspx.cs"
+                    DependentUpon = "view.aspx"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\view.aspx.resx"
+                    DependentUpon = "view.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "bfp_test\Web.config"
+                    BuildAction = "Content"
+                />
+                <Folder RelPath = "bfp_test\bin\" />
+                <File
+                    RelPath = "bfp_test\db\clsConnectionProvider.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\db\clsDBInteractionBase.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\db\clsEquipment.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bfp_test\db\clsMakesModels.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "bin\ActiveDateTime.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\bfp.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\bfp.pdb"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\MetaBuilders.WebControls.ListLink.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\MetaBuilders.WebControls.ListLink.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "bin\Micajah.DataGrid.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "controls\Footer.ascx"
+                    SubType = "UserControl"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "controls\Footer.ascx.cs"
+                    DependentUpon = "Footer.ascx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "controls\Footer.ascx.resx"
+                    DependentUpon = "Footer.ascx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "controls\Header.ascx"
+                    SubType = "UserControl"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "controls\Header.ascx.cs"
+                    DependentUpon = "Header.ascx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "controls\Header.ascx.resx"
+                    DependentUpon = "Header.ascx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "controls\SaveCancel.ascx"
+                    SubType = "UserControl"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "controls\SaveCancel.ascx.cs"
+                    DependentUpon = "SaveCancel.ascx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "controls\SaveCancel.ascx.resx"
+                    DependentUpon = "SaveCancel.ascx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "docs\connections\bigFleetPro_Alexey_Gavrilov.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\connections\Site_Addresses.rtf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\chasis\EditScreen.pdf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\chasis\OverView1.pdf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\chasis\TextFile1.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\chasis\Update_Chasis.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\BFP_CustFields_2004_07_27.pdf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\im_2004_07_23.txt"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image2.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image3.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image4.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image5.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image6.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image7.JPG"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\specs\equipment\custom_fields\Image8.JPG"
+                    BuildAction = "Content"
+                />
+                <Folder RelPath = "docs\specs\parts\" />
+                <File
+                    RelPath = "docs\specs\work_orders\CreateWorkOrder_r01.pdf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\specs\work_orders\CurrentPaperBasedForms.pdf"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\change_log\2004_07_23_A.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Alpha_r001.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Alpha_r002.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Alpha_r003.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Alpha_r004.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Test_r001.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\database_log\FleetPro_Test_r002.zip"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "docs\sql\others\4.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\dbo.sp_SelectEquipView.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\EquipData.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_EquipChasisDetail.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_EquipEditDetail.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_EquipEngineDetail.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_EquipTransDetail.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_SelectEquipList.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_SelectEquipTypesMakesModels.sql"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "docs\sql\others\sp_SelectEquipView.sql"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "home\default.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\default.aspx.cs"
+                    DependentUpon = "default.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\default.aspx.resx"
+                    DependentUpon = "default.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\edit.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\edit.aspx.cs"
+                    DependentUpon = "edit.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\edit.aspx.resx"
+                    DependentUpon = "edit.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\edit2.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\edit2.aspx.cs"
+                    DependentUpon = "edit2.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\edit2.aspx.resx"
+                    DependentUpon = "edit2.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\editAquis.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\editAquis.aspx.cs"
+                    DependentUpon = "editAquis.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\editAquis.aspx.resx"
+                    DependentUpon = "editAquis.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\editChasis.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\editChasis.aspx.cs"
+                    DependentUpon = "editChasis.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\editChasis.aspx.resx"
+                    DependentUpon = "editChasis.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\editDisp.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\editDisp.aspx.cs"
+                    DependentUpon = "editDisp.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\editDisp.aspx.resx"
+                    DependentUpon = "editDisp.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\editEngine.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\editEngine.aspx.cs"
+                    DependentUpon = "editEngine.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\editEngine.aspx.resx"
+                    DependentUpon = "editEngine.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\editTrans.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\editTrans.aspx.cs"
+                    DependentUpon = "editTrans.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\editTrans.aspx.resx"
+                    DependentUpon = "editTrans.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\list.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\list.aspx.cs"
+                    DependentUpon = "list.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\list.aspx.resx"
+                    DependentUpon = "list.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\reassign.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\reassign.aspx.cs"
+                    DependentUpon = "reassign.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\reassign.aspx.resx"
+                    DependentUpon = "reassign.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "home\equip\view.aspx"
+                    SubType = "Form"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "home\equip\view.aspx.cs"
+                    DependentUpon = "view.aspx"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "home\equip\view.aspx.resx"
+                    DependentUpon = "view.aspx.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "images\calendar.jpg"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "images\login.png"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "objects\Authentication.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "objects\BFPPage.cs"
+                    SubType = "ASPXCodeBehind"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "objects\BizObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "objects\DbObject.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "objects\external\ActiveDateTime.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "objects\external\MetaBuilders.WebControls.ListLink.dll"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "objects\external\MetaBuilders.WebControls.ListLink.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "objects\external\Micajah.DataGrid.dll"
+                    BuildAction = "Content"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

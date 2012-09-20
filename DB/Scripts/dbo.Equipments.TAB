@@ -1,0 +1,147 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Equipments]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Equipments]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Equipments]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Equipments] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[TypeId] [int] NOT NULL ,
+	[ModelId] [int] NULL ,
+	[intYear] [int] NULL ,
+	[EquipOperatorId] [int] NULL ,
+	[TempOperatorId] [int] NULL ,
+	[DeptId] [int] NULL ,
+	[LocId] [int] NULL ,
+	[DataId] [int] NOT NULL ,
+	[bitSpare] [bit] NOT NULL ,
+	[vchFuelCode] [varchar] (20) COLLATE Latin1_General_CI_AS NULL ,
+	[PMScheduleId] [int] NULL ,
+	[InspectScheduleId] [int] NULL ,
+	[dmCurrentUnits] [decimal](19, 8) NULL CONSTRAINT [DF_Equipments_dmCurrentUnits] DEFAULT (0),
+	[vchEquipId] [varchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchVinSerial] [varchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchPlateNumber] [varchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[dtInservice] [datetime] NULL ,
+	[dtAquired] [datetime] NULL ,
+	[dtOutService] [datetime] NULL ,
+	[dtDisposed] [datetime] NULL ,
+	[vchPurOrgContact] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[dmPurUnits] [decimal](19, 8) NULL ,
+	[smPurAmount] [smallmoney] NULL ,
+	[vchPurNotes] [varchar] (250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchDispOrgContact] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[dmDispUnits] [decimal](19, 8) NULL ,
+	[smDispAmount] [smallmoney] NULL ,
+	[vchDispNotes] [varchar] (250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[intDispMethod] [int] NULL ,
+	[intCreatedBy] [int] NULL ,
+	[dtCreated] [datetime] NULL ,
+	[intUpdatedBy] [int] NULL ,
+	[dtUpdated] [datetime] NULL ,
+	CONSTRAINT [PK_Equipments] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Equipments_Departments] FOREIGN KEY 
+	(
+		[OrgId],
+		[DeptId]
+	) REFERENCES [dbo].[Departments] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_EquipData] FOREIGN KEY 
+	(
+		[OrgId],
+		[DataId]
+	) REFERENCES [dbo].[EquipData] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_EquipDisposalMethods] FOREIGN KEY 
+	(
+		[OrgId],
+		[intDispMethod]
+	) REFERENCES [dbo].[EquipDisposalMethods] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_EquipModels] FOREIGN KEY 
+	(
+		[OrgId],
+		[ModelId]
+	) REFERENCES [dbo].[EquipModels] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_EquipTypes] FOREIGN KEY 
+	(
+		[OrgId],
+		[TypeId]
+	) REFERENCES [dbo].[EquipTypes] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_InspectSchedules] FOREIGN KEY 
+	(
+		[InspectScheduleId],
+		[OrgId]
+	) REFERENCES [dbo].[InspectSchedules] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_Equipments_Locations] FOREIGN KEY 
+	(
+		[OrgId],
+		[LocId]
+	) REFERENCES [dbo].[Locations] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_Logins_CreatedBy] FOREIGN KEY 
+	(
+		[intCreatedBy]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_Logins_Equip] FOREIGN KEY 
+	(
+		[EquipOperatorId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_Logins_Temp] FOREIGN KEY 
+	(
+		[TempOperatorId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_Logins_UpdatedBy] FOREIGN KEY 
+	(
+		[intUpdatedBy]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_Orgs] FOREIGN KEY 
+	(
+		[OrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	),
+	CONSTRAINT [FK_Equipments_PMSchedules] FOREIGN KEY 
+	(
+		[OrgId],
+		[PMScheduleId]
+	) REFERENCES [dbo].[PMSchedules] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

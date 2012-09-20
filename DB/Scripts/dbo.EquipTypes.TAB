@@ -1,0 +1,35 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipTypes] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[InspectId] [int] NULL ,
+	[UnitMeasureId] [int] NOT NULL ,
+	CONSTRAINT [PK_EquipTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipTypes_Orgs] FOREIGN KEY 
+	(
+		[OrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	),
+	CONSTRAINT [FK_EquipTypes_UnitMeasures] FOREIGN KEY 
+	(
+		[UnitMeasureId]
+	) REFERENCES [dbo].[UnitMeasures] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

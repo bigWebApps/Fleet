@@ -1,0 +1,30 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Logins]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Logins] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchFirstName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchLastName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vchEmail] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPass] [varchar] (40) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[btActive] [bit] NOT NULL CONSTRAINT [DF_Logins_btActive] DEFAULT (1),
+	[Initials] [char] (3) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[PIN] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[dtCreated] [smalldatetime] NOT NULL ,
+	[CreatedLoginId] [int] NOT NULL ,
+	[dtUpdated] [smalldatetime] NOT NULL ,
+	[UpdatedLoginId] [int] NOT NULL ,
+	[salt] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL CONSTRAINT [DF_Logins_salt] DEFAULT (''),
+	CONSTRAINT [PK_Logins] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

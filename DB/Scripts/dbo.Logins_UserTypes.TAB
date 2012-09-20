@@ -1,0 +1,32 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins_UserTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Logins_UserTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Logins_UserTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Logins_UserTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[UserId] [int] NOT NULL ,
+	[UserTypeId] [int] NOT NULL ,
+	CONSTRAINT [PK_Logins_UserTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Logins_UserTypes_Logins] FOREIGN KEY 
+	(
+		[UserId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_Logins_UserTypes_UserTypes] FOREIGN KEY 
+	(
+		[UserTypeId]
+	) REFERENCES [dbo].[UserTypes] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

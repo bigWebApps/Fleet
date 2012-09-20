@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bfp", "http://localhost/bfp/bfp.csproj", "{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Debug.ActiveCfg = Debug|.NET
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Debug.Build.0 = Debug|.NET
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Release.ActiveCfg = Release|.NET
+		{2BE709F1-5F6B-4737-8E1D-F5371A4B85B1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

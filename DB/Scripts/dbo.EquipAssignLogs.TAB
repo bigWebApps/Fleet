@@ -1,0 +1,28 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipAssignLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipAssignLogs]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipAssignLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipAssignLogs] (
+	[OrgId] [int] NOT NULL ,
+	[EquipId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[IsTemp] [bit] NOT NULL CONSTRAINT [DF_EquipAssignLogs_IsTemp] DEFAULT (0),
+	[AssignedFrom] [int] NULL ,
+	[AssignedTo] [int] NULL ,
+	[AssignedBy] [int] NOT NULL ,
+	[vchNote] [varchar] (250) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[dtUpdated] [smalldatetime] NOT NULL ,
+	CONSTRAINT [PK_EquipAssignLogs] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[EquipId],
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

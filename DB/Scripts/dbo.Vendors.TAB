@@ -1,0 +1,41 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Vendors]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Vendors]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Vendors]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Vendors] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[btActive] [bit] NOT NULL CONSTRAINT [DF_Vendors_btActive] DEFAULT (1),
+	[vchAddress1] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchAddress2] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchCity] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchProvince] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPostalCode] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPhone] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchPhone2] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchFax] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchAcctNumber] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchContactName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchNotes] [text] COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchWeb] [varchar] (75) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	[vchEmail] [varchar] (75) COLLATE SQL_Latin1_General_CP1_CI_AS NULL ,
+	CONSTRAINT [PK_Vendors] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Vendors_Orgs] FOREIGN KEY 
+	(
+		[OrgId]
+	) REFERENCES [dbo].[Orgs] (
+		[Id]
+	)
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+
+GO
+
+

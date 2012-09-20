@@ -1,0 +1,22 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderStatus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderStatus]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderStatus]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderStatus] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[Parent] [int] NOT NULL CONSTRAINT [DF_WorkOrderStatus_Parent] DEFAULT (0),
+	[vchStatus] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL ,
+	[vchDesc] [varchar] (4000) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_WorkOrderStatus_vchDesc] DEFAULT (''),
+	[vchColor] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_WorkOrderStatus_vchColor] DEFAULT ('white'),
+	CONSTRAINT [PK_WorkOrderStatus] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

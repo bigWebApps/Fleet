@@ -1,0 +1,26 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[NoteTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[NoteTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[NoteTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[NoteTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[DataTypeId] [int] NOT NULL ,
+	[vchName] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL ,
+	CONSTRAINT [PK_NoteTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_NoteTypes_DataTypes] FOREIGN KEY 
+	(
+		[DataTypeId]
+	) REFERENCES [dbo].[DataTypes] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

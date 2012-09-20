@@ -1,0 +1,41 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[InspectSchedDetails]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[InspectSchedDetails]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[InspectSchedDetails]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[InspectSchedDetails] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[InspectSchedId] [int] NOT NULL ,
+	[InspectionId] [int] NOT NULL ,
+	[TargetDaysOut] [int] NOT NULL CONSTRAINT [DF_InspectSchedDetails_TargetDaysOut] DEFAULT (1),
+	[MinimumDaysOut] [int] NOT NULL CONSTRAINT [DF_InspectSchedDetails_MinimumDaysOut] DEFAULT (1),
+	[MaximumDaysOut] [int] NOT NULL CONSTRAINT [DF_InspectSchedDetails_MaximumDaysOut] DEFAULT (1),
+	CONSTRAINT [PK_InspectSchedDetails] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_InspectSchedDetails_Inspections] FOREIGN KEY 
+	(
+		[OrgId],
+		[InspectionId]
+	) REFERENCES [dbo].[Inspections] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_InspectSchedDetails_InspectSchedules] FOREIGN KEY 
+	(
+		[InspectSchedId],
+		[OrgId]
+	) REFERENCES [dbo].[InspectSchedules] (
+		[Id],
+		[OrgId]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

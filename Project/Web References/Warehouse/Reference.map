@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://klebb.kc.micajah.com/bigWebApps_Warehouse_New/Services/v1/default.asmx?wsdl" filename="default.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://klebb.kc.micajah.com/bigWebApps_Warehouse_New/Services/v1/default.asmx?disco" filename="default.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

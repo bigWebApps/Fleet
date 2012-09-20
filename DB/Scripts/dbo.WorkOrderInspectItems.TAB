@@ -1,0 +1,55 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderInspectItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderInspectItems]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderInspectItems]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderInspectItems] (
+	[OrgId] [int] NOT NULL ,
+	[WorkOrderId] [int] NOT NULL ,
+	[WorkOrderInspectId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[ItemId] [int] NOT NULL ,
+	[ServiceResultId] [int] NULL ,
+	[ServiceCheckId] [int] NULL ,
+	[RepairItemId] [int] NULL ,
+	CONSTRAINT [PK_WorkOrderInspectItems] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[WorkOrderInspectId],
+		[Id]
+	) WITH  FILLFACTOR = 90  ON [PRIMARY] ,
+	CONSTRAINT [FK_WorkOrderInspectItems_InspectionItems] FOREIGN KEY 
+	(
+		[OrgId],
+		[ItemId]
+	) REFERENCES [dbo].[InspectionItems] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderInspectItems_ServiceChecks] FOREIGN KEY 
+	(
+		[ServiceCheckId]
+	) REFERENCES [dbo].[ServiceChecks] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderInspectItems_ServiceResults] FOREIGN KEY 
+	(
+		[ServiceResultId]
+	) REFERENCES [dbo].[ServiceResults] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrderInspectItems_WorkOrderInspections] FOREIGN KEY 
+	(
+		[OrgId],
+		[WorkOrderInspectId]
+	) REFERENCES [dbo].[WorkOrderInspections] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

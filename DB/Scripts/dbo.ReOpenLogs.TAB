@@ -1,0 +1,51 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[ReOpenLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[ReOpenLogs]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[ReOpenLogs]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[ReOpenLogs] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[ReOpenCategoryId] [int] NOT NULL ,
+	[OrderId] [int] NOT NULL ,
+	[OperatorId] [int] NOT NULL ,
+	[TechnicianId] [int] NOT NULL ,
+	[daCreated] [datetime] NOT NULL CONSTRAINT [DF_ReOpenLogs_daCreated] DEFAULT (getdate()),
+	CONSTRAINT [PK_ReOpenLogs] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_ReOpenLogs_Operators] FOREIGN KEY 
+	(
+		[OperatorId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_ReOpenLogs_ReOpenCategories] FOREIGN KEY 
+	(
+		[ReOpenCategoryId]
+	) REFERENCES [dbo].[ReOpenCategories] (
+		[Id]
+	),
+	CONSTRAINT [FK_ReOpenLogs_Technicians] FOREIGN KEY 
+	(
+		[TechnicianId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_ReOpenLogs_WorkOrders] FOREIGN KEY 
+	(
+		[OrgId],
+		[OrderId]
+	) REFERENCES [dbo].[WorkOrders] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

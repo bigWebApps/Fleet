@@ -1,0 +1,36 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Groups_Permissions]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Groups_Permissions]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Groups_Permissions]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[Groups_Permissions] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[GroupId] [int] NOT NULL ,
+	[PermissionId] [int] NOT NULL ,
+	CONSTRAINT [PK_Group_Permissions] PRIMARY KEY  CLUSTERED 
+	(
+		[Id],
+		[OrgId]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_Group_Permissions_Groups] FOREIGN KEY 
+	(
+		[OrgId],
+		[GroupId]
+	) REFERENCES [dbo].[Groups] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_Group_Permissions_Permissions] FOREIGN KEY 
+	(
+		[PermissionId]
+	) REFERENCES [dbo].[Permissions] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

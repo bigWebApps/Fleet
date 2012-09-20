@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>agavrilov</Name>
+  <DataSourceID>e18a66d8-c017-4caf-941b-e93234f5fddd</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>data source=ozone-mari-el;initial catalog=BFS_Beta</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+  </ConnectionProperties>
+</RptDataSource>

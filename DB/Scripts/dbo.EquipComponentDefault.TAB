@@ -1,0 +1,38 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipComponentDefault]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[EquipComponentDefault]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[EquipComponentDefault]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[EquipComponentDefault] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[ComponentTypeId] [int] NOT NULL ,
+	[EquipmentTypeId] [int] NOT NULL ,
+	CONSTRAINT [PK_EquipComponentDefault] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_EquipComponentDefault_EquipComponentTypes1] FOREIGN KEY 
+	(
+		[OrgId],
+		[ComponentTypeId]
+	) REFERENCES [dbo].[EquipComponentTypes] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_EquipComponentDefault_EquipTypes] FOREIGN KEY 
+	(
+		[OrgId],
+		[EquipmentTypeId]
+	) REFERENCES [dbo].[EquipTypes] (
+		[OrgId],
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

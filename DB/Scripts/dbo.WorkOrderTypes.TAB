@@ -1,0 +1,20 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrderTypes]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrderTypes]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrderTypes] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (50) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_WorkOrderTypes_vchName] DEFAULT (''),
+	[vchDesc] [varchar] (512) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_WorkOrderTypes_vchDesc] DEFAULT (''),
+	CONSTRAINT [PK_WorkOrderTypes] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

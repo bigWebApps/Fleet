@@ -1,0 +1,85 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrders]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[WorkOrders]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[WorkOrders]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[WorkOrders] (
+	[OrgId] [int] NOT NULL ,
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[WorkOrderNumber] [int] NOT NULL CONSTRAINT [DF_WorkOrders_WorkOrderNumber] DEFAULT (1),
+	[EquipId] [int] NOT NULL ,
+	[SpareEquipId] [int] NULL ,
+	[TypeId] [int] NOT NULL ,
+	[StatusId] [int] NOT NULL ,
+	[OperatorStatusId] [int] NULL ,
+	[DataId] [int] NOT NULL ,
+	[btIsActive] [bit] NOT NULL CONSTRAINT [DF_WorkOrders_btIsActive] DEFAULT (0),
+	[intOperatorId] [int] NOT NULL ,
+	[intTechId] [int] NULL ,
+	[dmMileage] [decimal](19, 8) NULL ,
+	[bitStaying] [bit] NULL CONSTRAINT [DF_WorkOrders_bitStaying] DEFAULT (0),
+	[vchDropedOffBy] [varchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchReleasedTo] [varchar] (50) COLLATE Latin1_General_CI_AS NULL ,
+	[vchCleanliness] [varchar] (1000) COLLATE Latin1_General_CI_AS NULL ,
+	[dtScheduled] [datetime] NOT NULL ,
+	[dtArrival] [datetime] NULL ,
+	[dtOpened] [datetime] NULL ,
+	[dtCompleted] [datetime] NULL ,
+	[dtClosed] [datetime] NULL ,
+	[dtDeparture] [datetime] NULL ,
+	[intCreatedBy] [int] NOT NULL ,
+	[dtCreated] [datetime] NOT NULL ,
+	[intUpdatedBy] [int] NOT NULL ,
+	[dtUpdated] [datetime] NOT NULL ,
+	CONSTRAINT [PK_WorkOrders] PRIMARY KEY  CLUSTERED 
+	(
+		[OrgId],
+		[Id]
+	)  ON [PRIMARY] ,
+	CONSTRAINT [FK_WorkOrders_EquipData] FOREIGN KEY 
+	(
+		[OrgId],
+		[DataId]
+	) REFERENCES [dbo].[EquipData] (
+		[OrgId],
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrders_Equipments] FOREIGN KEY 
+	(
+		[EquipId],
+		[OrgId]
+	) REFERENCES [dbo].[Equipments] (
+		[Id],
+		[OrgId]
+	),
+	CONSTRAINT [FK_WorkOrders_Logins] FOREIGN KEY 
+	(
+		[intOperatorId]
+	) REFERENCES [dbo].[Logins] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrders_WorkOrderOperatorStatus] FOREIGN KEY 
+	(
+		[OperatorStatusId]
+	) REFERENCES [dbo].[WorkOrderOperatorStatus] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrders_WorkOrderStatus] FOREIGN KEY 
+	(
+		[StatusId]
+	) REFERENCES [dbo].[WorkOrderStatus] (
+		[Id]
+	),
+	CONSTRAINT [FK_WorkOrders_WorkOrderTypes] FOREIGN KEY 
+	(
+		[TypeId]
+	) REFERENCES [dbo].[WorkOrderTypes] (
+		[Id]
+	)
+) ON [PRIMARY]
+END
+
+GO
+
+

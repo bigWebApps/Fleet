@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>MicajahInternal</Name>
+  <DataSourceID>81368e1a-cdcb-4fbb-b451-27f58592f478</DataSourceID>
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>data source=derval.atl2.micajah.local;initial catalog=FleetSystem_Prod</ConnectString>
+  </ConnectionProperties>
+</RptDataSource>

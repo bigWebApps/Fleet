@@ -1,0 +1,20 @@
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[UnitMeasures]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[UnitMeasures]
+GO
+
+if not exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[UnitMeasures]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+ BEGIN
+CREATE TABLE [dbo].[UnitMeasures] (
+	[Id] [int] IDENTITY (1, 1) NOT NULL ,
+	[vchName] [varchar] (255) COLLATE Latin1_General_CI_AS NOT NULL CONSTRAINT [DF_PMScheduleTypes_vchName] DEFAULT (''),
+	[dmAlertCount] [decimal](18, 9) NOT NULL CONSTRAINT [DF_UnitMeasures_intAlertCount] DEFAULT (0),
+	CONSTRAINT [PK_UnitMeasures] PRIMARY KEY  CLUSTERED 
+	(
+		[Id]
+	)  ON [PRIMARY] 
+) ON [PRIMARY]
+END
+
+GO
+
+

@@ -1,0 +1,2195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2003/10/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <RightMargin>0.5in</RightMargin>
+  <Body>
+    <ReportItems>
+      <Rectangle Name="recNotes">
+        <ZIndex>10</ZIndex>
+        <Top>6.5in</Top>
+        <ReportItems>
+          <Rectangle Name="recCheckOutNotes">
+            <ZIndex>3</ZIndex>
+            <Top>0.5in</Top>
+            <ReportItems>
+              <Table Name="tblCheckOutNotes">
+                <Style />
+                <Details>
+                  <TableRows>
+                    <TableRow>
+                      <Height>0.25in</Height>
+                      <TableCells>
+                        <TableCell>
+                          <ReportItems>
+                            <Textbox Name="textbox41">
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingBottom>2pt</PaddingBottom>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingRight>2pt</PaddingRight>
+                              </Style>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Note.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </TableCell>
+                      </TableCells>
+                    </TableRow>
+                  </TableRows>
+                </Details>
+                <DataSetName>CheckOutNotesList</DataSetName>
+                <TableColumns>
+                  <TableColumn>
+                    <Width>5.5in</Width>
+                  </TableColumn>
+                </TableColumns>
+              </Table>
+            </ReportItems>
+            <Height>0.25in</Height>
+            <Width>5.5in</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+            </Style>
+            <Left>1.5in</Left>
+          </Rectangle>
+          <Textbox Name="tbCommentsLabel2">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>1.375in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Check-Out Notes</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+          <Rectangle Name="recTechNotes">
+            <ZIndex>1</ZIndex>
+            <Top>0.125in</Top>
+            <ReportItems>
+              <Table Name="tblTechNotes">
+                <Style />
+                <Details>
+                  <TableRows>
+                    <TableRow>
+                      <Height>0.25in</Height>
+                      <TableCells>
+                        <TableCell>
+                          <ReportItems>
+                            <Textbox Name="textbox52">
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingBottom>2pt</PaddingBottom>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingRight>2pt</PaddingRight>
+                              </Style>
+                              <rd:DefaultName>textbox52</rd:DefaultName>
+                              <CanGrow>true</CanGrow>
+                              <Value>=Fields!Note.Value</Value>
+                            </Textbox>
+                          </ReportItems>
+                        </TableCell>
+                      </TableCells>
+                    </TableRow>
+                  </TableRows>
+                </Details>
+                <DataSetName>TechNotesList</DataSetName>
+                <TableColumns>
+                  <TableColumn>
+                    <Width>5.5in</Width>
+                  </TableColumn>
+                </TableColumns>
+              </Table>
+            </ReportItems>
+            <Height>0.25in</Height>
+            <Width>5.5in</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+            </Style>
+            <Left>1.5in</Left>
+          </Rectangle>
+          <Textbox Name="tbCommentsLabel1">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <Top>0.125in</Top>
+            <Height>0.25in</Height>
+            <Width>1.375in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Technician's Notes</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+        </ReportItems>
+        <Height>0.875in</Height>
+        <Width>7.25in</Width>
+        <Style />
+        <Left>0.125in</Left>
+      </Rectangle>
+      <Rectangle Name="recFooter">
+        <ZIndex>9</ZIndex>
+        <Top>7.5in</Top>
+        <ReportItems>
+          <Textbox Name="tbDate">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>5</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>1.875in</Width>
+            <Value>=First(Fields!SignDate.Value, "WorkOrderDetail")</Value>
+            <Left>5.23438in</Left>
+          </Textbox>
+          <Textbox Name="tbDateLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>4</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>0.5in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Date</Value>
+            <Left>4.73438in</Left>
+          </Textbox>
+          <Textbox Name="tbSignature">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <FontStyle>Italic</FontStyle>
+              <TextAlign>Center</TextAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>3</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>2.75in</Width>
+            <Value>=First(Fields!UserSignedName.Value, "WorkOrderDetail")</Value>
+            <Left>1.60938in</Left>
+          </Textbox>
+          <Textbox Name="tbSignatureLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>1.46875in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Technician's Signature</Value>
+            <Left>0.14063in</Left>
+          </Textbox>
+          <Textbox Name="tbClean">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <Top>0.125in</Top>
+            <Height>0.25in</Height>
+            <Width>5.3125in</Width>
+            <Value>=First(Fields!Cleanliness.Value, "WorkOrderDetail")</Value>
+            <Left>1.76563in</Left>
+          </Textbox>
+          <Textbox Name="tbCleanLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <Top>0.125in</Top>
+            <Height>0.25in</Height>
+            <Width>1.625in</Width>
+            <Value>Equipment Cleanliness</Value>
+            <CanGrow>true</CanGrow>
+            <Left>0.14063in</Left>
+          </Textbox>
+        </ReportItems>
+        <Height>0.875in</Height>
+        <Width>7.25in</Width>
+        <Style />
+        <Left>0.125in</Left>
+      </Rectangle>
+      <Rectangle Name="recRepairs">
+        <ZIndex>8</ZIndex>
+        <Top>5.125in</Top>
+        <ReportItems>
+          <Table Name="tblRepairs">
+            <Height>0.75in</Height>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+            </Style>
+            <Header>
+              <TableRows>
+                <TableRow>
+                  <Height>0.25in</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox47">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontWeight>700</FontWeight>
+                          </Style>
+                          <ZIndex>14</ZIndex>
+                          <rd:DefaultName>textbox47</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Value>#</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox19">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontWeight>700</FontWeight>
+                          </Style>
+                          <ZIndex>13</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>Category</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox29">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontWeight>700</FontWeight>
+                          </Style>
+                          <ZIndex>12</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>Repair Item</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox33">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontWeight>700</FontWeight>
+                          </Style>
+                          <ZIndex>11</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>Description</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox35">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                            <FontWeight>700</FontWeight>
+                          </Style>
+                          <ZIndex>10</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>Parts Cost</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Header>
+            <Details>
+              <TableRows>
+                <TableRow>
+                  <Height>0.25in</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox48">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>4</ZIndex>
+                          <rd:DefaultName>textbox48</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!ReportNumber.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox37">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>3</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!CategoryName.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox38">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>2</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!RepairItemName.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox39">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>1</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!RepairDesc.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox40">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <Format>C</Format>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                            </BorderStyle>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!PartCost.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Details>
+            <DataSetName>RepairsList</DataSetName>
+            <Top>0.375in</Top>
+            <Width>6.875in</Width>
+            <Footer>
+              <TableRows>
+                <TableRow>
+                  <Height>0.25in</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox49">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>9</ZIndex>
+                          <rd:DefaultName>textbox49</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox42">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>8</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox43">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>7</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox44">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>6</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox45">
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <TextAlign>Center</TextAlign>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingRight>2pt</PaddingRight>
+                          </Style>
+                          <ZIndex>5</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                </TableRow>
+              </TableRows>
+            </Footer>
+            <Left>0.1875in</Left>
+            <TableColumns>
+              <TableColumn>
+                <Width>0.375in</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>1in</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>1.5in</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>3.125in</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>0.875in</Width>
+              </TableColumn>
+            </TableColumns>
+          </Table>
+          <Textbox Name="tbRepairsLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <FontSize>13pt</FontSize>
+              <PaddingBottom>2pt</PaddingBottom>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <Top>0.125in</Top>
+            <Height>0.25in</Height>
+            <Width>6.875in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Serviced Repaires</Value>
+            <Left>0.1875in</Left>
+          </Textbox>
+        </ReportItems>
+        <Width>7.25in</Width>
+        <Height>1.25in</Height>
+        <Style>
+          <BorderStyle>
+            <Bottom>None</Bottom>
+            <Default>Solid</Default>
+            <Top>Solid</Top>
+            <Right>None</Right>
+            <Left>None</Left>
+          </BorderStyle>
+        </Style>
+        <Left>0.125in</Left>
+      </Rectangle>
+      <Table Name="tblInspections">
+        <Height>0.75in</Height>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox11">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>8</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Name</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox16">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>7</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Inspection Status</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox23">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>6</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Repair #</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox27">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!InspectionName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox28">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!StatusName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox30">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Repairs.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <DataSetName>InspectionsList</DataSetName>
+        <Top>4.25in</Top>
+        <Width>6.87048in</Width>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox31">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>5</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox32">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox34">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>3</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>0.3125in</Left>
+        <TableColumns>
+          <TableColumn>
+            <Width>3.375in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.74548in</Width>
+          </TableColumn>
+        </TableColumns>
+      </Table>
+      <Textbox Name="tbInspectionsLabel">
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <FontSize>13pt</FontSize>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingRight>2pt</PaddingRight>
+          <FontWeight>700</FontWeight>
+        </Style>
+        <ZIndex>6</ZIndex>
+        <Top>4in</Top>
+        <Height>0.25in</Height>
+        <Width>6.875in</Width>
+        <CanGrow>true</CanGrow>
+        <Value>Inspections
+</Value>
+        <Left>0.3125in</Left>
+      </Textbox>
+      <Table Name="tblPMItems">
+        <Height>0.75in</Height>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox36">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>14</ZIndex>
+                      <rd:DefaultName>textbox36</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Category</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>13</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Name</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox12">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>12</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Check Status</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox13">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>11</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Repair Result</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox14">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>10</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Repair #</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CatName_1">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <rd:DefaultName>CatName_1</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CatName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox15">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>3</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!ServiceName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox17">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CheckStatusName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox18">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!ResultStatusName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox21">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Repairs.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <DataSetName>PMItemsList</DataSetName>
+        <Top>3.125in</Top>
+        <Width>6.87499in</Width>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox46">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>9</ZIndex>
+                      <rd:DefaultName>textbox46</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox22">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>8</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox24">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>7</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox25">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>6</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox26">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>5</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>0.31249in</Left>
+        <TableColumns>
+          <TableColumn>
+            <Width>1.11822in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.27786in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.61521in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.11822in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.74548in</Width>
+          </TableColumn>
+        </TableColumns>
+      </Table>
+      <Textbox Name="tbPMItemsLabel">
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <FontSize>13pt</FontSize>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingRight>2pt</PaddingRight>
+          <FontWeight>700</FontWeight>
+        </Style>
+        <ZIndex>4</ZIndex>
+        <Top>2.875in</Top>
+        <Height>0.25in</Height>
+        <Width>6.875in</Width>
+        <CanGrow>true</CanGrow>
+        <Value>Preventive Maintenance Items</Value>
+        <Left>0.31249in</Left>
+      </Textbox>
+      <Table Name="tblReportedIssues">
+        <Height>0.75in</Height>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>14</ZIndex>
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Category</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>13</ZIndex>
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Issue</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>12</ZIndex>
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Check Status</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>11</ZIndex>
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Repair Result</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox5">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                        <FontWeight>700</FontWeight>
+                      </Style>
+                      <ZIndex>10</ZIndex>
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>Repair #</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CatName">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <rd:DefaultName>CatName</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CatName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="IssuesName">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>3</ZIndex>
+                      <rd:DefaultName>IssuesName</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!IssuesName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CheckStatusName">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <rd:DefaultName>CheckStatusName</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CheckStatusName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="ResultStatusName">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <rd:DefaultName>ResultStatusName</rd:DefaultName>
+                      <Value>=Fields!ResultStatusName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Repairs">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Repairs.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <DataSetName>ReportedIssuesList</DataSetName>
+        <Top>2in</Top>
+        <Width>6.87499in</Width>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>0.25in</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox7">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>9</ZIndex>
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox8">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>8</ZIndex>
+                      <rd:DefaultName>textbox8</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>7</ZIndex>
+                      <rd:DefaultName>textbox9</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>6</ZIndex>
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox20">
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                      <ZIndex>5</ZIndex>
+                      <rd:DefaultName>textbox20</rd:DefaultName>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>0.3125in</Left>
+        <TableColumns>
+          <TableColumn>
+            <Width>1.11822in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.27786in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.61521in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.11822in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.74548in</Width>
+          </TableColumn>
+        </TableColumns>
+      </Table>
+      <Textbox Name="tbReportedIssuesLabel">
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <FontSize>13pt</FontSize>
+          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingRight>2pt</PaddingRight>
+          <FontWeight>700</FontWeight>
+        </Style>
+        <ZIndex>2</ZIndex>
+        <Top>1.75in</Top>
+        <Height>0.25in</Height>
+        <Width>6.875in</Width>
+        <CanGrow>true</CanGrow>
+        <Value>Reported Issues</Value>
+        <Left>0.3125in</Left>
+      </Textbox>
+      <Rectangle Name="recHeader2">
+        <ZIndex>1</ZIndex>
+        <Top>0.75in</Top>
+        <ReportItems>
+          <Textbox Name="tbCompletedDate">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>11</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>2.125in</Width>
+            <Value>= First(Fields!ClosedDate.Value, "WorkOrderDetail")</Value>
+            <Left>4.75in</Left>
+          </Textbox>
+          <Textbox Name="tbCompletedDateLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>10</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Closed Date</Value>
+            <Left>3.75in</Left>
+          </Textbox>
+          <Textbox Name="tbOpenedDate">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>9</ZIndex>
+            <Top>0.25in</Top>
+            <Height>0.25in</Height>
+            <Width>2.125in</Width>
+            <Value>=First(Fields!OpenedDate.Value, "WorkOrderDetail")</Value>
+            <Left>4.75in</Left>
+          </Textbox>
+          <Textbox Name="tbOpenedDateLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>8</ZIndex>
+            <Top>0.25in</Top>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Opened Date</Value>
+            <Left>3.75in</Left>
+          </Textbox>
+          <Textbox Name="tbArrivalDate">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>7</ZIndex>
+            <Height>0.25in</Height>
+            <Width>2.125in</Width>
+            <Value>= First(Fields!CheckInDate.Value, "WorkOrderDetail")</Value>
+            <Left>4.75in</Left>
+          </Textbox>
+          <Textbox Name="tbArrivalDateLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>6</ZIndex>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Check-In Date</Value>
+            <Left>3.75in</Left>
+          </Textbox>
+          <Textbox Name="tbEquipId">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>5</ZIndex>
+            <Top>0.25in</Top>
+            <Height>0.25in</Height>
+            <Width>2.25in</Width>
+            <Value>=First(Fields!EquipmentName.Value, "WorkOrderDetail")</Value>
+            <Left>1.125in</Left>
+          </Textbox>
+          <Textbox Name="tbEquipIdLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>4</ZIndex>
+            <Top>0.25in</Top>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Equipment #</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+          <Textbox Name="tbWON">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>3</ZIndex>
+            <Height>0.25in</Height>
+            <Width>2.25in</Width>
+            <Value>=First(Fields!WorkOrderNumber.Value, "WorkOrderDetail")</Value>
+            <Left>1.125in</Left>
+          </Textbox>
+          <Textbox Name="tbWONLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Work Order #</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+          <Textbox Name="tbTech">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <BorderStyle>
+                <Bottom>Solid</Bottom>
+                <Default>Solid</Default>
+                <Top>None</Top>
+                <Right>None</Right>
+                <Left>None</Left>
+              </BorderStyle>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <TextAlign>Center</TextAlign>
+              <PaddingRight>2pt</PaddingRight>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>2.25in</Width>
+            <Value>=First(Fields!TechName.Value, "WorkOrderDetail")</Value>
+            <Left>1.125in</Left>
+          </Textbox>
+          <Textbox Name="tbTechLabel">
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingBottom>1pt</PaddingBottom>
+              <PaddingTop>1pt</PaddingTop>
+              <PaddingRight>2pt</PaddingRight>
+            </Style>
+            <Top>0.5in</Top>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <CanGrow>true</CanGrow>
+            <Value>Technician</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+        </ReportItems>
+        <Height>0.875in</Height>
+        <Width>7.125in</Width>
+        <Style />
+        <Left>0.1875in</Left>
+      </Rectangle>
+      <Rectangle Name="rectHeader">
+        <ReportItems>
+          <Textbox Name="Title2">
+            <Style>
+              <FontSize>16pt</FontSize>
+              <TextAlign>Center</TextAlign>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <Top>0.275in</Top>
+            <Width>6.625in</Width>
+            <Value>TRANSPORTATION TIME SHEET</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+          <Textbox Name="Title1">
+            <Style>
+              <FontSize>16pt</FontSize>
+              <TextAlign>Center</TextAlign>
+              <FontWeight>700</FontWeight>
+            </Style>
+            <Height>0.275in</Height>
+            <Width>6.625in</Width>
+            <Value>= First(Fields!OrgFullName.Value, "WorkOrderDetail")</Value>
+            <Left>0.125in</Left>
+          </Textbox>
+        </ReportItems>
+        <Height>0.55in</Height>
+        <Width>6.875in</Width>
+        <Style />
+        <Left>0.3125in</Left>
+      </Rectangle>
+    </ReportItems>
+    <Style />
+    <Height>9.5in</Height>
+  </Body>
+  <TopMargin>0.5in</TopMargin>
+  <DataSources>
+    <DataSource Name="MicajahExternal">
+      <rd:DataSourceID>7f6579cf-e4fa-43ac-8256-4aaa037b128c</rd:DataSourceID>
+      <DataSourceReference>MicajahExternal</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <Code />
+  <Width>7.5in</Width>
+  <DataSets>
+    <DataSet Name="WorkOrderDetail">
+      <Fields>
+        <Field Name="WorkOrderNumber">
+          <DataField>WorkOrderNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EquipmentName">
+          <DataField>EquipmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TechName">
+          <DataField>TechName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CheckInDate">
+          <DataField>CheckInDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OpenedDate">
+          <DataField>OpenedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClosedDate">
+          <DataField>ClosedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cleanliness">
+          <DataField>Cleanliness</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserSignedName">
+          <DataField>UserSignedName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SignDate">
+          <DataField>SignDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OrgFullName">
+          <DataField>OrgFullName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandText>select 	convert(varchar, datepart(year, WO.dtCreated)) + '-' + 
+	convert(varchar, datepart(month, WO.dtCreated)) + '-' + 
+	convert(varchar, datepart(day, WO.dtCreated)) + '-' + 
+	convert(varchar, WorkOrderNumber) as WorkOrderNumber,
+	E.vchEquipId as EquipmentName,
+	case when isnull(WO.[intTechId], 0) &lt;&gt; 0 then LT.vchLastName + ', ' + LT.vchFirstName else '' end as TechName,
+	convert(varchar, WO.dtArrival, 107) as CheckInDate,
+	convert(varchar, WO.dtOpened, 107) as OpenedDate,
+	convert(varchar, WO.dtClosed, 107) as ClosedDate,
+	WO.vchCleanliness as Cleanliness,
+	case when isnull(SD.[Id], 0) &lt;&gt; 0 then LS.vchLastName + ', ' + LS.vchFirstName else '' end as UserSignedName,
+	case when isnull(SD.[Id], 0) &lt;&gt; 0 then convert(varchar, SD.dtSignDate, 107) else '' end as SignDate,
+	upper(O.vchFullName) as OrgFullName
+from WorkOrders WO
+inner join Equipments E
+on WO.[Id] = @OrderId
+and WO.OrgId = @OrgId
+and E.[Id] = WO.EquipId
+and E.OrgId = WO.OrgId
+inner join Orgs O
+on O.[Id] = WO.OrgId
+left outer join Logins LT
+on WO.intTechId = LT.[Id]
+left outer join SignedDocuments SD
+on SD.[DocumentId] = WO.[Id]
+and SD.OrgId = WO.OrgId
+and SD.DocumentTypeId = 4
+left outer join Logins LS
+on LS.[Id] = SD.UserId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="ReportedIssuesList">
+      <Fields>
+        <Field Name="IssuesName">
+          <DataField>IssuesName</DataField>
+        </Field>
+        <Field Name="CatName">
+          <DataField>CatName</DataField>
+        </Field>
+        <Field Name="CheckStatusName">
+          <DataField>CheckStatusName</DataField>
+        </Field>
+        <Field Name="ResultStatusName">
+          <DataField>ResultStatusName</DataField>
+        </Field>
+        <Field Name="Repairs">
+          <DataField>Repairs</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_Report_GetReportedIssues</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="PMItemsList">
+      <Fields>
+        <Field Name="ServiceName">
+          <DataField>ServiceName</DataField>
+        </Field>
+        <Field Name="CheckStatusName">
+          <DataField>CheckStatusName</DataField>
+        </Field>
+        <Field Name="ResultStatusName">
+          <DataField>ResultStatusName</DataField>
+        </Field>
+        <Field Name="Repairs">
+          <DataField>Repairs</DataField>
+        </Field>
+        <Field Name="CatName">
+          <DataField>CatName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_Report_GetPMItems</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="RepairsList">
+      <Fields>
+        <Field Name="ReportNumber">
+          <DataField>ReportNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CategoryName">
+          <DataField>CategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RepairItemName">
+          <DataField>RepairItemName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RepairDesc">
+          <DataField>RepairDesc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PartCost">
+          <DataField>PartCost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandText>declare @ind int
+
+declare @tbl table (
+	tbl_id int, 
+	tbl_number int default(0)
+	)
+
+insert @tbl(tbl_id)
+select [Id]
+from Repairs
+where WorkOrderId = @OrderId
+and OrgId = @OrgId
+order by [Id]
+
+select @ind = 0
+
+update @tbl
+set @ind = tbl_number = @ind + 1
+
+
+select 	tbl.tbl_number as ReportNumber, 
+	isnull(RC.vchName, '') as CategoryName,
+	isnull(RI.vchDesc, '') as RepairItemName,
+	isnull(R.vchDesc, '') as RepairDesc,
+	isnull((select sum(PU.dmCost) from PartsUsed PU where PU.RepairId = R.[Id] group by PU.RepairId), 0.0) as PartCost
+from Repairs R
+inner join @tbl tbl
+on tbl.tbl_id = R.[Id]
+left join RepairItems RI
+on R.RepairItemId = RI.[Id]
+and R.OrgId = RI.OrgId
+left join RepairCats RC
+on RC.[Id] = RI.CatId
+and RC.OrgId = RI.OrgId
+order by R.[Id]</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="InspectionsList">
+      <Fields>
+        <Field Name="InspectionName">
+          <DataField>InspectionName</DataField>
+        </Field>
+        <Field Name="StatusName">
+          <DataField>StatusName</DataField>
+        </Field>
+        <Field Name="Repairs">
+          <DataField>Repairs</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_Report_GetInspections</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="TechNotesList">
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CreatedDate">
+          <DataField>CreatedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_SelectNotesList</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ItemId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TypeId">
+            <Value>=3</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="CheckOutNotesList">
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CreatedDate">
+          <DataField>CreatedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_SelectNotesList</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ItemId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TypeId">
+            <Value>=4</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <LeftMargin>0.5in</LeftMargin>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <Description />
+  <rd:ReportID>83e61e77-8ef8-4b53-9639-5b464782fd73</rd:ReportID>
+  <BottomMargin>0.5in</BottomMargin>
+  <ReportParameters>
+    <ReportParameter Name="OrderId">
+      <DataType>Integer</DataType>
+      <Prompt>OrderId</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrgId">
+      <DataType>Integer</DataType>
+      <Prompt>OrgId</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+</Report>
