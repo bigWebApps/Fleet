@@ -1,0 +1,1117 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2456A6DF-8556-4FDE-8CC5-0C7616419580}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BWA.BFP.Web</RootNamespace>
+    <AssemblyName>BWA.BFP.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveDateTime">
+      <HintPath>..\lib\ActiveDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="MetaBuilders.WebControls.ListLink">
+      <HintPath>..\lib\MetaBuilders.WebControls.ListLink.dll</HintPath>
+    </Reference>
+    <Reference Include="Micajah.Common">
+      <HintPath>..\lib\Micajah.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Micajah.DataGrid">
+      <HintPath>..\lib\Micajah.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="radinput">
+      <HintPath>..\lib\radinput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TemplatedCalendar">
+      <HintPath>..\lib\TemplatedCalendar.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accessdenied.aspx" />
+    <Content Include="admin.aspx" />
+    <Content Include="admin_groups.aspx" />
+    <Content Include="admin_groups_permissions.aspx" />
+    <Content Include="admin_groups_users.aspx" />
+    <Content Include="admin_holidays.aspx" />
+    <Content Include="admin_inspections.aspx" />
+    <Content Include="admin_inspections_items.aspx" />
+    <Content Include="admin_inspection_category_edit.aspx" />
+    <Content Include="admin_inspection_category_edit.js" />
+    <Content Include="admin_inspection_item_edit.aspx" />
+    <Content Include="admin_inspectschedules.aspx" />
+    <Content Include="admin_inspectschedule_detail.aspx" />
+    <Content Include="admin_inspectschedule_detail_edit.aspx" />
+    <Content Include="admin_integration.aspx" />
+    <Content Include="admin_kiosk_customtext.aspx" />
+    <Content Include="admin_permissions.aspx" />
+    <Content Include="admin_permission_detail.aspx" />
+    <Content Include="admin_pmitems.aspx" />
+    <Content Include="admin_pmschedules.aspx" />
+    <Content Include="admin_pmschedule_detail.aspx" />
+    <Content Include="admin_pmschedule_detail_edit.aspx" />
+    <Content Include="admin_users.aspx" />
+    <Content Include="admin_user_detail.aspx" />
+    <Content Include="admin_user_detail_active.aspx" />
+    <Content Include="admin_user_detail_edit.aspx" />
+    <Content Include="admin_user_detail_edit.js" />
+    <Content Include="calendar.aspx" />
+    <Content Include="default.aspx" />
+    <Content Include="error.aspx" />
+    <Content Include="error_report.aspx" />
+    <Content Include="error_report_detail.aspx" />
+    <Content Include="e_addEquip.aspx" />
+    <Content Include="e_edit.aspx" />
+    <Content Include="e_edit2.aspx" />
+    <Content Include="e_editAquis.aspx" />
+    <Content Include="e_editComponent.aspx" />
+    <Content Include="e_editCustom.aspx" />
+    <Content Include="e_editDisp.aspx" />
+    <Content Include="e_list.aspx" />
+    <Content Include="e_reassign.aspx" />
+    <Content Include="e_selectTempOperator.aspx" />
+    <Content Include="e_view.aspx" />
+    <Content Include="e_viewEquipAssignmentReport.aspx" />
+    <Content Include="e_viewTempOperatorReport.aspx" />
+    <Content Include="e_viewTempOperatorReport.js" />
+    <Content Include="Focus.js" />
+    <Content Include="GetImage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="global.css" />
+    <Content Include="main.aspx" />
+    <Content Include="manageIssues.aspx" />
+    <Content Include="obj\Debug\BWA.BFP.Web.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\BWA.BFP.Web.csproj.CopyComplete" />
+    <Content Include="obj\Debug\BWA.BFP.Web.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="wo_addInspectForecast.aspx" />
+    <Content Include="wo_addInspections.aspx" />
+    <Content Include="wo_addPMHistoryforPMItem.aspx" />
+    <Content Include="wo_addPreventiveMaintenance.aspx" />
+    <Content Include="wo_addRepairs.aspx" />
+    <Content Include="wo_closeWorkOrder.aspx" />
+    <Content Include="wo_default.aspx" />
+    <Content Include="wo_deleteWorkOrder.aspx" />
+    <Content Include="wo_editAddInfo.aspx" />
+    <Content Include="wo_editInspectHistory.aspx" />
+    <Content Include="wo_editNotes.aspx" />
+    <Content Include="wo_editWorkOrder.aspx" />
+    <Content Include="wo_existingWorkOrders.aspx" />
+    <Content Include="wo_finish.aspx" />
+    <Content Include="wo_openWorkOrder.aspx" />
+    <Content Include="wo_popupScheduleDate.aspx" />
+    <Content Include="wo_preview.aspx" />
+    <Content Include="wo_selectOperator.aspx" />
+    <Content Include="wo_selectSpareEquip.aspx" />
+    <Content Include="wo_showCompletedOrders.aspx" />
+    <Content Include="wo_showEquipsForInspect.aspx" />
+    <Content Include="wo_showOrdersForDaily.aspx" />
+    <Content Include="wo_showOrdersForMonthly.aspx" />
+    <Content Include="wo_showOrdersForToday.aspx" />
+    <Content Include="wo_showOrdersForWeekly.aspx" />
+    <Content Include="wo_showUnassignedOrders.aspx" />
+    <Content Include="wo_showUnsignedOrders.aspx" />
+    <Content Include="wo_updateRepair.aspx" />
+    <Content Include="wo_updateRepair.js" />
+    <Content Include="wo_updateTimeLog.aspx" />
+    <Content Include="wo_viewCheckIn.aspx" />
+    <Content Include="wo_viewCheckOut.aspx" />
+    <Content Include="wo_viewCompleteInspection.aspx" />
+    <Content Include="wo_viewCompleteInspection.js" />
+    <Content Include="wo_viewDates.aspx" />
+    <Content Include="wo_viewEquipWorkOrderReport.aspx" />
+    <Content Include="wo_viewWorkOrder.aspx" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FleetSystem - Web Deploy.pubxml" />
+    <None Include="RadControls\Input\IntelliSense\RadInput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="controls\Footer.ascx" />
+    <Content Include="controls\Header.ascx" />
+    <Content Include="controls\MakesModels.ascx" />
+    <Content Include="controls\NextBack.ascx" />
+    <Content Include="controls\SaveCancel.ascx" />
+    <Content Include="controls\Signature.ascx" />
+    <Content Include="images\BFS.gif" />
+    <Content Include="images\bigFleetPro.jpg" />
+    <Content Include="images\calendar-16x16.gif" />
+    <Content Include="images\cb_black.gif" />
+    <Content Include="images\cb_blank.gif" />
+    <Content Include="images\cb_disabled.gif" />
+    <Content Include="images\cb_fair.gif" />
+    <Content Include="images\cb_okay.gif" />
+    <Content Include="images\cb_rn.gif" />
+    <Content Include="images\Fail.gif" />
+    <Content Include="images\Okay.gif" />
+    <Content Include="images\WalkerCounty_45px.gif" />
+    <Content Include="images\Yellow.gif" />
+    <Content Include="Integration\Listner\default.aspx" />
+    <Content Include="obj\Debug\BWA.BFP.Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\BWA.BFP.Web.dll" />
+    <Content Include="obj\Debug\BWA.BFP.Web.pdb" />
+    <Content Include="ok_addIssues.aspx" />
+    <Content Include="ok_authCredentials.aspx" />
+    <Content Include="ok_editCurrentUnits.aspx" />
+    <Content Include="ok_editNote.aspx" />
+    <Content Include="ok_editStaying.aspx" />
+    <Content Include="ok_mainDetails.aspx" />
+    <Content Include="ok_mainMenu.aspx" />
+    <Content Include="ok_mainMenu2.aspx" />
+    <Content Include="ok_reopenWorkOrder.aspx" />
+    <Content Include="ok_selectEquipment.aspx" />
+    <Content Include="ok_selectSpareEquip.aspx" />
+    <Content Include="ok_selectWorkOrder.aspx" />
+    <Content Include="ok_updateSpare.aspx" />
+    <Content Include="ok_viewCheckIn.aspx" />
+    <Content Include="ok_viewCheckOut.aspx" />
+    <Content Include="ok_viewIssues.aspx" />
+    <Content Include="ok_viewNotes.aspx" />
+    <Content Include="ok_viewReOpen.aspx" />
+    <Content Include="ok_viewServices.aspx" />
+    <Content Include="OpenWindows.js" />
+    <Content Include="RadControls\Callback\Scripts\1_0_3\RadCallback.js" />
+    <Content Include="RadControls\Input\Scripts\1_0_2\RadInput.js" />
+    <Content Include="RadControls\Input\Skins\Default\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\Default\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\Default\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\Default\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\Default\styles.css" />
+    <Content Include="RadControls\Input\Skins\Gold\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\Gold\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\Gold\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\Gold\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\Gold\styles.css" />
+    <Content Include="RadControls\Input\Skins\Grey\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\Grey\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\Grey\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\Grey\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\Grey\styles.css" />
+    <Content Include="RadControls\Input\Skins\MacOS\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\MacOS\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\MacOS\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\MacOS\Img\hintBg.gif" />
+    <Content Include="RadControls\Input\Skins\MacOS\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\MacOS\styles.css" />
+    <Content Include="RadControls\Input\Skins\Macromedia\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\Macromedia\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\Macromedia\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\Macromedia\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\Macromedia\styles.css" />
+    <Content Include="RadControls\Input\Skins\Outlook\Img\default.gif" />
+    <Content Include="RadControls\Input\Skins\Outlook\Img\error.gif" />
+    <Content Include="RadControls\Input\Skins\Outlook\Img\focus.gif" />
+    <Content Include="RadControls\Input\Skins\Outlook\Img\over.gif" />
+    <Content Include="RadControls\Input\Skins\Outlook\styles.css" />
+    <Content Include="RadControls\LicenseFile.xml" />
+    <Content Include="ReportStyles.css" />
+    <Content Include="ReportViewer.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="selectMode.aspx" />
+    <Content Include="ShowTime.xsl" />
+    <Content Include="style_global.css" />
+    <Content Include="style_micajahmenu.css" />
+    <Content Include="t_OpenWorkOrder.htm" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="accessdenied.aspx.cs">
+      <DependentUpon>accessdenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_groups.aspx.cs">
+      <DependentUpon>admin_groups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_groups_permissions.aspx.cs">
+      <DependentUpon>admin_groups_permissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_groups_users.aspx.cs">
+      <DependentUpon>admin_groups_users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_holidays.aspx.cs">
+      <DependentUpon>admin_holidays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspections.aspx.cs">
+      <DependentUpon>admin_inspections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspections_items.aspx.cs">
+      <DependentUpon>admin_inspections_items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspection_category_edit.aspx.cs">
+      <DependentUpon>admin_inspection_category_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspection_item_edit.aspx.cs">
+      <DependentUpon>admin_inspection_item_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspectschedules.aspx.cs">
+      <DependentUpon>admin_inspectschedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspectschedule_detail.aspx.cs">
+      <DependentUpon>admin_inspectschedule_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_inspectschedule_detail_edit.aspx.cs">
+      <DependentUpon>admin_inspectschedule_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_integration.aspx.cs">
+      <DependentUpon>admin_integration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_integration.aspx.designer.cs">
+      <DependentUpon>admin_integration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_kiosk_customtext.aspx.cs">
+      <DependentUpon>admin_kiosk_customtext.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_permissions.aspx.cs">
+      <DependentUpon>admin_permissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_permission_detail.aspx.cs">
+      <DependentUpon>admin_permission_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_pmitems.aspx.cs">
+      <DependentUpon>admin_pmitems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_pmschedules.aspx.cs">
+      <DependentUpon>admin_pmschedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_pmschedule_detail.aspx.cs">
+      <DependentUpon>admin_pmschedule_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_pmschedule_detail_edit.aspx.cs">
+      <DependentUpon>admin_pmschedule_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_users.aspx.cs">
+      <DependentUpon>admin_users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_user_detail.aspx.cs">
+      <DependentUpon>admin_user_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_user_detail_active.aspx.cs">
+      <DependentUpon>admin_user_detail_active.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_user_detail_edit.aspx.cs">
+      <DependentUpon>admin_user_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="calendar.aspx.cs">
+      <DependentUpon>calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\MakesModels.ascx.cs">
+      <DependentUpon>MakesModels.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\NextBack.ascx.cs">
+      <DependentUpon>NextBack.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\SaveCancel.ascx.cs">
+      <DependentUpon>SaveCancel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\Signature.ascx.cs">
+      <DependentUpon>Signature.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="db\clsComponents.cs" />
+    <Compile Include="db\clsConnectionProvider.cs" />
+    <Compile Include="db\clsCustFields.cs" />
+    <Compile Include="db\clsDBInteractionBase.cs" />
+    <Compile Include="db\clsDepartments.cs" />
+    <Compile Include="db\clsEquipment.cs" />
+    <Compile Include="db\clsErrors.cs" />
+    <Compile Include="db\clsInspections.cs" />
+    <Compile Include="db\clsInstructions.cs" />
+    <Compile Include="db\clsLocations.cs" />
+    <Compile Include="db\clsMakesModels.cs" />
+    <Compile Include="db\clsPermissions.cs" />
+    <Compile Include="db\clsPMShedService.cs" />
+    <Compile Include="db\clsUsers.cs" />
+    <Compile Include="db\clsWorkOrders.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error_report.aspx.cs">
+      <DependentUpon>error_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error_report_detail.aspx.cs">
+      <DependentUpon>error_report_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_addEquip.aspx.cs">
+      <DependentUpon>e_addEquip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_edit.aspx.cs">
+      <DependentUpon>e_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_edit2.aspx.cs">
+      <DependentUpon>e_edit2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_editAquis.aspx.cs">
+      <DependentUpon>e_editAquis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_editComponent.aspx.cs">
+      <DependentUpon>e_editComponent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_editCustom.aspx.cs">
+      <DependentUpon>e_editCustom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_editDisp.aspx.cs">
+      <DependentUpon>e_editDisp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_list.aspx.cs">
+      <DependentUpon>e_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_reassign.aspx.cs">
+      <DependentUpon>e_reassign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_selectTempOperator.aspx.cs">
+      <DependentUpon>e_selectTempOperator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_view.aspx.cs">
+      <DependentUpon>e_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_viewEquipAssignmentReport.aspx.cs">
+      <DependentUpon>e_viewEquipAssignmentReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="e_viewTempOperatorReport.aspx.cs">
+      <DependentUpon>e_viewTempOperatorReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetImage.aspx.cs">
+      <DependentUpon>GetImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Integration\Listner\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageIssues.aspx.cs">
+      <DependentUpon>manageIssues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="objects\BFPPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="objects\functions.cs" />
+    <Compile Include="ok_addIssues.aspx.cs">
+      <DependentUpon>ok_addIssues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_authCredentials.aspx.cs">
+      <DependentUpon>ok_authCredentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_editCurrentUnits.aspx.cs">
+      <DependentUpon>ok_editCurrentUnits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_editNote.aspx.cs">
+      <DependentUpon>ok_editNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_editStaying.aspx.cs">
+      <DependentUpon>ok_editStaying.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_mainDetails.aspx.cs">
+      <DependentUpon>ok_mainDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_mainMenu.aspx.cs">
+      <DependentUpon>ok_mainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_mainMenu2.aspx.cs">
+      <DependentUpon>ok_mainMenu2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_reopenWorkOrder.aspx.cs">
+      <DependentUpon>ok_reopenWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_selectEquipment.aspx.cs">
+      <DependentUpon>ok_selectEquipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_selectSpareEquip.aspx.cs">
+      <DependentUpon>ok_selectSpareEquip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_selectWorkOrder.aspx.cs">
+      <DependentUpon>ok_selectWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_updateSpare.aspx.cs">
+      <DependentUpon>ok_updateSpare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewCheckIn.aspx.cs">
+      <DependentUpon>ok_viewCheckIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewCheckOut.aspx.cs">
+      <DependentUpon>ok_viewCheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewIssues.aspx.cs">
+      <DependentUpon>ok_viewIssues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewNotes.aspx.cs">
+      <DependentUpon>ok_viewNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewReOpen.aspx.cs">
+      <DependentUpon>ok_viewReOpen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ok_viewServices.aspx.cs">
+      <DependentUpon>ok_viewServices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportingService.cs" />
+    <Compile Include="ReportViewer.aspx.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportViewer.aspx.designer.cs">
+      <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="selectMode.aspx.cs">
+      <DependentUpon>selectMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_addInspectForecast.aspx.cs">
+      <DependentUpon>wo_addInspectForecast.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_addInspections.aspx.cs">
+      <DependentUpon>wo_addInspections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_addPMHistoryforPMItem.aspx.cs">
+      <DependentUpon>wo_addPMHistoryforPMItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_addPreventiveMaintenance.aspx.cs">
+      <DependentUpon>wo_addPreventiveMaintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_addRepairs.aspx.cs">
+      <DependentUpon>wo_addRepairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_closeWorkOrder.aspx.cs">
+      <DependentUpon>wo_closeWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_default.aspx.cs">
+      <DependentUpon>wo_default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_deleteWorkOrder.aspx.cs">
+      <DependentUpon>wo_deleteWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_editAddInfo.aspx.cs">
+      <DependentUpon>wo_editAddInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_editInspectHistory.aspx.cs">
+      <DependentUpon>wo_editInspectHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_editNotes.aspx.cs">
+      <DependentUpon>wo_editNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_editWorkOrder.aspx.cs">
+      <DependentUpon>wo_editWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_existingWorkOrders.aspx.cs">
+      <DependentUpon>wo_existingWorkOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_finish.aspx.cs">
+      <DependentUpon>wo_finish.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_openWorkOrder.aspx.cs">
+      <DependentUpon>wo_openWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_popupScheduleDate.aspx.cs">
+      <DependentUpon>wo_popupScheduleDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_preview.aspx.cs">
+      <DependentUpon>wo_preview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_selectOperator.aspx.cs">
+      <DependentUpon>wo_selectOperator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_selectSpareEquip.aspx.cs">
+      <DependentUpon>wo_selectSpareEquip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showCompletedOrders.aspx.cs">
+      <DependentUpon>wo_showCompletedOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showEquipsForInspect.aspx.cs">
+      <DependentUpon>wo_showEquipsForInspect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showOrdersForDaily.aspx.cs">
+      <DependentUpon>wo_showOrdersForDaily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showOrdersForMonthly.aspx.cs">
+      <DependentUpon>wo_showOrdersForMonthly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showOrdersForToday.aspx.cs">
+      <DependentUpon>wo_showOrdersForToday.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showOrdersForWeekly.aspx.cs">
+      <DependentUpon>wo_showOrdersForWeekly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showUnassignedOrders.aspx.cs">
+      <DependentUpon>wo_showUnassignedOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_showUnsignedOrders.aspx.cs">
+      <DependentUpon>wo_showUnsignedOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_updateRepair.aspx.cs">
+      <DependentUpon>wo_updateRepair.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_updateTimeLog.aspx.cs">
+      <DependentUpon>wo_updateTimeLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewCheckIn.aspx.cs">
+      <DependentUpon>wo_viewCheckIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewCheckOut.aspx.cs">
+      <DependentUpon>wo_viewCheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewCompleteInspection.aspx.cs">
+      <DependentUpon>wo_viewCompleteInspection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewDates.aspx.cs">
+      <DependentUpon>wo_viewDates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewEquipWorkOrderReport.aspx.cs">
+      <DependentUpon>wo_viewEquipWorkOrderReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wo_viewWorkOrder.aspx.cs">
+      <DependentUpon>wo_viewWorkOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="accessdenied.aspx.resx">
+      <DependentUpon>accessdenied.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin.aspx.resx">
+      <DependentUpon>admin.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_groups.aspx.resx">
+      <DependentUpon>admin_groups.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_groups_permissions.aspx.resx">
+      <DependentUpon>admin_groups_permissions.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_groups_users.aspx.resx">
+      <DependentUpon>admin_groups_users.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_holidays.aspx.resx">
+      <DependentUpon>admin_holidays.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspections.aspx.resx">
+      <DependentUpon>admin_inspections.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspections_items.aspx.resx">
+      <DependentUpon>admin_inspections_items.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspection_category_edit.aspx.resx">
+      <DependentUpon>admin_inspection_category_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspection_item_edit.aspx.resx">
+      <DependentUpon>admin_inspection_item_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspectschedules.aspx.resx">
+      <DependentUpon>admin_inspectschedules.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspectschedule_detail.aspx.resx">
+      <DependentUpon>admin_inspectschedule_detail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_inspectschedule_detail_edit.aspx.resx">
+      <DependentUpon>admin_inspectschedule_detail_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_kiosk_customtext.aspx.resx">
+      <DependentUpon>admin_kiosk_customtext.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_permissions.aspx.resx">
+      <DependentUpon>admin_permissions.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_permission_detail.aspx.resx">
+      <DependentUpon>admin_permission_detail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_pmitems.aspx.resx">
+      <DependentUpon>admin_pmitems.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_pmschedules.aspx.resx">
+      <DependentUpon>admin_pmschedules.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_pmschedule_detail.aspx.resx">
+      <DependentUpon>admin_pmschedule_detail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_pmschedule_detail_edit.aspx.resx">
+      <DependentUpon>admin_pmschedule_detail_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_users.aspx.resx">
+      <DependentUpon>admin_users.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_user_detail.aspx.resx">
+      <DependentUpon>admin_user_detail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_user_detail_active.aspx.resx">
+      <DependentUpon>admin_user_detail_active.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin_user_detail_edit.aspx.resx">
+      <DependentUpon>admin_user_detail_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calendar.aspx.resx">
+      <DependentUpon>calendar.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\Footer.ascx.resx">
+      <DependentUpon>Footer.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\Header.ascx.resx">
+      <DependentUpon>Header.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\MakesModels.ascx.resx">
+      <DependentUpon>MakesModels.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\NextBack.ascx.resx">
+      <DependentUpon>NextBack.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\SaveCancel.ascx.resx">
+      <DependentUpon>SaveCancel.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\Signature.ascx.resx">
+      <DependentUpon>Signature.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="default.aspx.resx">
+      <DependentUpon>default.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="error.aspx.resx">
+      <DependentUpon>error.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="error_report.aspx.resx">
+      <DependentUpon>error_report.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="error_report_detail.aspx.resx">
+      <DependentUpon>error_report_detail.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_addEquip.aspx.resx">
+      <DependentUpon>e_addEquip.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_edit.aspx.resx">
+      <DependentUpon>e_edit.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_edit2.aspx.resx">
+      <DependentUpon>e_edit2.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_editAquis.aspx.resx">
+      <DependentUpon>e_editAquis.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_editComponent.aspx.resx">
+      <DependentUpon>e_editComponent.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_editCustom.aspx.resx">
+      <DependentUpon>e_editCustom.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_editDisp.aspx.resx">
+      <DependentUpon>e_editDisp.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_list.aspx.resx">
+      <DependentUpon>e_list.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_reassign.aspx.resx">
+      <DependentUpon>e_reassign.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_selectTempOperator.aspx.resx">
+      <DependentUpon>e_selectTempOperator.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_view.aspx.resx">
+      <DependentUpon>e_view.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_viewEquipAssignmentReport.aspx.resx">
+      <DependentUpon>e_viewEquipAssignmentReport.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="e_viewTempOperatorReport.aspx.resx">
+      <DependentUpon>e_viewTempOperatorReport.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetImage.aspx.resx">
+      <DependentUpon>GetImage.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Integration\Listner\default.aspx.resx">
+      <DependentUpon>default.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.aspx.resx">
+      <DependentUpon>main.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="manageIssues.aspx.resx">
+      <DependentUpon>manageIssues.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_addIssues.aspx.resx">
+      <DependentUpon>ok_addIssues.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_authCredentials.aspx.resx">
+      <DependentUpon>ok_authCredentials.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_editCurrentUnits.aspx.resx">
+      <DependentUpon>ok_editCurrentUnits.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_editNote.aspx.resx">
+      <DependentUpon>ok_editNote.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_editStaying.aspx.resx">
+      <DependentUpon>ok_editStaying.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_mainDetails.aspx.resx">
+      <DependentUpon>ok_mainDetails.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_mainMenu.aspx.resx">
+      <DependentUpon>ok_mainMenu.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_mainMenu2.aspx.resx">
+      <DependentUpon>ok_mainMenu2.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_reopenWorkOrder.aspx.resx">
+      <DependentUpon>ok_reopenWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_selectEquipment.aspx.resx">
+      <DependentUpon>ok_selectEquipment.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_selectSpareEquip.aspx.resx">
+      <DependentUpon>ok_selectSpareEquip.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_selectWorkOrder.aspx.resx">
+      <DependentUpon>ok_selectWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_updateSpare.aspx.resx">
+      <DependentUpon>ok_updateSpare.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewCheckIn.aspx.resx">
+      <DependentUpon>ok_viewCheckIn.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewCheckOut.aspx.resx">
+      <DependentUpon>ok_viewCheckOut.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewIssues.aspx.resx">
+      <DependentUpon>ok_viewIssues.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewNotes.aspx.resx">
+      <DependentUpon>ok_viewNotes.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewReOpen.aspx.resx">
+      <DependentUpon>ok_viewReOpen.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ok_viewServices.aspx.resx">
+      <DependentUpon>ok_viewServices.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CheckInReceipt.rdlc" />
+    <EmbeddedResource Include="Reports\CompletedInspection.rdlc" />
+    <EmbeddedResource Include="Reports\CompletedOrder.rdlc" />
+    <EmbeddedResource Include="Reports\InspectionRequest.rdlc" />
+    <EmbeddedResource Include="Reports\PartsList.rdlc" />
+    <EmbeddedResource Include="Reports\WorkOrderRequest.rdlc" />
+    <EmbeddedResource Include="ReportViewer.aspx.resx">
+      <DependentUpon>ReportViewer.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="selectMode.aspx.resx">
+      <DependentUpon>selectMode.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_addInspectForecast.aspx.resx">
+      <DependentUpon>wo_addInspectForecast.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_addInspections.aspx.resx">
+      <DependentUpon>wo_addInspections.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_addPMHistoryforPMItem.aspx.resx">
+      <DependentUpon>wo_addPMHistoryforPMItem.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_addPreventiveMaintenance.aspx.resx">
+      <DependentUpon>wo_addPreventiveMaintenance.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_addRepairs.aspx.resx">
+      <DependentUpon>wo_addRepairs.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_closeWorkOrder.aspx.resx">
+      <DependentUpon>wo_closeWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_default.aspx.resx">
+      <DependentUpon>wo_default.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_deleteWorkOrder.aspx.resx">
+      <DependentUpon>wo_deleteWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_editAddInfo.aspx.resx">
+      <DependentUpon>wo_editAddInfo.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_editInspectHistory.aspx.resx">
+      <DependentUpon>wo_editInspectHistory.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_editNotes.aspx.resx">
+      <DependentUpon>wo_editNotes.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_editWorkOrder.aspx.resx">
+      <DependentUpon>wo_editWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_existingWorkOrders.aspx.resx">
+      <DependentUpon>wo_existingWorkOrders.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_finish.aspx.resx">
+      <DependentUpon>wo_finish.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_openWorkOrder.aspx.resx">
+      <DependentUpon>wo_openWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_popupScheduleDate.aspx.resx">
+      <DependentUpon>wo_popupScheduleDate.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_preview.aspx.resx">
+      <DependentUpon>wo_preview.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_selectOperator.aspx.resx">
+      <DependentUpon>wo_selectOperator.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_selectSpareEquip.aspx.resx">
+      <DependentUpon>wo_selectSpareEquip.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showCompletedOrders.aspx.resx">
+      <DependentUpon>wo_showCompletedOrders.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showEquipsForInspect.aspx.resx">
+      <DependentUpon>wo_showEquipsForInspect.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showOrdersForDaily.aspx.resx">
+      <DependentUpon>wo_showOrdersForDaily.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showOrdersForMonthly.aspx.resx">
+      <DependentUpon>wo_showOrdersForMonthly.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showOrdersForToday.aspx.resx">
+      <DependentUpon>wo_showOrdersForToday.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showOrdersForWeekly.aspx.resx">
+      <DependentUpon>wo_showOrdersForWeekly.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showUnassignedOrders.aspx.resx">
+      <DependentUpon>wo_showUnassignedOrders.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_showUnsignedOrders.aspx.resx">
+      <DependentUpon>wo_showUnsignedOrders.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_updateRepair.aspx.resx">
+      <DependentUpon>wo_updateRepair.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_updateTimeLog.aspx.resx">
+      <DependentUpon>wo_updateTimeLog.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewCheckIn.aspx.resx">
+      <DependentUpon>wo_viewCheckIn.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewCheckOut.aspx.resx">
+      <DependentUpon>wo_viewCheckOut.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewCompleteInspection.aspx.resx">
+      <DependentUpon>wo_viewCompleteInspection.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewDates.aspx.resx">
+      <DependentUpon>wo_viewDates.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewEquipWorkOrderReport.aspx.resx">
+      <DependentUpon>wo_viewEquipWorkOrderReport.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wo_viewWorkOrder.aspx.resx">
+      <DependentUpon>wo_viewWorkOrder.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65394</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65394/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

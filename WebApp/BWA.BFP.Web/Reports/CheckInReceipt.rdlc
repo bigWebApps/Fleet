@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="MicajahExternal">
+      <rd:DataSourceID>7254849b-735a-4da1-be9b-dfbd9521fa48</rd:DataSourceID>
+      <DataSourceReference>MicajahExternal</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="OrderId">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>OrderId</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrgId">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>OrgId</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="URL">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>URL</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>0.5in</RightMargin>
+  <LeftMargin>0.5in</LeftMargin>
+  <BottomMargin>0.5in</BottomMargin>
+  <rd:ReportID>14fd8c1f-2d1f-4198-8836-5408a7b6431f</rd:ReportID>
+  <DataSets>
+    <DataSet Name="CheckInDetails">
+      <Fields>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+        </Field>
+        <Field Name="FirstName">
+          <DataField>FirstName</DataField>
+        </Field>
+        <Field Name="EquipId">
+          <DataField>EquipId</DataField>
+        </Field>
+        <Field Name="TypeName">
+          <DataField>TypeName</DataField>
+        </Field>
+        <Field Name="UserSignedName">
+          <DataField>UserSignedName</DataField>
+        </Field>
+        <Field Name="SignDate">
+          <DataField>SignDate</DataField>
+        </Field>
+        <Field Name="OrgFullName">
+          <DataField>OrgFullName</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandText>select 	@URL + '/images/' + isnull(O.vchLogo, '') as Logo,
+	isnull(LS.vchFirstName, '') as FirstName,
+	isnull(E.vchEquipId, '') as EquipId,
+	ET.vchName as TypeName,
+	case when isnull(SD.[Id], 0) &lt;&gt; 0 then LS.vchLastName + ', ' + LS.vchFirstName else '' end as UserSignedName,
+	case when isnull(SD.[Id], 0) &lt;&gt; 0 then convert(varchar, SD.dtSignDate, 107) else '' end as SignDate,
+	upper(O.vchFullName) as OrgFullName
+from WorkOrders WO
+inner join Equipments E
+on WO.[Id] = @OrderId 
+and WO.OrgId = @OrgId
+and WO.EquipId = E.[Id]
+and WO.OrgId = E.OrgId
+inner join EquipTypes ET
+on E.TypeId = ET.[Id]
+and E.OrgId = ET.OrgId
+inner join Orgs O
+on O.[Id] = WO.OrgId
+left outer join SignedDocuments SD
+on SD.[DocumentId] = WO.[Id]
+and SD.OrgId = WO.OrgId
+and SD.DocumentTypeId = 1
+left outer join Logins LS
+on LS.[Id] = SD.UserId</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@URL">
+            <Value>=Parameters!URL.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="InstructionList">
+      <Fields>
+        <Field Name="vchNote">
+          <DataField>vchNote</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>MicajahExternal</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>sp_SelectInstructionByCheckIn</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@OrderId">
+            <Value>=Parameters!OrderId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Author>Alexey Gavrilov</Author>
+  <Code />
+  <Width>7.5in</Width>
+  <Body>
+    <ReportItems>
+      <Rectangle Name="rectangle1">
+        <Left>0.25in</Left>
+        <ZIndex>4</ZIndex>
+        <ReportItems>
+          <Textbox Name="tbDate">
+            <Top>0.125in</Top>
+            <Width>1.875in</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+                <Left>None</Left>
+                <Right>None</Right>
+                <Top>None</Top>
+                <Bottom>Solid</Bottom>
+              </BorderStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>3</ZIndex>
+            <Left>5in</Left>
+            <Height>0.25in</Height>
+            <Value>= First(Fields!SignDate.Value, "CheckInDetails")</Value>
+          </Textbox>
+          <Textbox Name="tbDateLabel">
+            <Top>0.125in</Top>
+            <Width>0.5in</Width>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>4.5in</Left>
+            <Height>0.25in</Height>
+            <Value>Date</Value>
+          </Textbox>
+          <Textbox Name="tbSignature">
+            <Top>0.125in</Top>
+            <Width>2.5in</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+                <Left>None</Left>
+                <Right>None</Right>
+                <Top>None</Top>
+                <Bottom>Solid</Bottom>
+              </BorderStyle>
+              <FontStyle>Italic</FontStyle>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <Left>1.625in</Left>
+            <Height>0.25in</Height>
+            <Value>= First(Fields!UserSignedName.Value, "CheckInDetails")</Value>
+          </Textbox>
+          <Textbox Name="tbSignatureLabel">
+            <Top>0.125in</Top>
+            <Width>1.5in</Width>
+            <Style>
+              <VerticalAlign>Bottom</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>0.25in</Height>
+            <Value>Operator's Signature</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>4.875in</Top>
+        <Width>7in</Width>
+        <Height>0.5in</Height>
+      </Rectangle>
+      <Rectangle Name="recInstructions">
+        <Left>0.25in</Left>
+        <ZIndex>3</ZIndex>
+        <ReportItems>
+          <Table Name="tblInstructions">
+            <DataSetName>InstructionList</DataSetName>
+            <Top>0.125in</Top>
+            <Width>6.75in</Width>
+            <Details>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="vchNote">
+                          <rd:DefaultName>vchNote</rd:DefaultName>
+                          <Style>
+                            <FontFamily>Times New Roman</FontFamily>
+                            <FontSize>18pt</FontSize>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=" - " &amp; Fields!vchNote.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.375in</Height>
+                </TableRow>
+              </TableRows>
+            </Details>
+            <Style>
+              <FontFamily>Times New Roman</FontFamily>
+              <FontSize>18pt</FontSize>
+            </Style>
+            <TableColumns>
+              <TableColumn>
+                <Width>6.75in</Width>
+              </TableColumn>
+            </TableColumns>
+            <Height>0.375in</Height>
+            <Left>0.125in</Left>
+          </Table>
+        </ReportItems>
+        <Top>3.625in</Top>
+        <Width>7in</Width>
+        <Height>0.625in</Height>
+      </Rectangle>
+      <Rectangle Name="recMain">
+        <Left>0.25in</Left>
+        <ZIndex>2</ZIndex>
+        <ReportItems>
+          <Textbox Name="tbText">
+            <Top>1in</Top>
+            <Width>6.75in</Width>
+            <Style>
+              <FontFamily>Times New Roman</FontFamily>
+              <FontSize>18pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>0.375in</Height>
+            <Value>Please read the following instructions:</Value>
+          </Textbox>
+          <Textbox Name="tbMain">
+            <Top>0.125in</Top>
+            <Width>6.75in</Width>
+            <Style>
+              <FontFamily>Times New Roman</FontFamily>
+              <FontSize>20pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <Left>0.125in</Left>
+            <Height>0.75in</Height>
+            <Value>=First(Fields!FirstName.Value, "CheckInDetails") &amp; ", " &amp; First(Fields!TypeName.Value, "CheckInDetails") &amp; " #" &amp; First(Fields!EquipId.Value, "CheckInDetails") &amp;" has been checked in successfully!"</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>2.125in</Top>
+        <Width>7in</Width>
+        <Height>1.5in</Height>
+      </Rectangle>
+      <Rectangle Name="recLogo">
+        <Left>1.75in</Left>
+        <ZIndex>1</ZIndex>
+        <ReportItems>
+          <Image Name="imgLogo">
+            <Sizing>AutoSize</Sizing>
+            <Top>0.14063in</Top>
+            <Width>3.38542in</Width>
+            <MIMEType />
+            <Source>External</Source>
+            <Style />
+            <Left>0.30729in</Left>
+            <Height>0.46875in</Height>
+            <Value>=First(Fields!Logo.Value, "CheckInDetails")</Value>
+          </Image>
+        </ReportItems>
+        <Top>0.25in</Top>
+        <Width>4in</Width>
+        <Height>0.75in</Height>
+      </Rectangle>
+      <Rectangle Name="rectHeader">
+        <Left>0.3125in</Left>
+        <ReportItems>
+          <Textbox Name="Title2">
+            <Top>0.275in</Top>
+            <Width>6.625in</Width>
+            <Style>
+              <FontSize>16pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <Left>0.125in</Left>
+            <Value>THE CHECK-IN RECEIPT</Value>
+          </Textbox>
+          <Textbox Name="Title1">
+            <Width>6.625in</Width>
+            <Style>
+              <FontSize>16pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <TextAlign>Center</TextAlign>
+            </Style>
+            <Left>0.125in</Left>
+            <Height>0.275in</Height>
+            <Value>=First(Fields!OrgFullName.Value, "CheckInDetails")</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>1.25in</Top>
+        <Width>6.875in</Width>
+        <Height>0.55in</Height>
+      </Rectangle>
+    </ReportItems>
+    <Height>9.5in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>0.5in</TopMargin>
+</Report>

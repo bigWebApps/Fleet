@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MetaBuilders.WebControls.ListLink</name>
+    </assembly>
+    <members>
+        <member name="T:MetaBuilders.WebControls.ListLink">
+            <summary>
+            The <see cref="T:MetaBuilders.WebControls.ListLink"/> control is a non-visual control which creates a parent-child link
+            between two <see cref="T:System.Web.UI.WebControls.ListControl"/>s which render to the html <b>select</b> element.
+            </summary>
+            <remarks>
+            This control requires that both lists are DataBound to the same <see cref="T:System.Data.DataSet"/>,
+            and that that <see cref="T:System.Data.DataSet"/> contains the <see cref="T:System.Data.DataRelation"/> specified in the <see cref="P:MetaBuilders.WebControls.ListLink.DataRelation"/> property.
+            </remarks>
+            <example>
+            The following is an example page using two <see cref="T:MetaBuilders.WebControls.ListLink"/> controls to bind three lists together, using the Northwind database supplied with MS Sql Server.
+            <code><![CDATA[
+            <%@ Page language="C#" %>
+            <%@ Register tagprefix="mbll" namespace="MetaBuilders.WebControls" Assembly="MetaBuilders.WebControls.ListLink" %>
+            <%@ Import namespace="System.Data" %>
+            <%@ Import namespace="System.Data.SqlClient" %>
+            <script runat="server">
+            protected void Page_Load( Object sender, EventArgs e ) {
+            	if (!Page.IsPostBack) {
+            		BindData();
+            	}
+            }
+            private void BindData() {
+            	string ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Northwind;Data Source=localhost";
+            	string RegionsSelectCommand = "Select RegionId, RTrim(RegionDescription) As Description From Region";
+            	string TerritoriesSelectCommand = "SELECT TerritoryId, RTrim(TerritoryDescription) As Description, RegionId from Territories";
+            	string PeopleSelectCommand = "Select EmployeeId, TerritoryId, FirstName + ' ' + LastName As Name From EmployeesInTerritories";
+            	SqlConnection myConnection = new SqlConnection(ConnectionString);
+            	SqlDataAdapter ad;
+            	DataSet ds = new DataSet();
+            
+            	ad = new SqlDataAdapter(RegionsSelectCommand,myConnection);
+            	ad.Fill(ds, "Regions");
+            
+            	ad = new SqlDataAdapter(TerritoriesSelectCommand,myConnection);
+            	ad.Fill(ds, "Territories");
+            
+            	ad = new SqlDataAdapter(PeopleSelectCommand,myConnection);
+            	ad.Fill(ds, "People");
+            
+            	ds.Relations.Add( new DataRelation( "RegionsTerritories", ds.Tables["Regions"].Columns["RegionId"], ds.Tables["Territories"].Columns["RegionId"] ) );
+            	ds.Relations.Add( new DataRelation( "TerritoriesPeople", ds.Tables["Territories"].Columns["TerritoryId"], ds.Tables["People"].Columns["TerritoryId"] ) );
+            	    
+            	ParentListBox.DataSource = ds;
+            	ParentListBox.DataMember = "Regions";
+            	ParentListBox.DataValueField = "RegionId";
+            	ParentListBox.DataTextField = "Description";
+            	ParentListBox.DataBind();
+            
+            	ChildListBox.DataSource = ds;
+            	ChildListBox.DataMember = "Territories";
+            	ChildListBox.DataValueField = "TerritoryId";
+            	ChildListBox.DataTextField = "Description";
+            	ChildListBox.DataBind();
+            
+            	GrandChildListBox.DataSource = ds;
+            	GrandChildListBox.DataMember = "People";
+            	GrandChildListBox.DataValueField = "EmployeeId";
+            	GrandChildListBox.DataTextField = "Name";
+            	GrandChildListBox.DataBind();
+                    
+            	ListLink1.DataBind();
+            	ListLink2.DataBind();
+            
+            }
+            </script>
+            <html><body><form runat="server">
+            	<asp:ListBox runat="server" Id="ParentListBox" />
+            	<asp:DropDownList runat="server" Id="ChildListBox" />
+            	<asp:ListBox runat="server" Id="GrandChildListBox" />
+            
+            	<mbll:ListLink runat="server" Id="ListLink1" ParentList="ParentListBox" ChildList="ChildListBox" DataRelation="RegionsTerritories" EnableViewState="True" />
+            	<mbll:ListLink runat="server" Id="ListLink2" ParentList="ChildListBox" ChildList="GrandChildListBox" DataRelation="TerritoriesPeople" EnableViewState="True" />
+            
+            	<asp:Button runat="server" Text="Smack" />
+            </form></body></html>
+            ]]></code>
+            </example>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.LoadViewState(System.Object)">
+            <summary>
+            Overrides <see cref="M:System.Web.UI.Control.LoadViewState(System.Object)"/>.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.CreateControlCollection">
+            <summary>
+            Overrides <see cref="M:System.Web.UI.Control.CreateControlCollection"/> to disable adding controls to this control.
+            </summary>
+            <returns>Returns an <see cref="T:System.Web.UI.EmptyControlCollection"/>.</returns>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.DataBind">
+            <summary>
+            Overrides <see cref="M:System.Web.UI.Control.DataBind"/> to create the link between the <see cref="P:MetaBuilders.WebControls.ListLink.ParentList"/> and the <see cref="P:MetaBuilders.WebControls.ListLink.ChildList"/>.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.CreateLink">
+            <summary>
+            Creates the link between the <see cref="P:MetaBuilders.WebControls.ListLink.ParentList"/> and the <see cref="P:MetaBuilders.WebControls.ListLink.ChildList"/>.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.OnPreRender(System.EventArgs)">
+            <summary>
+            Overrides <see cref="M:System.Web.UI.Control.OnPreRender(System.EventArgs)"/> to register the client script for the <see cref="T:MetaBuilders.WebControls.ListLink"/>
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.SaveViewState">
+            <summary>
+            Overrides <see cref="M:System.Web.UI.Control.SaveViewState"/>.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.ValidateProperties">
+            <summary>
+            Ensures that all public properties are valid.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.ValidateControlPropertiess">
+            <summary>
+            Ensures that <see cref="P:MetaBuilders.WebControls.ListLink.ParentList"/> and <see cref="P:MetaBuilders.WebControls.ListLink.ChildList"/> are valid <see cref="T:System.Web.UI.WebControls.ListControl"/> IDs.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.ValidateDataProperties">
+            <summary>
+            Ensures that <see cref="P:MetaBuilders.WebControls.ListLink.DataRelation"/> is a valid <see cref="T:System.Data.DataRelation"/> in the <see cref="P:System.Web.UI.WebControls.ListControl.DataSource"/> of the participating controls.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.RegisterClientScript">
+            <summary>
+            Registers all the client script for the ListLink
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.RegisterLibraryScript">
+            <summary>
+            Registers the library script for the ListLink control
+            </summary>
+            <remarks>
+            By default, this method will emit the script directly into the page, however, a web.config setting
+            will allow the control to reference an external script file instead.
+            </remarks>
+            <example>
+            The following example demonstrates how to set the script library path via web.config.
+            <code>
+            <![CDATA[
+            <configSections>
+               <sectionGroup name="metaBuilders.webControls">
+                  <section name="listLink"
+                     type="System.Configuration.NameValueSectionHandler,system, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, Custom=null" />
+               </sectionGroup>
+            </configSections>
+            
+            <metaBuilders.webControls>
+               <listLink>
+                  <add key="ReferenceLibraryUrl" value="/MetaBuilders_WebControls_client/listLink.js" />
+               </listLink>
+            </metaBuilders.webControls>
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.RegisterRelationScript">
+            <summary>
+            Creates and registers the script which creates the relations between the parent and the child.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.RegisterArrayScript">
+            <summary>
+            Register this ListLink with the Page
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.RegisterStartupScript">
+            <summary>
+            Registers the ListLink startup script
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.LoadLinkViewState(System.Object)">
+            <summary>
+            Loads the ViewState for the link between the two lists.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.SaveLinkViewState">
+            <summary>
+            Saves the ViewState for the link between the two lists.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.saveChildItemsViewState(System.Object)">
+            <summary>
+            saves the ViewState for the child items in the hierarchy, for the given parent.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLink.loadChildItemsViewState(System.Web.UI.Triplet)">
+            <summary>
+            loads the ViewState for the child items in the hierarchy
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.ParentList">
+            <summary>
+            Gets or sets the ID of the parent <see cref="T:System.Web.UI.WebControls.ListControl"/>.
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.ChildList">
+            <summary>
+            Gets or sets the ID of the child <see cref="T:System.Web.UI.WebControls.ListControl"/>.
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.DataRelation">
+            <summary>
+            Gets or sets the name of the <see cref="T:System.Data.DataRelation"/> that links the items in the <see cref="P:MetaBuilders.WebControls.ListLink.ParentList"/> and <see cref="P:MetaBuilders.WebControls.ListLink.ChildList"/>.
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.Enabled">
+            <summary>
+            Gets or sets whether the <see cref="T:MetaBuilders.WebControls.ListLink"/> is active or not.
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.LockFirstItem">
+            <summary>
+            Gets or sets if the first item in the <see cref="P:MetaBuilders.WebControls.ListLink.ChildList"/> will exist for all selections of the <see cref="P:MetaBuilders.WebControls.ListLink.ParentList"/>
+            </summary>
+            <remarks>
+            Set this to true if you want your "Any" or "Please Select An Item" ListItem to show no matter what is selected in the parent list.
+            </remarks>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.UseReferenceLibrary">
+            <summary>
+            Gets a boolean value indicating whether an external script library should be used,
+            instead of the library being emitted as a whole.
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.ReferenceLibraryUrl">
+            <summary>
+            The path to the script library file
+            </summary>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLink.LibraryScript">
+            <summary>
+            The library script for the ListLink control
+            </summary>
+        </member>
+        <member name="T:MetaBuilders.WebControls.ListLinkDesigner">
+            <summary>
+            The Designer for the <see cref="T:MetaBuilders.WebControls.ListLink"/> control.
+            </summary>
+        </member>
+        <member name="M:MetaBuilders.WebControls.ListLinkDesigner.GetDesignTimeHtml">
+            <summary>
+            Overridden to create a placeholder.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MetaBuilders.WebControls.ListLinkDesigner.AllowResize">
+            <summary>
+            Overridden to disable resizing.
+            </summary>
+        </member>
+    </members>
+</doc>

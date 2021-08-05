@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BWA.BFP.Web", "BWA.BFP.Web\BWA.BFP.Web.csproj", "{2456A6DF-8556-4FDE-8CC5-0C7616419580}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{5BF69490-FB26-46E9-BCD9-D72E9CC08C8C}"
+	ProjectSection(SolutionItems) = preProject
+		lib\ActiveDateTime.dll = lib\ActiveDateTime.dll
+		lib\MetaBuilders.WebControls.ListLink.dll = lib\MetaBuilders.WebControls.ListLink.dll
+		lib\MetaBuilders.WebControls.ListLink.xml = lib\MetaBuilders.WebControls.ListLink.xml
+		lib\Micajah.Common.dll = lib\Micajah.Common.dll
+		lib\Micajah.DataGrid.dll = lib\Micajah.DataGrid.dll
+		lib\radinput.dll = lib\radinput.dll
+		lib\TemplatedCalendar.dll = lib\TemplatedCalendar.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2456A6DF-8556-4FDE-8CC5-0C7616419580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2456A6DF-8556-4FDE-8CC5-0C7616419580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2456A6DF-8556-4FDE-8CC5-0C7616419580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2456A6DF-8556-4FDE-8CC5-0C7616419580}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31CFA9A8-F122-4866-9890-50EDC4C73B56}
+	EndGlobalSection
+EndGlobal
