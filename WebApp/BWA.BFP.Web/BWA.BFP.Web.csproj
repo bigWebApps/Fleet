@@ -135,10 +135,6 @@
     <Content Include="global.css" />
     <Content Include="main.aspx" />
     <Content Include="manageIssues.aspx" />
-    <Content Include="obj\Debug\BWA.BFP.Web.csproj.AssemblyReference.cache" />
-    <Content Include="obj\Debug\BWA.BFP.Web.csproj.CopyComplete" />
-    <Content Include="obj\Debug\BWA.BFP.Web.csproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="wo_addInspectForecast.aspx" />
     <Content Include="wo_addInspections.aspx" />
     <Content Include="wo_addPMHistoryforPMItem.aspx" />

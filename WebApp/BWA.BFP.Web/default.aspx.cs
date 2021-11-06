@@ -326,7 +326,7 @@ namespace BWA.BFP.Web
 				Response.Cookies["bfp_roles"].Expires = DateTime.Now.AddYears(1);
 
 				FormsAuthentication.SetAuthCookie(sUserData, true);
-				if(Request.QueryString["ReturnUrl"] != null)
+				if(Request.QueryString["ReturnUrl"] != null && Request.QueryString["ReturnUrl"] != "/" && Request.QueryString["ReturnUrl"] != "%2f")
 					Response.Redirect(Request.QueryString["ReturnUrl"], false);
 				else
 					Response.Redirect("selectMode.aspx", false);

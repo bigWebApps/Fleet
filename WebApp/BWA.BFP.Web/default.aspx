@@ -1,4 +1,5 @@
 <%@ Page language="c#" Codebehind="default.aspx.cs" AutoEventWireup="false" Inherits="BWA.BFP.Web._default" %>
+<!-- files from Azure 1 -->
 <form id="Form1" method="post" runat="server">
 	<table height="100%" width="100%">
 		<tr>
